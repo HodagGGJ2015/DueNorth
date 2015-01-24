@@ -1,4 +1,21 @@
 (function() {
+  // change player location
+  // add to inventory (change object location)
+  // initial state
+  // increment, decrement, merge, push, pop, remove, add, set
+  // description updates
+  // random!
+  // current scene
+  // look at scene what actions and objects are available, description and image
+  // look: print description
+  // help
+
+  // "$global": {
+  //   "actions": {
+  //     "help": {
+  //     }
+  //   }
+  // }
 
   function parseInput(input) {
     var parts = input.split(/\s+/gi);

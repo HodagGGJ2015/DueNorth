@@ -1,0 +1,41 @@
+{
+  "global": {
+    "init": {
+      "merge": {
+        "name": "Welcome to Wisconsin",
+        "actions": {
+          "look"
+        }
+      }
+    }
+  },
+  "skunk": {
+    "init": {
+      "name": "Skunk",
+      "location": "house",
+      "description": "The skunk is in $location and is $mood because of ${player.name}."
+    },
+    "look": {
+      "describe": true
+    },
+    "kick": {
+      "self": {
+        "merge": {
+          "mood": "angry",
+          "location": "inventory",
+          "eaten": true
+        },
+        "move": "house"
+      },
+      "player": {
+        "increment": {
+          "health": 10,
+          "skunkKicks": 1
+        },
+        "push": {
+          "inventory": "skunk"
+        }
+      }
+    }
+  }
+}
