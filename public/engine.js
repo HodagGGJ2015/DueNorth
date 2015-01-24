@@ -1,13 +1,12 @@
 (function() {
 
+  var THEME = 'What do you do now?';
+
   // matches a variable within a string in the format of ${words}
   var variableRe = /\$\{([\w\.]+)\}/gi;
 
   // operations to describe how to update objects
   var operations = {
-    set: function(obj, update) {
-      return update;
-    },
     merge: function(obj, update) {
       return _.extend(obj, update);
     },
@@ -35,21 +34,85 @@
 
     // run default "init" action on each object
     _.each(this.story, function(object, name) {
-      this.apply(name, 'init');
+      this.state[name] = object.init;
     }, this);
+
+    this.updateLocation(this.state.player.location);
+  };
+
+  Engine.prototype.getOutput = function() {
+    return {
+      image: this.format(this.get('global.image')),
+      description: this.format(this.get('global.description')),
+      response: this.format(this.get('global.response'))
+    };
+  };
+
+  Engine.prototype.getLocation = function() {
+    return this.state[this.state.player.location];
+  };
+
+  Engine.prototype.updateLocation = function(name) {
+    var location = this.state[name];
+    var visited = location.visited;
+    var description = visited ? location.shortDescription : location.fullDescription;
+    _.extend(this.state.global, {
+      description: description,
+      image: location.image,
+      response: THEME
+    });
+    location.visited = true;
+    this.state.player.location = name;
   };
 
   // apply an action to a named object
   // returns success status
-  Engine.prototype.apply = function(name, action) {
-    var obj = this.story[name];
-    if (!obj) {
-      return false;
+  Engine.prototype.apply = function(noun, verb) {
+    if (verb == 'go') {
+      var location = this.getLocation();
+      var nextLocation = location.directions[noun];
+      if (nextLocation && this.state[nextLocation]) {
+        this.updateLocation(nextLocation);
+        return;
+      } else {
+        this.state.global.response = 'You cannot go to ' + noun + '.';
+        return;
+      }
     }
 
-    var targets = obj[action];
+    if (verb == 'look' && noun == 'global') {
+      var location = this.getLocation();
+      this.state.global.description = location.fullDescription;
+      return;
+    }
+
+    if (verb == 'inventory') {
+      var inventory = this.getInventory();
+      this.state.global.response = inventory;
+      return;
+    }
+
+    var obj = this.state[noun];
+    if (!obj || obj.location != this.state.player.location) {
+      this.state.global.response = 'There is no ' + noun + ' here.'
+      return;
+    }
+
+    if (verb == 'look') {
+      this.state.global.response = obj.fullDescription;
+      return;
+    }
+
+    var actions = this.story[noun];
+    if (!actions) {
+      this.state.global.response = 'You cannot do that to ' + noun + '.';
+      return;
+    }
+
+    var targets = actions[verb];
     if (!targets) {
-      return false;
+      this.state.global.response = 'You cannot do that to ' + noun + '.';
+      return;
     }
 
     // XXX: this is messy, yayyyy nested data structures!
@@ -59,14 +122,12 @@
           var op = operations[operation.slice(1)]; // remove `$`
           if (!op) {
             console.warn('Invalid operation:', operation);
-            return false;
+            return;
           }
           this.state[target] = op(this.state[target], update);
         }, this);
       }, this);
     }, this);
-
-    return true;
   };
 
   // formats a string, usually a description,
@@ -91,17 +152,9 @@
     var verb = parts[0]; // first word
     var noun = parts.slice(1).join(' ') || 'global'; // remaining words or "global"
 
-    var success = this.apply(noun, verb);
-    if (!success) {
-      // apply the invalid action
-      this.apply('global', 'invalid');
-    }
+    this.apply(noun, verb);
 
-    return {
-      image: this.format(this.get('global.image')),
-      description: this.format(this.get('global.description')),
-      response: this.format(this.get('global.response'))
-    };
+    return this.getOutput();
   };
 
 }).call(this);

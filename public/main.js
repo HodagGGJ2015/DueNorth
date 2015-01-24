@@ -21,7 +21,12 @@
   var RETURN_CODE = 13;
 
   var engine;
-  var stories = ['stories/story.json'];
+  var stories = [
+    'stories/global.json',
+    'stories/locations.json',
+    'stories/objects.json',
+    'stories/characters.json'
+  ];
   var storyData = {};
 
   // when all of the stories are loaded, start the engine
@@ -29,7 +34,7 @@
     engine = new Engine(storyData);
 
     // load the initial output
-    var output = engine.step('init global');
+    var output = engine.getOutput();
     renderOutput(output);
   });
 
