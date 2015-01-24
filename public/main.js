@@ -14,8 +14,9 @@
   }
 
   var inputEl = document.querySelector('.input');
-  var outputEl = document.querySelector('.output');
   var imageEl = document.querySelector('.image');
+  var descriptionEl = document.querySelector('.description');
+  var responseEl = document.querySelector('.response');
 
   var RETURN_CODE = 13;
 
@@ -42,11 +43,14 @@
 
   // set the description and image src
   function renderOutput(output) {
-    if (output.description) {
-      outputEl.textContent = output.description;
-    }
     if (output.image) {
       imageEl.setAttribute('src', output.image);
+    }
+    if (output.description) {
+      descriptionEl.textContent = output.description;
+    }
+    if (output.response) {
+      responseEl.textContent = output.response;
     }
   }
 
