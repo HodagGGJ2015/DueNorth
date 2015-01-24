@@ -1,0 +1,1 @@
+cd metapp && meteor run
