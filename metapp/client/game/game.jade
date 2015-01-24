@@ -1,0 +1,10 @@
+template(name='game')
+  h1 {{scene.title}}
+  p {{scene.description}}
+
+  pre [ {{scene.image}} ]
+
+  ul
+  each scene.links
+    li
+      a(href=href) {{text}}
