@@ -1,6 +1,22 @@
 (function() {
 
+  function loadJSON(path, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.overrideMimeType('application/json');
+    xhr.open('GET', path, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == '200') {
+        callback(JSON.parse(xhr.responseText));
+      }
+    };
+    xhr.send(null);
+  }
+
   var engine = new Engine();
+
+  loadJSON('story.json', function(data) {
+    engine.setData(data);
+  });
 
   var inputEl = document.querySelector('.input');
   var outputEl = document.querySelector('.output');

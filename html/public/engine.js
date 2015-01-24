@@ -18,20 +18,22 @@
   // }
 
   function parseInput(input) {
-    var parts = input.split(/\s+/gi);
-    return {
-      verb: parts[0],
-      noun: parts.slice(1).join(' ')
-    };
   }
 
   var Engine = window.Engine = function() {
     this.description = '';
     this.image = '';
+    this.data = {};
+  };
+
+  Engine.prototype.setData = function(data) {
+    this.data = data;
   };
 
   Engine.prototype.processInput = function(input) {
-    var parts = parseInput(input);
+    var parts = input.split(/\s+/gi);
+    this.verb = parts[0];
+    this.noun = parts.slice(1).join(' ');
     this.description = 'You did ' + parts.verb + ' on ' + parts.noun;
     this.image = '';
   };

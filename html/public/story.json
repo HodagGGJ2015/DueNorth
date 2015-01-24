@@ -4,7 +4,7 @@
       "merge": {
         "name": "Welcome to Wisconsin",
         "actions": {
-          "look"
+          "look": "location"
         }
       }
     }
