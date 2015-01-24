@@ -43,7 +43,7 @@
   // set the description and image src
   function renderOutput(output) {
     if (output.description) {
-      outputEl.innerText = output.description;
+      outputEl.textContent = output.description;
     }
     if (output.image) {
       imageEl.setAttribute('src', output.image);
