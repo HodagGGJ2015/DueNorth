@@ -1,30 +1,61 @@
 if Meteor.isClient
 
+  gohome = {
+    home:
+      scripts: [
+        "CGame.go('start')"
+      ]
+  }
+
   @MockData = {
     start:
       title: "start"
-      image: "/images/bg/start.jpg"
+      image: "/assets/start.svg"
       description: "you see a skunk and a caravan"
       links: [
         { text: "kick skunk", href:"kick_skunk"}
         { text: "enter caravan", href:"caravan_int"}
       ]
+      actions:
+        say: {
+          hi:
+            scripts: [
+              "CPlayer.say('you say hi')"
+            ]
+        }
+        kick: {
+          skunk:
+            response: "ouch, says the skunk!"
+            scripts: [
+              "CGame.go('kick_skunk')"
+              "CPlayer.addItem('skunk smell')"
+              "CPlayer.say('you ugly skunk')"
+            ]
+        }
+        go: {
+          caravan:
+            scripts: ["CGame.go('caravan_int')"]
+        }
 
     kick_skunk:
       title: "angry skunk"
       description: "The skunk squirts you!"
-      image: "/images/bg/skunk"
+      image: "/assets/angry_skunk.svg"
       links: [
         { text: "restart", href: "start" }
       ]
+      actions:
+        go: gohome
 
     caravan_int:
       title: "caravan interior"
       description: "A dank caravan"
-      image: "/images/bg/caravan-int.jpg"
+      image: "/assets/caravan_int.svg"
       links: [
         {text: "go back outside", href: "start"}
       ]
+      actions:
+        go: gohome
 
   }
 
@@ -47,3 +78,7 @@ if Meteor.isClient
   #     mock.next = nextMock.title if nextMock
 
   # # console.log MockData
+
+
+
+

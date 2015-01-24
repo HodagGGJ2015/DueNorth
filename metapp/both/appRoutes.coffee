@@ -6,16 +6,20 @@ Meteor.startup ->
     # loadingTemplate: 'loading'
     # onBeforeAction: "loading"
 
+  Router.route "/", ->
+    Router.go("/game/start")
+
 
   Router.route "/game/:scenename", ->
     name: "game"
     @render "game",
       data: ->
+        CGame.scene = MockData[@params.scenename]
         blob = {
           scenename: @params.scenename
-          scene: MockData[@params.scenename]
-          MockData: MockData
+          scene: CGame.scene
         }
-        console.log("data", blob)
+        console.log("route data", blob)
+
         return blob
 
