@@ -1,0 +1,1 @@
+cd metapp && meteor deploy wisconsin.meteor.com
