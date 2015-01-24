@@ -3,10 +3,35 @@ clog = (msg, obj) ->
 
 currentScene = null
 
-# Template.game.rendered = () ->
-#   console.log("rendered", this.data)
-#   currentScene = CGame.scene
-#   window.currentScene = currentScene
+getActions = (scene, verb, noun) ->
+  # debugger
+
+  ## minimongo subselect support?
+  # res = SceneData.findOne({
+  #   'name': CGame.scene.name   # currentScene limit to
+  #   # 'actions.noun': noun
+  #   # 'actions.verb': verb
+  # }, {
+  #   actions: { '$elemMatch': {
+  #     noun: noun,
+  #     verb: verb
+  #   }}
+  # })
+
+  res = _.find scene.actions, (act) ->
+    if typeof(act.verb) == "string"
+      test = (act.verb == verb and act.noun==noun)
+    else
+      if verb in act.verb and act.noun == noun
+        test = true
+    console.log("res", act, test)
+    return test
+  return res
+
+
+# first time only
+Template.game.rendered = () ->
+  CGame.alert("a pretty scene")
 
 handleInput = (msg) ->
   $("#inputbox").val("")
@@ -14,17 +39,19 @@ handleInput = (msg) ->
   stuff = msg.split(" ")
   verb = stuff[0]
   noun = stuff[1]
-  console.log("#{verb} > #{noun}")
-  try
-    actions = CGame.scene.actions?[verb][noun]
-    scripts = actions?.scripts
-    console.log("actions:", actions)
-    console.log("scripts:", scripts)
-    _.each scripts, (sc) ->
-      eval(sc)
-  catch err
-    console.log("eval err", err)
-    # console.log("no script for ", verb, noun)
+
+  actions = getActions(CGame.scene, verb, noun)
+  console.log("res:", actions)
+
+  if actions?.script
+    try
+      eval(actions.script)
+    catch err
+      console.error("eval err", actions.script, err)
+  else
+    console.log("no script for ", verb, noun)
+    noun ?= ""
+    CGame.alert("you cant #{verb} #{noun} here.")
 
 Template.game.events
   'submit form': (evt) ->
@@ -42,3 +69,18 @@ Template.game.events
       # clog("input", evt)
 
 
+Template.game.helpers
+
+  # turn hash into noun: a, verb: b
+
+  actionsList: ->
+    # debugger
+    actions = CGame.scene.actions
+    vlist = []
+    for k, v of actions
+      vlist.push(verb: k, noun: v )
+      window.vlist = vlist
+    return vlist
+
+  playerItems: ->
+    CPlayer.items()

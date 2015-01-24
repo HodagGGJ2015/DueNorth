@@ -1,84 +1,173 @@
-if Meteor.isClient
 
-  gohome = {
-    home:
-      scripts: [
-        "CGame.go('start')"
-      ]
+# reusable script
+goHome = {
+  verb: "go"
+  noun: "home"
+  script: """
+    CGame.go('start')
+  """
+}
+
+look = {
+  verb: "look"
+  script: "
+    CGame.alert('you look around')
+  "
+}
+
+
+testingActions = {
+  verb: "reset"
+  script: "
+    CPlayer.reset();
+    CGame.go('start')
+  "
+}
+
+@MockData = [
+  {
+    name: "start"
+    image: "/assets/start.svg"
+    description: "you see a skunk and a house"
+    links: [
+      { text: "kick skunk", href:"kick_skunk"}
+      { text: "enter house", href:"house_int"}
+    ]
+    actions: [
+      {
+        verb: "say"
+        noun: "hi"
+        script: "
+          CGame.alert('the skunk asks you what time it is.')
+        "
+      }
+      {
+        verb: "kick"
+        noun: "skunk"
+        script: "
+          CGame.go('angry_skunk');
+          CPlayer.getItem('skunk smell');
+          CPlayer.say('you ugly skunk');
+        "
+      }
+
+      {
+        verb: ["go", "enter"]
+        noun: "house"
+        script: "CGame.go('house_int')"
+      }
+
+      {
+        verb: ["use", "give"]
+        noun: "watch"
+        script: "
+          if (CPlayer.hasItem('watch')) {
+            CGame.alert('The skunk takes the watch. Thanks! he says');
+            CPlayer.removeItem('watch');
+          } else {
+            CGame.alert('what watch?');
+          }
+        "
+      }
+
+      {
+        verb: "look"
+        script: "
+          CGame.alert('not much here')
+        "
+      }
+      
+      testingActions
+    ]
   }
 
-  @MockData = {
-    start:
-      title: "start"
-      image: "/assets/start.svg"
-      description: "you see a skunk and a caravan"
-      links: [
-        { text: "kick skunk", href:"kick_skunk"}
-        { text: "enter caravan", href:"caravan_int"}
-      ]
-      actions:
-        say: {
-          hi:
-            scripts: [
-              "CPlayer.say('you say hi')"
-            ]
-        }
-        kick: {
-          skunk:
-            response: "ouch, says the skunk!"
-            scripts: [
-              "CGame.go('kick_skunk')"
-              "CPlayer.addItem('skunk smell')"
-              "CPlayer.say('you ugly skunk')"
-            ]
-        }
-        go: {
-          caravan:
-            scripts: ["CGame.go('caravan_int')"]
-        }
-
-    kick_skunk:
-      title: "angry skunk"
-      description: "The skunk squirts you!"
-      image: "/assets/angry_skunk.svg"
-      links: [
-        { text: "restart", href: "start" }
-      ]
-      actions:
-        go: gohome
-
-    caravan_int:
-      title: "caravan interior"
-      description: "A dank caravan"
-      image: "/assets/caravan_int.svg"
-      links: [
-        {text: "go back outside", href: "start"}
-      ]
-      actions:
-        go: gohome
-
+  {
+    name: "angry_skunk"
+    description: "The skunk squirts you in goop!"
+    image: "/assets/angry_skunk.svg"
+    actions: [
+      {
+        verb: "say"
+        noun: "sorry"
+        script: "
+          CPlayer.say('sorry!')
+          CGame.go('start')
+        "
+      }
+      goHome, look
+      testingActions
+    ]
   }
 
-  
+  {
+    name: "house_int"
+    image: "/assets/house_int.svg"
+    description: """
+      The inside of the house.
+      It's painted green.
+      There's a box here"""
+    actions: [
+      {
+        verb: 'look'
+        script: "
+          CGame.alert('not much here except the box')
+        "
+      }
+
+      {
+        verb: ["open", 'inspect', 'look']
+        noun: "box"
+        script: """
+          if (CPlayer.hasItem('watch')) {
+            CGame.go('empty_box');
+          } else {
+            CGame.go('open_box');
+          }
+        """
+      }
+      goHome, look
+      testingActions
+    ]
+  }
+
+  {
+    name: "open_box"
+    image: "/assets/open_box.svg"
+    description: "There's an old watch inside the box."
+    actions: [
+      {
+        verb: "get"
+        noun: "watch"
+        script: "
+          CPlayer.getItem('watch');
+          CGame.go('empty_box')
+        "
+      }
+      goHome, look
+      testingActions
+    ]
+  }
+
+  {
+    name: "empty_box"
+    image: "/assets/empty_box.svg"
+    description: "An empty box"
+    actions: [
+      goHome, look
+      testingActions
+    ]
+  }
 
 
-  # _.each MockData, (mock, idx) ->
-  #   prefix = "https://docs.google.com/a/biz.pikkle.com/drawings/d/"
-  #   # console.log("idx", idx)
-  #   prev = mock
-  #   mock.cname = mock.title + "-#{idx}"
-  #   if mock.src[0] == "/"
-  #     mock.img = mock.src
-  #   else
-  #     mock.editUrl = prefix + mock.src + "/edit"
-  #     mock.img = prefix + mock.src + "/pub?w=250"
-
-  #   unless mock.next
-  #     nextMock = MockData[idx+1]  # each one points forward by default
-  #     mock.next = nextMock.title if nextMock
-
-  # # console.log MockData
+]
 
 
+@SceneData = new Meteor.Collection("SceneData")
 
+if Meteor.isServer
+  Meteor.startup ->
+    SceneData.remove({})
+    for scene in MockData
+      SceneData.insert(scene)
+    # Meteor.publish("SceneData")
 

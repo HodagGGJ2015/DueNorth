@@ -12,8 +12,8 @@
             <text id="skunk" sketch:type="MSTextLayer" font-family="Mouse Memoirs" font-size="30" font-weight="normal" fill="#000000">
                 <tspan x="76" y="254">skunk</tspan>
             </text>
-            <text id="caravan" sketch:type="MSTextLayer" font-family="Mouse Memoirs" font-size="30" font-weight="normal" fill="#000000">
-                <tspan x="254" y="177">caravan</tspan>
+            <text id="house" sketch:type="MSTextLayer" font-family="Mouse Memoirs" font-size="30" font-weight="normal" fill="#000000">
+                <tspan x="254" y="177">house</tspan>
             </text>
         </g>
     </g>

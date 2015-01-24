@@ -13,8 +13,10 @@ Meteor.startup ->
   Router.route "/game/:scenename", ->
     name: "game"
     @render "game",
+      waitOn: ->
+        Meteor.subscribe("SceneData")
       data: ->
-        CGame.scene = MockData[@params.scenename]
+        CGame.scene = SceneData.findOne({name:@params.scenename})
         blob = {
           scenename: @params.scenename
           scene: CGame.scene

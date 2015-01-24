@@ -6,10 +6,13 @@
     <defs></defs>
     <g id="angry_skunk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g sketch:type="MSArtboardGroup">
-            <ellipse id="Oval-1" stroke="#979797" fill="#E4A223" sketch:type="MSShapeGroup" cx="138.5" cy="161" rx="95.5" ry="101"></ellipse>
+            <ellipse id="Oval-1" stroke="#979797" fill="#EC4712" sketch:type="MSShapeGroup" cx="138.5" cy="213" rx="95.5" ry="101"></ellipse>
+            <circle id="Oval-2" stroke="#979797" fill="#000000" sketch:type="MSShapeGroup" cx="94.5" cy="148.5" r="30.5"></circle>
+            <circle id="Oval-2" stroke="#979797" fill="#000000" sketch:type="MSShapeGroup" cx="169.5" cy="148.5" r="30.5"></circle>
             <text id="Angry-Skunk" sketch:type="MSTextLayer" font-family="Mouse Memoirs" font-size="30" font-weight="normal" fill="#000000">
-                <tspan x="84" y="169">Angry Skunk</tspan>
+                <tspan x="84" y="207">Angry Skunk</tspan>
             </text>
+            <path d="M58.1367188,74.6796875 L131.851562,123.027344 L209.734375,70.2070312 L130.367188,103.007812 L58.1367188,74.6796875 Z" id="Path-1" stroke="#979797" fill="#000000" sketch:type="MSShapeGroup"></path>
         </g>
     </g>
 </svg>

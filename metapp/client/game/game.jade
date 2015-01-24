@@ -1,21 +1,36 @@
 template(name='game')
-  img(src=scene.image)
-  .title {{scene.title}}
-  p {{scene.description}}
+  .title {{scene.name}}
+  #content
+    img(src=scene.image)
+    span#alert 
 
-
-  ul
-  each scene.links
-    li
-      a(href=href) {{text}}
-
+  h3 {{scene.description}}
 
   input(type="text" value="" id="inputbox")
   input(type="submit" value="GO")
 
-  p you said: 
-    span(id="yousaid") ..
+  .inventory
+    h3 inventory
+    ol
+    each playerItems
+      li {{name}}
+
 
   hr
-  p debug
-  pre [ {{scene.image}} ]
+
+  h3 hints
+  ul
+  each scene.actions
+    li
+      a(href=href) {{verb}} {{noun}}
+
+
+  hr
+  .debug
+    p debug
+    p you said:
+      span(id="yousaid") ..
+    p [ {{scene.image}} ]
+
+  a(href="/") restart
+    

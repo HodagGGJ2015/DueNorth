@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>empty_box</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="empty_box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" stroke="#979797" id="Rectangle-2" fill="#EB8C72">
+            <rect sketch:type="MSShapeGroup" x="0" y="0" width="400" height="300"></rect>
+        </g>
+    </g>
+</svg>
