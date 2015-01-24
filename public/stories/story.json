@@ -4,21 +4,23 @@
       "global": {
         "$set": {
           "name": "Welcome to Wisconsin",
-          "description": "${global.name}"
+          "description": "${global.name}",
+          "response": "What would you like to do?",
+          "image": ""
         }
       }
     }],
     "invalid": [{
       "global": {
         "$merge": {
-          "description": "Cannot do that."
+          "response": "Cannot do that."
         }
       }
     }],
     "help": [{
       "global": {
         "$merge": {
-          "description": "You asked for something?"
+          "response": "You asked for something?"
         }
       }
     }]

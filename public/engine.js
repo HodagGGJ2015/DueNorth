@@ -59,7 +59,7 @@
           var op = operations[operation.slice(1)]; // remove `$`
           if (!op) {
             console.warn('Invalid operation:', operation);
-            return;
+            return false;
           }
           this.state[target] = op(this.state[target], update);
         }, this);
@@ -98,7 +98,9 @@
     }
 
     return {
-      description: this.format(this.get('global.description'))
+      image: this.format(this.get('global.image')),
+      description: this.format(this.get('global.description')),
+      response: this.format(this.get('global.response'))
     };
   };
 
