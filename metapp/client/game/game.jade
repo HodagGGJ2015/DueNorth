@@ -3,6 +3,7 @@ template(name='game')
   #content
     img(src=scene.image)
     span#alert 
+    iframe#iframeX(name="iframeX")
 
   h3 {{scene.description}}
 
@@ -24,6 +25,7 @@ template(name='game')
     li
       a(href=href) {{verb}} {{noun}}
 
+  
 
   hr
   .debug

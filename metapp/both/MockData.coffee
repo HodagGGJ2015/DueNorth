@@ -1,4 +1,3 @@
-
 # reusable script
 goHome = {
   verb: "go"
@@ -115,6 +114,13 @@ testingActions = {
       }
 
       {
+        verb: "bored"
+        script: "
+          CGame.openBoredSim()
+        "
+      }
+
+      {
         verb: ["open", 'inspect', 'look']
         noun: "box"
         script: """
@@ -157,7 +163,6 @@ testingActions = {
       testingActions
     ]
   }
-
 
 ]
 
