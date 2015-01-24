@@ -1,1 +1,1 @@
-cd metapp && meteor run
+cd metapp && meteor run --settings "config/config.json"

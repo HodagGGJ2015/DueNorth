@@ -24,4 +24,5 @@ Meteor.startup ->
         console.log("route data", blob)
 
         return blob
-
+  Router.route "/chat", ->
+    @render "chat"
