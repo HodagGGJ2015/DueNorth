@@ -1,0 +1,83 @@
+{
+  "global": {
+    "init": [{
+      "global": {
+        "$set": {
+          "name": "Welcome to Wisconsin",
+          "description": "${global.name}"
+        }
+      }
+    }],
+    "invalid": [{
+      "global": {
+        "$merge": {
+          "description": "Cannot do that."
+        }
+      }
+    }],
+    "help": [{
+      "global": {
+        "$merge": {
+          "description": "You asked for something?"
+        }
+      }
+    }]
+  },
+  "player": {
+    "init": [{
+      "player": {
+        "$set": {
+          "name": "Jim"
+        }
+      }
+    }]
+  },
+  "inventory": {
+    "init": [{
+      "inventory": {
+        "$set": {}
+      }
+    }]
+  },
+  "skunk": {
+    "init": [{
+      "skunk": {
+        "$set": {
+          "location": "house"
+        }
+      }
+    }],
+    "take": [{
+      "inventory": {
+        "$eq": {
+          "skunk": false
+        }
+      }
+    }, {
+      "skunk": {
+        "$merge": {
+          "mood": "angry",
+          "location": "inventory"
+        }
+      }
+    }, {
+      "inventory": {
+        "$merge": {
+          "skunk": true
+        }
+      }
+    }, {
+      "player": {
+        "$increment": {
+          "health": 10
+        }
+      }
+    }, {
+      "global": {
+        "$merge": {
+          "description": "The skunk is in ${skunk.location} and is ${skunk.mood} because of ${player.name} whose health is ${player.health}."
+        }
+      }
+    }]
+  }
+}
