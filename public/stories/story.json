@@ -4,21 +4,23 @@
       "global": {
         "$set": {
           "name": "Welcome to Wisconsin",
-          "description": "${global.name}"
+          "description": "${global.name}",
+          "response": "What would you like to do?",
+          "image": ""
         }
       }
     }],
     "invalid": [{
       "global": {
         "$merge": {
-          "description": "Cannot do that."
+          "response": "Cannot do that."
         }
       }
     }],
     "help": [{
       "global": {
         "$merge": {
-          "description": "You asked for something?"
+          "response": "You asked for something?"
         }
       }
     }]
@@ -27,7 +29,8 @@
     "init": [{
       "player": {
         "$set": {
-          "name": "Jim"
+          "name": "Jim",
+          "location": "motorhome"
         }
       }
     }]
@@ -43,7 +46,7 @@
     "init": [{
       "skunk": {
         "$set": {
-          "location": "house"
+          "location": "motorhome"
         }
       }
     }],
@@ -75,9 +78,22 @@
     }, {
       "global": {
         "$merge": {
-          "description": "The skunk is in ${skunk.location} and is ${skunk.mood} because of ${player.name} whose health is ${player.health}."
+          "response": "The skunk is in ${skunk.location} and is ${skunk.mood} because of ${player.name} whose health is ${player.health}."
         }
       }
     }]
+  },
+  "motorhome": {
+    "init": [
+      "$set": {
+        "visited": false,
+        "fullDescription": "A 1970 Winnebago Chieftain, the pride of your family name. Beige body with a large brown W on the side that your dad keep as polished as the day he first bought it. Sometimes you think he loves the Winnebago more than you.",
+        "shortDescription": "Your family's motorhome.",
+        "directions": {
+          "north": "motel",
+          "south": "woods"
+        }
+      }
+    ]
   }
 }
