@@ -1,0 +1,37 @@
+body {
+  font-family: "Vollkorn", san-serif;
+  font-size: 16px;
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 640px;
+  height: 480px;
+  background: #222;
+}
+
+.output {
+  padding: 16px 8px;
+}
+
+.input {
+  font-family: "Vollkorn", san-serif;
+  font-size: 16px;
+  padding: 4px 8px;
+
+  outline: none;
+  background: black;
+  color: white;
+
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+}
