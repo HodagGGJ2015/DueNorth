@@ -4,10 +4,28 @@ if Meteor.isClient
     start:
       title: "start"
       image: "/images/bg/start.jpg"
+      description: "you see a skunk and a caravan"
+      links: [
+        { text: "kick skunk", href:"kick_skunk"}
+        { text: "enter caravan", href:"caravan_int"}
+      ]
 
-    skunk:
-      title: "skunk"
+    kick_skunk:
+      title: "angry skunk"
+      description: "The skunk squirts you!"
       image: "/images/bg/skunk"
+      links: [
+        { text: "restart", href: "start" }
+      ]
+
+    caravan_int:
+      title: "caravan interior"
+      description: "A dank caravan"
+      image: "/images/bg/caravan-int.jpg"
+      links: [
+        {text: "go back outside", href: "start"}
+      ]
+
   }
 
   
