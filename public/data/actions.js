@@ -11,15 +11,15 @@
   window.Actions = _.extend({}, {
     inventory: {
       parse: function(input) {
-        return input == 'inventory';
+        return match(input, [
+          /^inventory$/i
+        ], function(matches) {
+          return {};
+        });
       },
       act: function(args) {
         // TODO:
-        if (verb == 'inventory') {
-          var inventory = this.getInventory();
-          this.state.global.response = inventory;
-          return;
-        }
+        this.global.response = inventory;
       }
     },
     take: {
@@ -33,8 +33,8 @@
         });
       },
       act: function(args) {
-        var global = this.state.global;
-        var object = this.state[args.object];
+        var global = this.global;
+        var object = this[args.object];
         if (!object) {
           global.response = 'There is no ' + args.object;
           return;
@@ -60,18 +60,19 @@
         });
       },
       act: function(args) {
-        var location = this.state[this.state.player.location];
-        var global = this.state.global;
+        var location = this[this.global.location];
+        var global = this.global;
 
         var nextLocation = location.directions[args.direction];
         if (!nextLocation) {
-          global.response = 'Cannot go ' + args.location;
+          global.response = 'There is nothing ' + args.direction + '.';
           return;
         }
 
-        var nextLocationObj = this.state[nextLocation];
+        var nextLocationObj = this[nextLocation];
         if (!nextLocationObj) {
-          global.response = 'Cannot go ' + args.location;
+          console.warn('Missing location:', nextLocation, 'from', this.global.location);
+          global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
 
@@ -80,7 +81,32 @@
         global.response = 'What do you do now?';
 
         nextLocationObj.visited = true;
-        this.state.player.location = nextLocation;
+        this.global.location = nextLocation;
+      }
+    },
+    hit: {
+      parse: function(input) {
+        return match(input, [
+          /^hit\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = this[args.object];
+        if (!object) {
+          global.response = 'You cannot hit nothing...';
+          return;
+        }
+
+        if (!object.hit || !object.hit.act) {
+          global.response = 'That\' not very nice.';
+          return;
+        }
+
+        object.hit.act.call(this, args);
       }
     },
     give: {
@@ -95,12 +121,12 @@
         });
       },
       act: function(args) {
-        var global = this.state.global;
-        var object = this.state[args.object];
-        var recipient = this.state[args.recipient];
+        var global = this.global;
+        var object = this[args.object];
+        var recipient = this[args.recipient];
 
         if (!object) {
-          global.response = 'There is no ' + args.object;
+          global.response = 'You don\'t have ' + args.object;
           return;
         }
 
@@ -123,17 +149,82 @@
         global.response = object.take.response || 'You gave the ' + args.object + ' to ' + args.recipient;
       }
     },
-    talk: {
+    ask: {
       parse: function(input) {
         return match(input, [
-          /^talk\s+to\s+(.+)$/i
+          /^ask\s+(.+)\s+about\s+(.+)$/i
         ], function(matches) {
           return {
-            person: matches[1]
+            person: matches[1],
+            topic: matches[2]
           };
         });
       },
       act: function(args) {
+        var person = this[args.person];
+        var topic = this[args.topic];
+
+        if (!person || !person.ask) {
+          this.global.response = 'You\'re talking to yourself.'
+          return;
+        }
+
+        var topicResponse = person.ask[args.topic];
+        if (topicResponse) {
+          if (_.isString(topicResponse)) {
+            this.global.response = topicResponse;
+          } else if (_.isFunction(topicResponse)) {
+            topicResponse.call(this, args);
+          }
+        } else {
+          this.global.response = args.person + ' doesn\'t know what you\'re talking about';
+        }
+      }
+    },
+    help: {
+      parse: function(input) {
+        return match(input, [
+          /^help$/i
+        ], function(matches) {
+          return {
+            person: matches[1],
+            topic: matches[2]
+          };
+        });
+      },
+      act: function(args) {
+        // TODO:
+      }
+    },
+    talk: {
+      parse: function(input) {
+        return match(input, [
+          /^talk\s+(?:to\s+)?(.+)$/i,
+          /^hello\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = this[args.object];
+        if (!object) {
+          this.global.response = 'There is nothing by that name to talk to.'
+          return;
+        }
+
+        if (object.talk && object.talk.response) {
+          this.global.response = object.talk.response;
+          return;
+        }
+
+        if (object.talk && object.talk.act) {
+          object.talk.act.call(this, args);
+          return;
+        }
+
+        this.global.response = 'You say hello to ' + args.object + '.';
       }
     },
     look: {
@@ -141,7 +232,7 @@
         return match(input, [
           /^examine\s+at\s+(.+)$/i,
           /^examine$/i,
-          /^look\s+at\s+(.+)$/i,
+          /^look\s+(?:at\s+)?(.+)$/i,
           /^look$/i
         ], function(matches) {
           return {
@@ -150,18 +241,19 @@
         });
       },
       act: function(args) {
+        console.log('look', args);
         if (args.object) {
-          var object = this.state[args.object];
+          var object = this[args.object];
           if (!object) {
-            this.state.global.response = 'Cannot see ' + args.object;
+            this.global.response = 'Cannot see ' + args.object;
             return;
           }
-          this.state.global.image = object.image;
-          this.state.global.response = object.fullDescription;
+          this.global.image = object.image;
+          this.global.response = object.fullDescription;
         } else {
-          var location = this.state[this.state.player.location];
-          this.state.global.image = location.image;
-          this.state.global.description = location.fullDescription;
+          var location = this[this.global.location];
+          this.global.image = location.image;
+          this.global.description = location.fullDescription;
         }
       }
     }

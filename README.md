@@ -30,11 +30,7 @@ TODO
 
 #### Engine
 
-1. Conversations
-2. Conditionals: how do we prevent "take skunk" x 2, see `$eq` in story.json
-3. Better error handling for missing stuff (helpful warnings)
-4. Directions: "go north", etc.
-5. Add `random` operation
+1. Name lockups
 
 #### HTML
 

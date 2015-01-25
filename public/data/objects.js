@@ -1,38 +1,21 @@
 (function() {
   _.extend(window.Stuff, {
     booze: {
-      location: "bartender",
-      give: {
-      }
+      location: 'bartender'
     },
     coin: {
-      location: "",
+      location: '',
       take: {
-        response: "You picked up the coin."
-      },
-      give: {
+        response: 'You picked up the coin.'
       }
     },
     slots: {
-      location: "bar",
-      fullDescription: "A slot machine lures you in.",
+      location: 'bar',
+      fullDescription: 'A slot machine lures you in.',
       hit: {
-        action: function(args) {
-          // coin: {
-          //   "$merge": {
-          //     location: "bar"
-          //   }
-          // },
-          // slots: {
-          //   "$merge": {
-          //     fullDescription: "You see a coin."
-          //   }
-          // },
-          // global: {
-          //   "$merge": {
-          //     response: "The slot machine rattles"
-          //   }
-          // }
+        act: function(args) {
+          this.coin.location = 'inventory';
+          this.global.response = 'You pick up the coin and put it in your pocket.';
         }
       }
     }

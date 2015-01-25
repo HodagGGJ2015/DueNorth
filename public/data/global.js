@@ -4,11 +4,8 @@
       name: 'Welcome to Wisconsin',
       description: '${global.name}',
       response: 'What would you like to do?',
+      location: 'motorhome',
       image: ''
-    },
-    player: {
-      name: 'Jim',
-      location: 'motorhome'
     }
   });
 }).call(this);

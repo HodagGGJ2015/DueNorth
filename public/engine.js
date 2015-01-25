@@ -28,16 +28,20 @@
 
   // advances the story, given a query in the format of "<verb> <noun>"
   Engine.prototype.act = function(query) {
-    _.find(this.actions, function(action) {
+    var action = _.find(this.actions, function(action) {
       var args = action.parse(query);
 
       if (!args) {
         return false;
       }
 
-      action.act.call(this, args);
+      action.act.call(this.state, args);
       return true;
     }, this);
+
+    if (!action) {
+      this.state.global.response = 'Nothing happened.';
+    }
 
     return this.getOutput();
   };
