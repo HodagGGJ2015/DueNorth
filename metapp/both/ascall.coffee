@@ -14,9 +14,9 @@ if Meteor.isServer
   CBotServer.connect 2000, "127.0.0.1", ->
     clog "connected"
 
-  Meteor.publish "CBot", ->
-    CBotPipe = this
-    clog("created pipe")
+  # Meteor.publish "CBot", ->
+  #   CBotPipe = this
+  #   clog("created pipe")
 
   CBotServer.on "data", (data) ->
     console.log("data: " + data)

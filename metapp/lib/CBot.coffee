@@ -2,9 +2,9 @@
 
 if Meteor.isServer
   Meteor.publish "CBot", (query, fields) ->
-    console.log("sub Cbot", query, fields)
     query ?= {}
     fields ?= {}
+    console.log("sub Cbot", query, fields)
     return CBot.find(query, fields)
 
 if Meteor.isClient

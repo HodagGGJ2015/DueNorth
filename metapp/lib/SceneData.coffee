@@ -4,10 +4,12 @@ Meteor.startup ->
   if Meteor.isServer
     reloadSceneData()
     Meteor.publish "SceneData", (query, fields) ->
-      console.log("sub SceneData", query, fields)
       query ?= {}
       fields ?= {}
-      return SceneData.find(query, fields)
+      scenes = SceneData.find(query, fields)
+      console.log("sub SceneData", query, fields)
+      console.log("res scenes: ", scenes)
+      return scenes
 
 
 

@@ -10,22 +10,29 @@ Meteor.startup ->
     Router.go("/game/start")
 
 
-  Router.route "/game/:scenename", ->
+  Router.route "/game/:scenename",
     name: "game"
-    @render "game",
-      waitOn: ->
-        [
-          Meteor.subscribe("SceneData")
-          Meteor.subscribe("CBot")
-        ]
-      data: ->
-        CGame.scene = SceneData.findOne({name:@params.scenename})
-        blob = {
-          scenename: @params.scenename
-          scene: CGame.scene
-        }
-        console.log("route data", blob)
+    waitOn: ->
+      subs = [
+        Meteor.subscribe("SceneData"),
+        Meteor.subscribe("CBot")
+      ]
+      console.log("subs", subs)
+      return subs
 
-        return blob
+    data: ->
+      CGame.scene = SceneData.findOne({name:@params.scenename})
+      blob = {
+        scenename: @params.scenename
+        scene: CGame.scene
+      }
+      console.log("route data", blob)
+      return blob
+
+    action: ->
+      console.log("game.render")
+      @render "game"
+
+
   Router.route "/chat", ->
     @render "chat"
