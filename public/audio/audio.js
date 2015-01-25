@@ -25,7 +25,7 @@ audioKeys = Object.keys(audio);
 
 function playAudio(audioName) {
     if (!audio[audioName].isLoaded) {
-  	    loadSound(audioName audio[audioName.audio], true);
+  	    loadSound(audioName, audio[audioName.audio], true);
     } else {
 	    audio[audioName].play();
     }
