@@ -28,7 +28,8 @@ audio = {
 	slotsSFX: "sfx/slot_machine.ogg",
 	wrenchSFX: "sfx/wrench_pickup.ogg",
 	screamSFX: "sfx/woman_scream.ogg",
-	hodagSFX: "sfx/hodag.ogg"
+	hodagSFX: "sfx/hodag.ogg",
+	diplomaSFX: "sfx/diplomaSFX.ogg"
 	
 };
 
