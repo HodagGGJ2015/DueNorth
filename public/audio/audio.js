@@ -20,15 +20,15 @@ audio = {
 	textEnterFalse: 'sfx/text_enter_false.ogg',
 	
 	barkLoop: "sfx/bark_loop.ogg",
-	dogGrowl: "sfx/dog_growl.ogg",
-	artifact: "sfx/artifact_grab.ogg",
-	booze: "sfx/booze.ogg",
-	coin: "sfx/coin.ogg",
-	bell: "sfx/shop_bell.ogg",
-	slots: "sfx/slot_machine.ogg",
-	wrench: "sfx/wrench_pickup.ogg",
-	scream: "sfx/woman_scream.ogg",
-	hodag: "sfx/hodag.ogg"
+	dogGrowlSFX: "sfx/dog_growl.ogg",
+	artifactSFX: "sfx/artifact_grab.ogg",
+	boozeSFX: "sfx/booze.ogg",
+	coinSFX: "sfx/coin.ogg",
+	bellSFX: "sfx/shop_bell.ogg",
+	slotsSFX: "sfx/slot_machine.ogg",
+	wrenchSFX: "sfx/wrench_pickup.ogg",
+	screamSFX: "sfx/woman_scream.ogg",
+	hodagSFX: "sfx/hodag.ogg"
 	
 };
 
@@ -71,8 +71,8 @@ function loadSound(name, url, playOnLoad) {
 					
 					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
 					this.gainNode.gain.value = name.indexOf('barkLoop') > -1 ? 0.03 : this.gainNode.gain.value;
-					this.gainNode.gain.value = name.indexOf('musicLoop') > -1 ? 0.3 : this.gainNode.gain.value;
-					this.gainNode.gain.value = name.indexOf('scream') > -1 ? 0.05 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('music') > -1 ? 0.3 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('SFX') > -1 ? 0.05 : this.gainNode.gain.value;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;
