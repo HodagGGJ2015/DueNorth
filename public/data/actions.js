@@ -87,8 +87,7 @@
       parse: function(input) {
         return match(input, [
           /^drop\s+(.+)$/i,
-          /^throw\s+(.+)$/i,
-          /^remove\s+(.+)$/i
+          /^throw\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
@@ -108,18 +107,14 @@
           return;
         }
 
-        object.location = global.location;
-
         if (object.audio) {
           playAudio(object.audio);
         }
 
         if (object.drop.act) {
           object.drop.act.call(this, args);
-        } else if (object.drop.response) {
-          global.response = object.drop.response;
         } else {
-          global.response = 'You dropped the ' + args.object;
+          global.response = 'This might not be the right place to drop ' + args.object;
         }
       }
     },
