@@ -31,10 +31,10 @@
 	    audio: "motorhomeLoop",
       image: "images/motorhome.png",
       directions: {
-        north: "woods",
+        north: "woodsE1",
         south: "parking",
-        east: "woods",
-        west: "woods"
+        east: "woodsF2",
+        west: "woodsD2"
       }
     },
     party: {
@@ -45,9 +45,10 @@
   	  audio: "partyLoop", //not ready
       image: "images/campground.png",
       directions: {
-        north: "woods",
-        west: "woods",
-        east: "campground"
+        north: "woodsB2",
+        south: "woodsB4",
+        east: "campground",
+        west: "woodsA3"
       }
     },
     campground: {
@@ -58,10 +59,10 @@
   	  audio: "forestLoop",
       image: "images/campground.png",
       directions: {
-        north: "woods",
-        west: "party",
+        north: "woodsC2",
+        south: "motel",
         east: "gas",
-        south: "motel"
+        west: "party"
       }
     },
     gas: {
@@ -72,6 +73,7 @@
   	  audio: "gasLoop",
       image: "images/gasstation.png",
       directions: {
+        north: "woodsD2",
         west: "campground",
         east: "parking",
         south: "giftshop"
@@ -101,8 +103,8 @@
       directions: {
         south: "taxidermy",
         west: "parking",
-        east: "woods",
-        north: "woods"
+        east: "woodsG3",
+        north: "woodsF2"
       }
     },
     motel: {
@@ -115,7 +117,8 @@
       directions: {
         north: "campground",
         east: "giftshop",
-        west: "woods"
+        west: "woodsB4",
+        south: "woodsC5"
       }
     },
     giftshop: {
@@ -140,8 +143,7 @@
   	  audio: "giftshopLoop", //not ready
       image: "images/giftshop.png",
       directions: {
-        north: "giftshop",
-        west: "woods"
+        north: "giftshop"
       }
     },
     pizza: {
@@ -178,7 +180,8 @@
       image: "images/taxidermy.png",
       directions: {
         north: "bar",
-        east: "woods",
+        south: "woodsF5",
+        east: "woodsG4",
         west: "pizza"
       }
     },
@@ -190,6 +193,7 @@
       audio: "caveLoop",
       image: "images/cave.png",
       directions: {
+        north: "woodsB6"
       }
     },
     hostilehodag: {
@@ -354,14 +358,15 @@
       }
     },
     woodsB6: {
-      name: "The Woods",
+      name: "The Woods Near a Cave",
       visited: false,
-      fullDescription: "<p>Big pine trees in every direction.</p>",
-      shortDescription: "<p>Big pine trees.</p>",
+      fullDescription: "<p>Suddenly there is a break in the pine trees to reveal an ominous looking cave to the south.</p>",
+      shortDescription: "<p>Big pine trees. There is a cave to the south.</p>",
       audio: "forestLoop",
       image: "images/woods.png",
       directions: {
         north: "woodsB5",
+        south: "cave",
         east: "woodsC6",
         west: "woodsA6"
       }
