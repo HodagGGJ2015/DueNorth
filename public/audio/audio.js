@@ -1,5 +1,18 @@
 //Gather all audio files as objects to be expanded later
+//Placed in order of importance
 audio = {
+	motorhomeLoop: 'backgrounds/motor_home_loop.ogg',
+	caveLoop: 'backgrounds/cave_loop.ogg',
+	arcadeLoop: 'backgrounds/arcade_loop.ogg',
+	gasLoop: 'backgrounds/gas_loop.ogg',
+	forestLoop: 'backgrounds/forest_loop.ogg',
+	backroomLoop: 'backgrounds/backroom_loop.ogg',
+	giftshopLoop: 'backgrounds/heartbreaker_loop_short.ogg',
+	partyLoop: 'backgrounds/party_loop.ogg',
+	saloonLoop: 'backgrounds/saloon_loop.ogg',
+	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
+	pizzaLoop: 'backgrounds/pizza_loop.ogg',
+	motelLoop: 'backgrounds/clinic_loop.ogg',
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg'
 };
@@ -8,7 +21,7 @@ audio = {
 audioKeys = Object.keys(audio);
 
 //Preload all of the audio files
-function loadSound(name, url) {
+function loadSound(name, url, playOnLoad) {
 	
 	//Create XML Request
 	var request = new XMLHttpRequest();
@@ -33,16 +46,20 @@ function loadSound(name, url) {
 					source.connect(this.gainNode); 				//Connect gain to source
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
-					this.gainNode.gain.value = 0.4;
+					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
 					
 					//Create loop for music and rain
-					source.loop = name.indexOf('loop') > -1 ? true : false;
+					source.loop = name.indexOf('Loop') > -1 ? true : false;
 					
 					//Start the music and save the source
 					source.start(time);
 					this.source = source;
 					
 				}, 
+				
+				stop: function() {
+					this.reduceGain(0);
+				},
 				
 				adjustGain: function(value, current) {
 					//This function currrently only increases gain
@@ -64,12 +81,13 @@ function loadSound(name, url) {
 				reduceGain: function(value) {
 					//This function currrently only increases gain
 					
-					if (this.gainNode.gain.value <= 0) {
+					if (this.gainNode.gain.value <= 0.05) {
+						this.source.stop();
 						return false;
 					}
 					
 					//If first time, set the current value
-				    this.gainNode.gain.value = this.gainNode.gain.value - 0.1;
+				    this.gainNode.gain.value = this.gainNode.gain.value - 0.005;
 					
 					//For use in setTimeout function
 					$this = this;
@@ -77,11 +95,15 @@ function loadSound(name, url) {
 					setTimeout(function() {
 						//Recursion used to increase gain until desired value
 						if ($this.gainNode.gain.value > value) $this.reduceGain(value);
-					}, 300)
+					}, 50)
 					
-				}
+				},
+				
+				isLoaded: true
 							
 			};	
+			
+			if (playOnLoad) audio[name].play();
 			
 			audioLoadCount++;
 			
@@ -104,6 +126,6 @@ audioLoadCount = 0;	//How many sounds are loaded
 audioLoaded = false;
 
 //Cycle
-for (i = 0; i < audioKeys.length; i++) {
-	loadSound(audioKeys[i], audio[audioKeys[i]])
-}
+//for (i = 0; i < audioKeys.length; i++) {
+//	loadSound(audioKeys[i], audio[audioKeys[i]])
+//}

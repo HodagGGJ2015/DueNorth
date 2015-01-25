@@ -100,11 +100,20 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-
+		
+		if (audio[global.audio].isLoaded) audio[global.audio].stop();
+		
+	    if (!audio[nextLocationObj.audio].isLoaded) 
+	  	  loadSound(nextLocationObj.audio, audio[nextLocationObj.audio], true);
+	    else
+		  audio[nextLocationObj.audio].play();
+		
+		global.audio = nextLocationObj.audio;
+		
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
-        global.response = 'What do you do now?';
-
+        global.response = 'You traveled ' + args.direction;
+		
         nextLocationObj.visited = true;
         this.global.location = nextLocation;
       }
@@ -278,6 +287,14 @@
           var location = this[this.global.location];
           this.global.image = location.image;
           this.global.description = location.fullDescription;
+          this.global.response = 'You look around.';
+		  this.global.audio = location.audio;
+		  		  
+		  if (!audio[location.audio].isLoaded) 
+		  	  loadSound(location.audio, audio[location.audio], true);
+		  else
+			  audio[location.audio].play();
+		  
         }
       }
     }

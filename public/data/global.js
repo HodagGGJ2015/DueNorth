@@ -2,7 +2,8 @@
   _.extend(window.Stuff, {
     global: {
       description: 'Welcome to Wisconsin',
-      response: 'What would you like to do?',
+  	  audio: "",
+      response: 'What do you do now?',
       location: 'motorhome',
       image: '',
       help: 'What?'
