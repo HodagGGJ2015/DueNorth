@@ -69,9 +69,11 @@
         }
 
         object.location = 'inventory';
-		
-		if (object.audio) playAudio(object.audio);
-		
+
+    		if (object.audio) {
+          playAudio(object.audio);
+        }
+
         if (object.take.act) {
           object.take.act.call(this, args);
         } else if (object.take.response) {
@@ -117,15 +119,12 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-		
 	  	if (nextLocation == "introb") {
 	  		playAudio("screamSFX");
 			audio['barkLoop'].stop();
 	  	}
-		
-		
   	    if (global.audio != nextLocationObj.audio) {
-  	    	
+
 		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
 			playAudio(nextLocationObj.audio);
 			
@@ -357,10 +356,10 @@
               this.global.description += object.fullDescription;
             }
           }, this);
-		  
+
     	  this.global.audio = location.audio;
           this.global.response = 'You look around.';
-		  
+
 		  if (playerLocation == "introa") playAudio("barkLoop")
 		  playAudio(location.audio);
         }

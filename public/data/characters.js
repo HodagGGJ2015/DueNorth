@@ -89,8 +89,45 @@
       receive: {
         objects: ['booze']
       },
+      ask: {
+        'Big Sal': function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = ["<p>“Big Sal... Big Sal might be a mean motherfucker…” mutters Delbert, “But I tell ya, she's nothing compared to her sister at the Motel!”</p>", "<p>“Now you just shut your trap!” Big Sal says to Delbert, pointing her large, meaty index finger right in his face. “There’s nothin wrong with my sister, y’understand?”</p>",, "<p>“The only ones worse than your sis is that gift shop lady and that big lumberjack on the campgrounds right there. Now THOSE two, I don't know what it is, but I know that they up to somethin’!”</p>", "<p>“What are ya, sherlock holmes or sometin?” Big Sal slaps Delbert upside the head. “The only people you know are a certain Jack Daniels and Captain Morgan.”</p>", "<p>Delbert looks like he's about to say something, but then just lets out a big sign and slumps over again.</p>"].join('');
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        bartender: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = ["<p>“Big Sal... Big Sal might be a mean motherfucker…” mutters Delbert, “But I tell ya, she's nothing compared to her sister at the Motel!”</p>", "<p>“Now you just shut your trap!” Big Sal says to Delbert, pointing her large, meaty index finger right in his face. “There’s nothin wrong with my sister, y’understand?”</p>",, "<p>“The only ones worse than your sis is that gift shop lady and that big lumberjack on the campgrounds right there. Now THOSE two, I don't know what it is, but I know that they up to somethin’!”</p>", "<p>“What are ya, sherlock holmes or sometin?” Big Sal slaps Delbert upside the head. “The only people you know are a certain Jack Daniels and Captain Morgan.”</p>", "<p>Delbert looks like he's about to say something, but then just lets out a big sign and slumps over again.</p>"].join('');
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        hodag: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“There is no Hodag. And if there was, I betcha it’s someone in a dang costume trying to scare kids. But heck, what do I know?”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        'gift shop': function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“Now that place is doing something shady! They keep coming in with these weird artifacts and trinket, but where are they gettin’ them? I never seen a truck stop by there!”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        giftshop: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“Now that place is doing something shady! They keep coming in with these weird artifacts and trinket, but where are they gettin’ them? I never seen a truck stop by there!”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        }
+      },
       talk: {
-        response: 'Woo!'
+        response: "<p>Delbert lets out an odd groan, followed by a hiccup. “Hey Kid, if you can get me money for another drink, I'll tell you whatever you want!”</p>"
       }
     },
     attendent: {
@@ -172,7 +209,7 @@
       fullDescription: "<p>Holy crap what is that? Part dinosaur, part frog?!?!</p><p>This creature has the grinning face of a giant elephant, the head of a frog, the back of a dinosaur, thick short legs set off by huge claws and (of course) a long tail with spears at the end</p>",
       receive: {
         objects: ['music']
-      }
+      },
       talk: {
         response: "Sniff. Sniff."
       }
