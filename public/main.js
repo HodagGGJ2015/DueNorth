@@ -10,7 +10,7 @@
   var history = [''];
   var history_index = 0;
   var MAX_HISTORY = 100;
-  var IS_DEBUG = false;
+  var IS_DEBUG = true;
 
   var textDelay = 30;
   var textTimeoutID = -1;
@@ -18,12 +18,9 @@
   function printText(el, text, callback) {
     clearTimeout(textTimeoutID);
 
-    if (el.innerHTML == text && callback) {
-      callback();
+    if (el.innerHTML != '') {
       return;
     }
-
-    el.innerHTML = '';
 
     function recur(positionIndex) {
       return function() {
@@ -46,7 +43,16 @@
     }
 
     if (printDelay) {
-      // PYRAMID OF DOOM!
+      // check and clear outputs that need to be updated
+      var updateLocation = locationEl.innerHTML != output.location;
+      var updateDescription = descriptionEl.innerHTML != output.description;
+      var updateResponse = responseEl.innerHTML != output.response;
+
+      if (updateLocation) locationEl.innerHTML = '';
+      if (updateDescription) descriptionEl.innerHTML = '';
+      if (updateResponse) responseEl.innerHTML = '';
+
+      // PYRAMID OF DOOM! (for animation...)
       printText(locationEl, output.location, function() {
         printText(descriptionEl, output.description, function() {
           printText(responseEl, output.response);
@@ -136,7 +142,7 @@
     }
   });
 
-  if (IS_DEBUG) {
+  if (!IS_DEBUG) {
     engine.deserialize(localStorage.getItem('state'));
   }
   renderOutput(engine.act('look'), true);
