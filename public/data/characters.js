@@ -75,11 +75,15 @@
         objects: ['coin']
       },
       ask: {
-        lush: "He's already had enough to drink.",
-        slots: "That old machine hasn't worked in years."
+        lush: "<p>“What can ya say about Delbert? He's here more than I am. I wouldn't give him too much attention, otherwise you'll never hear the end of it.”</p>",
+        'Delbert': "<p>“What can ya say about Delbert? He's here more than I am. I wouldn't give him too much attention, otherwise you'll never hear the end of it.”</p>",
+        hodag: "<p>“I always thought it was just a small town legend, but I swear I saw it once! Out by the woods, big ol’ green thing.”</p> <p>Delbert interrupts, “Ha, ya probably saw a big tree and couldn’t tell the difference!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        town: "<p>“Nothing about this town would interest yous city folk.”</p> <p>Delbert interrupts, “Ya, sure nothin’ interesting about this bar!</p>” <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        motel: "<p>“My sister own the motel cross the way. She’s a lot more interested in tourists than I am.”</p> <p>Delbert interrupts, “Ya, and she’s a lot nicer than you are too!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        'Northwoods Motel': "<p>“My sister own the motel cross the way. She’s a lot more interested in tourists than I am.”</p> <p>Delbert interrupts, “Ya, and she’s a lot nicer than you are too!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>"
       },
       talk: {
-        response: 'Grunt'
+        response: "<p>“Ya right, like I'll be giving a drink to you. Ya better run off before I tell your parents.”</p>"
       }
     },
     lush: {
@@ -87,7 +91,13 @@
       location: 'bar',
       fullDescription: "<p>Every town has a lush, and this town's lush is named Delbert. Skinny-looking fella wearing a high school varsity jacket over some navy blue long johns and a raccoon tail hat to complement his black bushy beard. There's not much to say about Delbert, but give him enough to drink and he'll tell you everything you want to know, and then some!</p><p>&quot;Hey kids.. ya get me somethin' ta drink and I'll let ya in on a little secret..&quot;</p>",
       receive: {
-        objects: ['booze']
+        objects: ['coin'],
+        act: function(args) {
+          var key = this.global.names[args.object] || args.object;
+          if (key == 'coin') {
+            this.global.response = '<p>Delbert takes the coin.</p>';
+          }
+        }
       },
       ask: {
         'Big Sal': function() {
@@ -241,6 +251,14 @@
           this.global.audio = location.audio;
           this.global.response = 'What do you do next?';
        }
+      }
+    },
+    raccoon: {
+      name: 'Racoon',
+      location: 'motel',
+      fullDescription: "<p>You’ve never seen a racoon so up-close in your life. It looks like it’s trying to eat things off the grounds, but having no luck. With a town this empty, there probably isn’t a whole lot of garbage for it to go through for food.</p>",
+      talk: {
+        response: "You say hi, but it’s a racoon so it can’t talk back."
       }
     },
     pizzaguy: {
