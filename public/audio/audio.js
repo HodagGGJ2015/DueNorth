@@ -46,7 +46,7 @@ function loadSound(name, url, playOnLoad) {
 					source.connect(this.gainNode); 				//Connect gain to source
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
-					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.2 : 1;
+					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;
@@ -58,7 +58,7 @@ function loadSound(name, url, playOnLoad) {
 				}, 
 				
 				stop: function() {
-					this.source.stop();
+					this.reduceGain(0);
 				},
 				
 				adjustGain: function(value, current) {
@@ -81,12 +81,13 @@ function loadSound(name, url, playOnLoad) {
 				reduceGain: function(value) {
 					//This function currrently only increases gain
 					
-					if (this.gainNode.gain.value <= 0) {
+					if (this.gainNode.gain.value <= 0.05) {
+						this.source.stop();
 						return false;
 					}
 					
 					//If first time, set the current value
-				    this.gainNode.gain.value = this.gainNode.gain.value - 0.1;
+				    this.gainNode.gain.value = this.gainNode.gain.value - 0.005;
 					
 					//For use in setTimeout function
 					$this = this;
@@ -94,7 +95,7 @@ function loadSound(name, url, playOnLoad) {
 					setTimeout(function() {
 						//Recursion used to increase gain until desired value
 						if ($this.gainNode.gain.value > value) $this.reduceGain(value);
-					}, 300)
+					}, 50)
 					
 				},
 				

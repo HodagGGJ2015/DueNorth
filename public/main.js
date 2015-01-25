@@ -86,6 +86,13 @@
       if (!value) {
         clearTimeout(textTimeoutID);
         renderOutput(engine.getOutput(), false);
+		
+    	if (!audio['textEnterFalse'].isLoaded) {
+    	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+        } else {
+    	  audio['textEnterFalse'].play();
+        }
+		
         return;
       }
 
@@ -101,7 +108,7 @@
       localStorage.setItem('state', engine.serialize());
 
   	  // play audio
-  	  if (output.success) {
+  	  if (!output.success) {
     	if (!audio['textEnterFalse'].isLoaded) {
     	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
         } else {
