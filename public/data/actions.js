@@ -76,7 +76,7 @@
           return;
         }
 
-        global.description = nextLocationObj ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
+        global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
         global.response = 'What do you do now?';
 

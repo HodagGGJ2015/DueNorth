@@ -9,9 +9,10 @@
   };
 
   Engine.prototype.getOutput = function() {
+    console.log(this.state.global);
     return {
-      description: this.format(this.state.global.description),
-      response: this.format(this.state.global.response),
+      description: this.state.global.description,
+      response: this.state.global.response,
       image: this.state.global.image
     };
   };
