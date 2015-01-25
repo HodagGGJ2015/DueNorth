@@ -182,16 +182,6 @@
         west: "pizza"
       }
     },
-    woods: {
-      name: "The Woods",
-      visited: false,
-      fullDescription: "<p>Big pine trees in every direction.</p>",
-      shortDescription: "<p>Big pine trees.</p>",
-      audio: "forestLoop",
-      image: "images/woods.png",
-      directions: {
-      }
-    },
     cave: {
       name: "Hodag Cave",
       visited: false,
@@ -230,6 +220,396 @@
       audio: "motorhomeLoop", //not ready
       image: "images/winners.png",
       directions: {
+      }
+    },
+    woodsA1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        east: "woodsB1",
+        south: "woodsA2"
+      }
+    },
+    woodsA2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsA1",
+        south: "woodsA3",
+        east: "woodsB2"
+      }
+    },
+    woodsA3: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsA2",
+        south: "woodsA4",
+        east: "party"
+      }
+    },
+    woodsA4: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsA3",
+        south: "woodsA5",
+        east: "woodsB4"
+      }
+    },
+    woodsA5: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsA4",
+        south: "woodsA6",
+        east: "woodsB5"
+      }
+    },
+    woodsA6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsA5",
+        east: "woodsB6"
+      }
+    },
+    woodsB1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "woodsB2",
+        east: "woodsC1",
+        west: "woodsA1"
+      }
+    },
+    woodsB2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsB1",
+        south: "party",
+        east: "woodsC2",
+        west: "woodsA2"
+      }
+    },
+    woodsB4: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "party",
+        south: "woodsB5",
+        east: "motel",
+        west: "woodsA4"
+      }
+    },
+    woodsB5: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsB4",
+        south: "woodsB6",
+        east: "woodsC5",
+        west: "woodsA5"
+      }
+    },
+    woodsB6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsB5",
+        east: "woodsC6",
+        west: "woodsA6"
+      }
+    },
+    woodsC1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "woodsC2",
+        east: "woodsD1",
+        west: "woodsB1"
+      }
+    },
+    woodsC2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsC1",
+        south: "campground",
+        east: "woodsD2",
+        west: "woodsB2"
+      }
+    },
+    woodsC5: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "motel",
+        south: "woodsC6",
+        west: "woodsB5"
+      }
+    },
+    woodsC6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsC5",
+        east: "woodsD6",
+        west: "woodsB6"
+      }
+    },
+    woodsD1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "woodsD2",
+        east: "woodsE1",
+        west: "woodsC1"
+      }
+    },
+    woodsD2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsD1",
+        south: "gas",
+        east: "motorhome",
+        west: "woodsC2"
+      }
+    },
+    woodsD6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        east: "woodsE6",
+        west: "woodsC6"
+      }
+    },
+    woodsE1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "motorhome",
+        east: "woodsF1",
+        west: "woodsD1"
+      }
+    },
+    woodsE6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        east: "woodsF6",
+        west: "woodsD6"
+      }
+    },
+    woodsF1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "woodsF2",
+        east: "woodsG1",
+        west: "woodsE1"
+      }
+    },
+    woodsF2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsF1",
+        south: "bar",
+        east: "woodsG2",
+        west: "motorhome"
+      }
+    },
+    woodsF5: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "taxidermy",
+        south: "woodsF6",
+        east: "woodsG5"
+      }
+    },
+    woodsF6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsF5",
+        east: "woodsG6",
+        west: "woodsE6"
+      }
+    },
+    woodsG1: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        south: "woodsG2",
+        west: "woodsF1"
+      }
+    },
+    woodsG2: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsG1",
+        south: "woodsG3",
+        west: "woodsF2"
+      }
+    },
+    woodsG3: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsG2",
+        south: "woodsG4",
+        west: "bar"
+      }
+    },
+    woodsG4: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsG3",
+        south: "woodsG5",
+        west: "taxidermy"
+      }
+    },
+    woodsG5: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsG4",
+        south: "woodsG6",
+        west: "woodsF5"
+      }
+    },
+    woodsG6: {
+      name: "The Woods",
+      visited: false,
+      fullDescription: "<p>Big pine trees in every direction.</p>",
+      shortDescription: "<p>Big pine trees.</p>",
+      audio: "forestLoop",
+      image: "images/woods.png",
+      directions: {
+        north: "woodsG5",
+        west: "woodsF6"
       }
     }
   });
