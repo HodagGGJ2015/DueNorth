@@ -154,17 +154,17 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-		
-	  	if (nextLocation == "introb") {
-	  		playAudio("screamSFX");
-			audio['barkLoop'].stop();
-	  	}
-		
-		if (nextLocation == "hostilehodag") {
-			playAudio("hodagSFX");
-		}
-		
-    	global.audio = nextLocationObj.audio;
+
+        if (nextLocation == "introb") {
+        	playAudio("screamSFX");
+          audio['barkLoop'].stop();
+        }
+
+        if (nextLocation == "hostilehodag") {
+          playAudio("hodagSFX");
+        }
+
+    	 global.audio = nextLocationObj.audio;
 
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
@@ -186,6 +186,31 @@
 
         nextLocationObj.visited = true;
         this.global.location = nextLocation;
+      }
+    },
+    sing: {
+      parse: function(input) {
+        return match(input, [
+          /^sing\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object) {
+          this.global.response = 'You cannot sing to nothing...';
+          return;
+        }
+
+        if (!object.stop || !object.stop.act) {
+          this.global.response = 'You can\'t sing that.';
+          return;
+        }
+
+        object.stop.act.call(this, args);
       }
     },
     stop: {
@@ -216,7 +241,10 @@
     hit: {
       parse: function(input) {
         return match(input, [
-          /^hit\s+(.+)$/i
+          /^hit\s+(.+)$/i,
+          /^bump\s+(.+)$/i,
+          /^push\s+(.+)$/i,
+          /^shake\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
@@ -224,6 +252,8 @@
         });
       },
       act: function(args) {
+        console.log('hit', args);
+
         var object = get(this, args.object);
         if (!object) {
           global.response = 'You cannot hit nothing...';
@@ -241,7 +271,9 @@
     give: {
       parse: function(input) {
         return match(input, [
-          /^give\s+(.+)\s+to\s+(.+)$/i
+          /^give\s+(.+)\s+to\s+(.+)$/i,
+          /^share\s+(.+)\s+with\s+(.+)$/i,
+          /^pass\s+(.+)\s+to\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1],
@@ -255,27 +287,39 @@
         var recipient = get(this, args.recipient);
 
         if (!object) {
-          global.response = 'You don\'t have ' + args.object;
+          global.response = '<p>' + args.object + ' does not exist.</p>';
+          return;
+        }
+
+        if (object.location != 'inventory') {
+          global.response = '<p>You don\'t have ' + args.object + '</p>';
           return;
         }
 
         if (!recipient) {
-          global.response = 'There is no ' + args.recipient;
+          global.response = '<p>There is no ' + args.recipient + '</p>';
           return;
         }
 
         if (!object.give) {
-          global.response = 'Cannot give ' + args.object;
+          global.response = '<p>Cannot give ' + args.object + '</p>';
           return;
         }
 
-        if (!recipient.receive && _.contains(recipient.receive.objects, args.object)) {
-          global.response = args.recipient + ' cannot receive ' + args.object;
+        if (!recipient.receive || !_.contains(recipient.receive.objects, this.global.names[args.object] || args.object)) {
+          global.response = '<p>Cannot give ' + args.object + ' ' + args.recipient + '</p>';
           return;
         }
 
         object.location = args.recipient;
-        global.response = object.take.response || 'You gave the ' + args.object + ' to ' + args.recipient;
+
+        if (recipient.receive.response) {
+          global.response = recipient.receive.response;
+        } else if (recipient.receive.act) {
+          global.response = recipient.receive.act.call(this, args);
+        } else {
+          global.response = '<p>You gave the ' + args.object + ' to ' + args.recipient + '</p>';
+        }
       }
     },
     ask: {
