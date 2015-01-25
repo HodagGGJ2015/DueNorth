@@ -12,12 +12,13 @@
     this.storage = storage;
 
     this.state.global.names = _.reduce(this.state, function(names, object, name) {
-      if (!object.name) {
-        console.warn(name, 'has no "name".');
-        return names;
+      if (name != 'global') {
+        if (object.name) {
+          names[object.name.toLowerCase()] = name;
+        } else {
+          console.warn(name, 'has no "name".');
+        }
       }
-
-      names[object.name.toLowerCase()] = name;
       return names;
     }, {});
 
