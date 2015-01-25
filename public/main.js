@@ -1,4 +1,6 @@
 (function() {
+  var MAX_HISTORY = 100;
+  var IS_DEBUG = false;
 
   var inputEl = document.querySelector('.input');
   var imageEl = document.querySelector('.image');
@@ -6,11 +8,9 @@
   var locationEl = document.querySelector('.location');
   var responseEl = document.querySelector('.response');
 
-  var engine = new Engine(Stuff, Actions);
+  var engine = new Engine(Stuff, Actions, localStorage);
   var history = [''];
   var history_index = 0;
-  var MAX_HISTORY = 100;
-  var IS_DEBUG = true;
 
   var textDelay = 30;
   var textTimeoutID = -1;
@@ -92,10 +92,10 @@
         clearTimeout(textTimeoutID);
         renderOutput(engine.getOutput(), false);
 
-    	if (!audio['textEnterFalse'].isLoaded) {
-    	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+        if (!audio['textEnterFalse'].isLoaded) {
+          loadSound('textEnterFalse', audio['textEnterFalse'], true);
         } else {
-    	  audio['textEnterFalse'].play();
+          audio['textEnterFalse'].play();
         }
 
         return;
@@ -109,23 +109,23 @@
       var output = engine.act(value);
       renderOutput(output, true);
 
-      // serialize state
-      localStorage.setItem('state', engine.serialize());
+      // save game state
+      engine.saveState();
 
-  	  // play audio
-  	  if (!output.success) {
-    	if (!audio['textEnterFalse'].isLoaded) {
-    	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+      // play audio
+      if (!output.success) {
+        if (!audio['textEnterFalse'].isLoaded) {
+          loadSound('textEnterFalse', audio['textEnterFalse'], true);
         } else {
-    	  audio['textEnterFalse'].play();
+          audio['textEnterFalse'].play();
         }
-  	  } else {
-    	if (!audio['textEnter'].isLoaded) {
-    	  loadSound('textEnter', audio['textEnter'], true);
+      } else {
+        if (!audio['textEnter'].isLoaded) {
+          loadSound('textEnter', audio['textEnter'], true);
         } else {
-    	  audio['textEnter'].play();
+          audio['textEnter'].play();
         }
-  	  }
+      }
 
       // clear input
       inputEl.value = '';
@@ -148,7 +148,7 @@
   });
 
   if (!IS_DEBUG) {
-    engine.deserialize(localStorage.getItem('state'));
+    engine.loadState();
   }
   renderOutput(engine.act('look'), true);
 
