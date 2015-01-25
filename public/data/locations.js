@@ -205,7 +205,7 @@
     hostilehodag: {
       name: "The End",
       visited: false,
-      fullDescription: "<p></p>",
+      fullDescription: "<p>Before you can make your move, the Hodag sprints over and pounces on the both of you. Now on your back, you’re caught under the Hodag’s foot and the weight is crushing your body. You turn your head back in the opposite direction, and the very last thing you see before the Hodag digs it’s huge teeth into your face is Charlie running away like a coward. So much for being a loyal dog.</p>",
       shortDescription: "&lt;HOSTILE HODAG ENDING&gt;",
       audio: "caveLoop", //not ready
       image: "images/winners.png",
@@ -215,9 +215,9 @@
     pepperoni: {
       name: "The End",
       visited: false,
-      fullDescription: "<p></p>",
+      fullDescription: "<p>Before you can make your move, the Hodag sprints in your direction. You think it’s the end, but what’s that?</p><p>From the branch of a tree, Pepperoni the racoon selflessly launches off and makes a perfect landing on the Hodag’s face. The Hodag is completely stunned in it’s place as Pepperoni starts scratching at it’s face. With the Hodag distracted by the brave racoon, the three of you make your escape from the woods and back to your parent’s Winnebago.</p><p>You’ll never forget the sheer courage of little Pepperoni. The chances that it would’ve survived against such an awful beast are pretty slim, but Pepperoni’s sacrifice was not in vain, and it will pass on in honor and dignity.</p>",
       shortDescription: "&lt;PEPPERONI ENDING&gt;",
-      audio: "motorhomeLoop", //not ready
+      audio: "caveLoop", //not ready
       image: "images/winners.png",
       directions: {
       }
