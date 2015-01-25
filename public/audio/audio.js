@@ -29,7 +29,9 @@ audio = {
 	wrenchSFX: "sfx/wrench_pickup.ogg",
 	screamSFX: "sfx/woman_scream.ogg",
 	hodagSFX: "sfx/hodag.ogg",
-	diplomaSFX: "sfx/diplomaSFX.ogg"
+	diplomaSFX: "sfx/diplomaSFX.ogg",
+	pizzaSFX: "sfx/pizzaSFX.ogg",
+	clothSFX: "sfx/clothSFX.ogg"
 	
 };
 
