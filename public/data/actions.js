@@ -87,8 +87,7 @@
       parse: function(input) {
         return match(input, [
           /^drop\s+(.+)$/i,
-          /^throw\s+(.+)$/i,
-          /^remove\s+(.+)$/i
+          /^throw\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
@@ -98,7 +97,7 @@
       act: function(args) {
         var global = this.global;
         var object = get(this, args.object);
-        if (!object) {
+        if (!object || object.location != 'inventory') {
           global.response = "You don't have " + args.object;
           return;
         }
@@ -108,18 +107,14 @@
           return;
         }
 
-        object.location = global.location;
-
         if (object.audio) {
           playAudio(object.audio);
         }
 
         if (object.drop.act) {
           object.drop.act.call(this, args);
-        } else if (object.drop.response) {
-          global.response = object.drop.response;
         } else {
-          global.response = 'You dropped the ' + args.object;
+          global.response = 'This might not be the right place to drop ' + args.object;
         }
       }
     },
@@ -162,8 +157,12 @@
 
         if (nextLocation == "introb") {
         	playAudio("screamSFX");
-          audio['barkLoop'].stop();
+          
         }
+		
+		if (nextLocation != "introa") {
+			audio['barkLoop'].stop();
+		}
 
         if (nextLocation == "hostilehodag") {
           playAudio("hodagSFX");
@@ -257,8 +256,6 @@
         });
       },
       act: function(args) {
-        console.log('hit', args);
-
         var object = get(this, args.object);
         if (!object) {
           global.response = 'You cannot hit nothing...';
@@ -318,10 +315,10 @@
 
         object.location = args.recipient;
 
-        if (recipient.receive.response) {
+        if (recipient.receive.act) {
+          recipient.receive.act.call(this, args);
+        } else if (recipient.receive.response) {
           global.response = recipient.receive.response;
-        } else if (recipient.receive.act) {
-          global.response = recipient.receive.act.call(this, args);
         } else {
           global.response = '<p>You gave the ' + args.object + ' to ' + args.recipient + '</p>';
         }
