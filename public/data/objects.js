@@ -8,6 +8,7 @@
     slice: {
       name: 'Slice of pizza',
       location: 'pizza',
+      give: true,
       fullDescription: "Oh boy, a slice of pizza! Too bad you're not hungry.",
       shortDescription: "Slice of pizza",
       take: {
@@ -15,8 +16,8 @@
       },
       drop: {
         act: function() {
-          if (global.location == 'giftshop' && !this.clerk.flustered) {
-            this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
+          if (this.global.location == 'giftshop' && !this.clerk.flustered) {
+            this.global.response = "<p>You drop the slice of pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the pizza.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
           }
@@ -37,7 +38,7 @@
       },
       drop: {
         act: function() {
-          if (global.location == 'giftshop' && !this.clerk.flustered) {
+          if (this.global.location == 'giftshop' && !this.clerk.flustered) {
             this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
@@ -63,10 +64,16 @@
     artifact: {
       name: 'Artifact',
       location: 'woodsB4',
+      give: true,
       fullDescription: 'There is an unusual artifact on the ground.',
       shortDescription: "An artifact protrudes from the ground.",
       take: {
-        response: 'It was half-buried in the ground. You reach down to pull it out. It’s a weird… artifact of some sort. Whatever it is, I bet your mom would know more about it. You put the artifact in your fanny pack for later.'
+        response: 'It was half-buried in the ground. You reach down to pull it out. It’s a weird… artifact of some sort. Whatever it is, I bet your mom would know more about it. You put the artifact in your fanny pack for later.',
+        act: function(args) {
+          artifactdesc = "<p>You see an over-priced trinket that looks just like your artifact</p>";
+          this.giftshop.fullDescription +=  artifactdesc;
+          this.giftshop.shortDescription +=  artifactdesc;
+        }
       },
 	  audio: 'artifactSFX'
     },

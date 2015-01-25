@@ -1,4 +1,4 @@
-Welcome to Wisconsin
+Due North
 ===
 
 An interactive fiction.
