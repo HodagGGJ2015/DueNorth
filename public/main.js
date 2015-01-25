@@ -15,23 +15,23 @@
   var textDelay = 30;
   var textTimeoutID = -1;
 
-  function printText(els, texts) {
+  function printText(el, text, callback) {
     clearTimeout(textTimeoutID);
 
-    _.each(els, function(el) {
-      el.innerHTML = '';
-    });
+    if (el.innerHTML == text && callback) {
+      callback();
+      return;
+    }
 
-    function recur(textIndex, positionIndex) {
+    el.innerHTML = '';
+
+    function recur(positionIndex) {
       return function() {
-        var el = els[textIndex];
-        var text = texts[textIndex];
-
         if (positionIndex <= text.length) {
           el.innerHTML = text.slice(0, positionIndex);
-          textTimeoutID = setTimeout(recur(textIndex, positionIndex + 1), textDelay);
-        } else if (textIndex < texts.length - 1) {
-          textTimeoutID = setTimeout(recur(textIndex + 1, 0), textDelay);
+          textTimeoutID = setTimeout(recur(positionIndex + 1), textDelay);
+        } else if (callback) {
+          callback();
         }
       };
     }
@@ -46,10 +46,12 @@
     }
 
     if (printDelay) {
-      printText(
-        [locationEl, descriptionEl, responseEl],
-        [output.location, output.description, output.response]
-      );
+      // PYRAMID OF DOOM!
+      printText(locationEl, output.location, function() {
+        printText(descriptionEl, output.description, function() {
+          printText(responseEl, output.response);
+        });
+      });
     } else {
       descriptionEl.innerHTML = output.description;
       responseEl.innerHTML = output.response;
@@ -74,14 +76,14 @@
 
       // update the engine and render its output
       var value = inputEl.value.trim();
-      var output = engine.act(value);
 
       if (!value) {
         clearTimeout(textTimeoutID);
-        renderOutput(output, false);
+        renderOutput(engine.getOutput(), false);
         return;
       }
 
+      var output = engine.act(value);
       if (history.length == MAX_HISTORY) {
         history = history.slice(1);
       }
