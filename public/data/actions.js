@@ -217,6 +217,31 @@
         object.stop.act.call(this, args);
       }
     },
+    use: {
+      parse: function(input) {
+        return match(input, [
+          /^use\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object || object.location != 'inventory') {
+          this.global.response = "You don't have a " + args.object;
+          return;
+        }
+
+        if (!object.use || !object.stop.act) {
+          this.global.response = "You can't use this right now.";
+          return;
+        }
+
+        object.stop.act.call(this, args);
+      }
+    },
     stop: {
       parse: function(input) {
         return match(input, [
