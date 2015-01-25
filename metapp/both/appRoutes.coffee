@@ -14,7 +14,10 @@ Meteor.startup ->
     name: "game"
     @render "game",
       waitOn: ->
-        Meteor.subscribe("SceneData")
+        [
+          Meteor.subscribe("SceneData")
+          Meteor.subscribe("CBot")
+        ]
       data: ->
         CGame.scene = SceneData.findOne({name:@params.scenename})
         blob = {
