@@ -69,7 +69,9 @@
         }
 
         object.location = 'inventory';
-
+		
+		if (object.audio) playAudio(object.audio);
+		
         if (object.take.act) {
           object.take.act.call(this, args);
         } else if (object.take.response) {
@@ -115,16 +117,21 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-
-	     	if (audio[global.audio].isLoaded) audio[global.audio].stop();
-
-  	    if (!audio[nextLocationObj.audio].isLoaded) {
-	  	    loadSound(nextLocationObj.audio, audio[nextLocationObj.audio], true);
-        } else {
-  		    audio[nextLocationObj.audio].play();
-        }
-
-    		global.audio = nextLocationObj.audio;
+		
+	  	if (nextLocation == "introb") {
+	  		playAudio("scream");
+			audio['barkLoop'].stop();
+	  	}
+		
+		
+  	    if (global.audio != nextLocationObj.audio) {
+  	    	
+		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
+			playAudio(nextLocationObj.audio);
+			
+  	    }		
+		
+    	global.audio = nextLocationObj.audio;
 
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
@@ -289,7 +296,7 @@
       parse: function(input) {
         return match(input, [
           /^talk\s+(?:to\s+)?(.+)$/i,
-          /^hello\s+(.+)$/i
+          /^(?:hello|hi)\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
@@ -350,15 +357,12 @@
               this.global.description += object.fullDescription;
             }
           }, this);
-
-    		  this.global.audio = location.audio;
+		  
+    	  this.global.audio = location.audio;
           this.global.response = 'You look around.';
-
-    		  if (!audio[location.audio].isLoaded) {
-            loadSound(location.audio, audio[location.audio], true);
-          } else {
-            audio[location.audio].play();
-          }
+		  
+		  if (playerLocation == "introa") playAudio("barkLoop")
+		  playAudio(location.audio);
         }
       }
     }
