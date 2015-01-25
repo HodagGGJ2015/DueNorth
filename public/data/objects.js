@@ -12,7 +12,8 @@
       shortDescription: "Slice of pizza",
       take: {
         response: "You receive a slice of pizza. You're not hungry right now, so you just carefully put it away in your fanny pack.",
-      }
+      },
+	  audio: "pizzaSFX"
     },
     shirt: {
       name: 'Shirt (smelly)',
@@ -21,7 +22,8 @@
       shortDescription: "Shirt (smelly)",
       take: {
         response: "You stow away the smelly shirt in your fanny pack. It might come in handy."
-      }
+      },
+	  audio: "clothSFX"
     },
     coin: {
       name: 'Coin',
