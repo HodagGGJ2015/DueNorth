@@ -3,6 +3,7 @@
   var inputEl = document.querySelector('.input');
   var imageEl = document.querySelector('.image');
   var descriptionEl = document.querySelector('.description');
+  var locationEl = document.querySelector('.location');
   var responseEl = document.querySelector('.response');
 
   var engine = new Engine(Stuff, Actions);
@@ -18,6 +19,7 @@
 
     descriptionEl.innerHTML = output.description;
     responseEl.innerHTML = output.response;
+    locationEl.innerHTML = output.location;
   }
 
   // prevent blur
@@ -46,23 +48,23 @@
 	  // play audio
 	  if (inputEl.value.length === 0 || responseEl.value == "Nothing happened.") {
 		  
-		  if (!audio['textEnterFalse'].isLoaded) 
-		  	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
-		  else
-			  audio['textEnterFalse'].play();
+		if (!audio['textEnterFalse'].isLoaded) 
+		  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+		else
+		  audio['textEnterFalse'].play();
 		  
 	  } else {
 		  
-		  if (!audio['textEnter'].isLoaded) 
-		  	  loadSound('textEnter', audio['textEnter'], true);
-		  else
-			  audio['textEnter'].play();
+		if (!audio['textEnter'].isLoaded) 
+		  loadSound('textEnter', audio['textEnter'], true);
+		else
+		  audio['textEnter'].play();
 		  
 	  }	  
 	 
       // clear input
       inputEl.value = '';
-
+	  
     } else if (e.keyCode == 38) {
       e.preventDefault();
       // scroll back in history

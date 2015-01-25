@@ -30,7 +30,9 @@
     return {
       description: this.state.global.description,
       response: this.state.global.response,
-      image: this.state.global.image
+      location: this.state[this.state.global.location].name,
+      image: this.state.global.image,
+      success: this.state.global.success
     };
   };
 
@@ -56,6 +58,8 @@
       action.act.call(this.state, args);
       return true;
     }, this);
+
+    this.state.global.success = !!action;
 
     if (!action) {
       this.state.global.response = 'Nothing happened.';
