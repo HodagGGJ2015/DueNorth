@@ -1,6 +1,6 @@
 (function() {
   var MAX_HISTORY = 100;
-  var IS_DEBUG = false;
+  var IS_DEBUG = true;
 
   var inputEl = document.querySelector('.input');
   var imageEl = document.querySelector('.image');
