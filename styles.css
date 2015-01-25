@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'silkscreennormal';
+    src: url('fonts/slkscr-webfont.eot');
+    src: url('fonts/slkscr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/slkscr-webfont.woff') format('woff'),
+         url('fonts/slkscr-webfont.ttf') format('truetype'),
+         url('fonts/slkscr-webfont.svg#silkscreennormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'silkscreenbold';
+    src: url('fonts/slkscrb-webfont.eot');
+    src: url('fonts/slkscrb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/slkscrb-webfont.woff') format('woff'),
+         url('fonts/slkscrb-webfont.ttf') format('truetype'),
+         url('fonts/slkscrb-webfont.svg#silkscreenbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: "silkscreennormal", "Vollkorn", san-serif;
+  font-size: 18px;
+  background: #222;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 640px;
+  height: 400px;
+  background: black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.output {
+  padding: 16px 8px;
+}
+
+.input-wrapper {
+  font-size: 24px;
+  padding: 12px;
+  margin: 12px 0;
+  background: black;
+  width: 100%;
+  box-sizing: border-box;
+}
+.location {
+  font-size: 24px;
+  font-family: "silkscreenbold", "Vollkorn", san-serif;
+}
+.input {
+  font-size: 24px;
+  font-family: "silkscreenbold", "Vollkorn", san-serif;
+  outline: none;
+  background: black;
+  color: white;
+  width: 95%;
+  box-sizing: border-box;
+  border: none;
+}
