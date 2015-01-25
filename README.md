@@ -27,9 +27,9 @@ PY: Party
 TODO
 ---
 
-- add location name to index.html (jim)
 - arrow up/down for previous commands (gabe)
 - typer.js (jim)
 - audio (luis)
 - object images (gabe)
 - transition slides (jim)
+- add GA (jim)

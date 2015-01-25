@@ -10,16 +10,51 @@
   var history = [''];
   var history_index = 0;
   var MAX_HISTORY = 100;
+  var IS_DEBUG = false;
+
+  var textDelay = 30;
+  var textTimeoutID = -1;
+
+  function printText(els, texts) {
+    clearTimeout(textTimeoutID);
+
+    _.each(els, function(el) {
+      el.innerHTML = '';
+    });
+
+    function recur(textIndex, positionIndex) {
+      return function() {
+        var el = els[textIndex];
+        var text = texts[textIndex];
+
+        if (positionIndex <= text.length) {
+          el.innerHTML = text.slice(0, positionIndex);
+          textTimeoutID = setTimeout(recur(textIndex, positionIndex + 1), textDelay);
+        } else if (textIndex < texts.length - 1) {
+          textTimeoutID = setTimeout(recur(textIndex + 1, 0), textDelay);
+        }
+      };
+    }
+
+    textTimeoutID = setTimeout(recur(0, 0), textDelay);
+  }
 
   // set the description and image src
-  function renderOutput(output, delay) {
+  function renderOutput(output, printDelay) {
     if (output.image) {
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }
 
-    descriptionEl.innerHTML = output.description;
-    responseEl.innerHTML = output.response;
-    locationEl.innerHTML = output.location;
+    if (printDelay) {
+      printText(
+        [locationEl, descriptionEl, responseEl],
+        [output.location, output.description, output.response]
+      );
+    } else {
+      descriptionEl.innerHTML = output.description;
+      responseEl.innerHTML = output.response;
+      locationEl.innerHTML = output.location;
+    }
   }
 
   // prevent blur
@@ -37,14 +72,22 @@
     if (e.keyCode == 13) {
       e.preventDefault();
 
+      // update the engine and render its output
+      var value = inputEl.value.trim();
+      var output = engine.act(value);
+
+      if (!value) {
+        clearTimeout(textTimeoutID);
+        renderOutput(output, false);
+        return;
+      }
+
       if (history.length == MAX_HISTORY) {
         history = history.slice(1);
       }
       history_index = history.push('') - 1;
 
-      // update the engine and render its output
-      var output = engine.act(inputEl.value.trim());
-      renderOutput(output);
+      renderOutput(output, true);
 
       // serialize state
       localStorage.setItem('state', engine.serialize());
@@ -75,7 +118,9 @@
     }
   });
 
-  engine.deserialize(localStorage.getItem('state'));
-  renderOutput(engine.act('look'));
+  if (IS_DEBUG) {
+    engine.deserialize(localStorage.getItem('state'));
+  }
+  renderOutput(engine.act('look'), true);
 
 }).call(this);
