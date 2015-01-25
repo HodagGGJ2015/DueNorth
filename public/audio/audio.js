@@ -12,12 +12,23 @@ audio = {
 	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
 	pizzaLoop: 'backgrounds/pizza_loop.ogg',
 	motelLoop: 'backgrounds/clinic_loop.ogg',
+	
+	musicLoop: "music/music_loop.ogg",
+	
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg',
-	hodag: "sfx/hodag.ogg",
-	musicLoop: "music/music_loop.ogg",
+	
 	barkLoop: "sfx/bark_loop.ogg",
-	womanSFX: "sfx/woman_scream.ogg"
+	dogGrowl: "sfx/dog_growl.ogg",
+	artifact: "sfx/artifact_grab.ogg",
+	booze: "sfx/booze.ogg",
+	coin: "sfx/coin.ogg",
+	bell: "sfx/shop_bell.ogg",
+	slots: "sfx/slot_machine.ogg",
+	wrench: "sfx/wrench_pickup.ogg",
+	scream: "sfx/woman_scream.ogg",
+	hodag: "sfx/hodag.ogg"
+	
 };
 
 //Create an array of keys for the audio files
