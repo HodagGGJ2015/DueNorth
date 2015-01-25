@@ -63,7 +63,7 @@
       audio: "clothSFX"
     },
     strut: {
-      name: 'Small Metal Strut',
+      name: 'Small Strut',
       fullDescription: '<p>Small flexible piece of metal. It looks a lot like a a lockpick.</p>',
       shortDescription: "<p>Small piece of metal.</p>",
       location: 'campground',
@@ -88,8 +88,8 @@
     },
     coin: {
       name: 'Coin',
-      fullDescription: '<p>A shiny coin glistens behind a slot of the cigarette machine.</p>',
-      shortDescription: "<p>There's a coin in the cigarette machine.</p>",
+      fullDescription: '<p>A shiny coin glistens on the ground in front of the cigarette machine.</p>',
+      shortDescription: "<p>There's a coin in front of the cigarette machine.</p>",
       location: '',
       give: true,
       take: {
@@ -136,12 +136,12 @@
     machine: {
       name: 'Cigarette Machine',
       location: 'bar',
-      fullDescription: '<p>A cigarette machine stands in the corner with a sign that reads “out of order”.</p>',
-      shortDescription: "Cigarette machine sits broken in the corner.",
+      fullDescription: '<p>A cigarette machine stands in the corner with a sign that reads “out of order”.</p><p>There is a coin stuck in the coin slot.</p>',
+      shortDescription: "<p>Cigarette machine sits broken in the corner.</p><p>There is something in the coin slot</p>",
       hit: {
         act: function(args) {
           this.coin.location = 'bar';
-          this.global.response = 'You give the cigarette machine a good nudge and are rewarded with a rattling sound.';
+          this.global.response = '<p>You give the cigarette machine a good nudge and something falls on to the ground.</p>';
         }
       },
 	  audio: 'slotsSFX'

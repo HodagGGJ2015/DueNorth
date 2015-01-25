@@ -157,9 +157,9 @@
 
         if (nextLocation == "introb") {
         	playAudio("screamSFX");
-          
+
         }
-		
+
 		if (nextLocation != "introa") {
 			audio['barkLoop'].stop();
 		}
@@ -273,7 +273,10 @@
           /^hit\s+(.+)$/i,
           /^bump\s+(.+)$/i,
           /^push\s+(.+)$/i,
-          /^shake\s+(.+)$/i
+          /^shake\s+(.+)$/i,
+          /^touch\s+(.+)$/i,
+          /^rattle\s+(.+)$/i,
+          /^tip\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
