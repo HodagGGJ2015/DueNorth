@@ -252,8 +252,6 @@
         });
       },
       act: function(args) {
-        console.log('hit', args);
-
         var object = get(this, args.object);
         if (!object) {
           global.response = 'You cannot hit nothing...';
@@ -313,10 +311,10 @@
 
         object.location = args.recipient;
 
-        if (recipient.receive.response) {
+        if (recipient.receive.act) {
+          recipient.receive.act.call(this, args);
+        } else if (recipient.receive.response) {
           global.response = recipient.receive.response;
-        } else if (recipient.receive.act) {
-          global.response = recipient.receive.act.call(this, args);
         } else {
           global.response = '<p>You gave the ' + args.object + ' to ' + args.recipient + '</p>';
         }
