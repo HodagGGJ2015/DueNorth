@@ -63,7 +63,7 @@
         act: function(args) {
           this.dog.shortDescription = "";
 
-          var location = this.end;
+          var location = this.noskunk;
 
           this.global.description = location.fullDescription;
           this.global.image = location.image;
