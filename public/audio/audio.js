@@ -1,5 +1,7 @@
 //Gather all audio files as objects to be expanded later
+//Placed in order of importance
 audio = {
+	motorhomeLoop: 'backgrounds/motor_home_loop.ogg',
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg'
 };
@@ -8,7 +10,7 @@ audio = {
 audioKeys = Object.keys(audio);
 
 //Preload all of the audio files
-function loadSound(name, url) {
+function loadSound(name, url, playOnLoad) {
 	
 	//Create XML Request
 	var request = new XMLHttpRequest();
@@ -36,7 +38,7 @@ function loadSound(name, url) {
 					this.gainNode.gain.value = 0.4;
 					
 					//Create loop for music and rain
-					source.loop = name.indexOf('loop') > -1 ? true : false;
+					source.loop = name.indexOf('Loop') > -1 ? true : false;
 					
 					//Start the music and save the source
 					source.start(time);
@@ -79,9 +81,13 @@ function loadSound(name, url) {
 						if ($this.gainNode.gain.value > value) $this.reduceGain(value);
 					}, 300)
 					
-				}
+				},
+				
+				isLoaded: true
 							
 			};	
+			
+			if (playOnLoad) audio[name].play();
 			
 			audioLoadCount++;
 			
@@ -104,6 +110,6 @@ audioLoadCount = 0;	//How many sounds are loaded
 audioLoaded = false;
 
 //Cycle
-for (i = 0; i < audioKeys.length; i++) {
-	loadSound(audioKeys[i], audio[audioKeys[i]])
-}
+//for (i = 0; i < audioKeys.length; i++) {
+//	loadSound(audioKeys[i], audio[audioKeys[i]])
+//}
