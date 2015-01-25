@@ -219,6 +219,14 @@
       talk: {
         response: "Sniff. Sniff."
       }
+    },
+    pizzaguy: {
+      name: 'Pizza guy',
+      location: 'pizza',
+      fullDescription: "<p>Behind the counter is some bored-looking teenager.</p>",
+      talk: {
+        response: "“We have pizza slices, but it’ll cost ya either money or tickets from ski-ball.”"
+      }
     }
   });
 }).call(this);
