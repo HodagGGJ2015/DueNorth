@@ -12,7 +12,8 @@
   var MAX_HISTORY = 100;
   var IS_DEBUG = true;
 
-  var textDelay = 30;
+  var minTextDelay = 30;
+  var textDelay = 100;
   var textTimeoutID = -1;
 
   function printText(el, text, callback) {
@@ -26,7 +27,7 @@
       return function() {
         if (positionIndex <= text.length) {
           el.innerHTML = text.slice(0, positionIndex);
-          textTimeoutID = setTimeout(recur(positionIndex + 1), textDelay);
+          textTimeoutID = setTimeout(recur(positionIndex + 1), minTextDelay + (textDelay * Math.random()));
         } else if (callback) {
           callback();
         }
