@@ -70,7 +70,9 @@
 
         object.location = 'inventory';
 
-		if (object.audio) playAudio(object.audio);
+    		if (object.audio) {
+          playAudio(object.audio);
+        }
 
         if (object.take.act) {
           object.take.act.call(this, args);
@@ -118,20 +120,16 @@
           return;
         }
 
-	  	if (nextLocation == "introb") {
-	  		playAudio("scream");
-			audio['barkLoop'].stop();
-	  	}
+        if (nextLocation == "introb") {
+        	playAudio("screamSFX");
+          audio['barkLoop'].stop();
+        }
 
+        if (nextLocation == "hostilehodag") {
+          playAudio("hodagSFX");
+        }
 
-  	    if (global.audio != nextLocationObj.audio) {
-
-		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
-			playAudio(nextLocationObj.audio);
-
-  	    }
-
-    	global.audio = nextLocationObj.audio;
+    	 global.audio = nextLocationObj.audio;
 
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
@@ -387,8 +385,51 @@
           this.global.response = 'You look around.';
 
 		  if (playerLocation == "introa") playAudio("barkLoop")
-		  playAudio(location.audio);
         }
+      }
+    },
+    save: {
+      parse: function(input) {
+        return match(input, [
+          /^(save)$/i,
+        ], function(matches) {
+          return {
+            save_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.saveState();
+        this.global.response = 'Game saved!';
+      }
+    },
+    load: {
+      parse: function(input) {
+        return match(input, [
+          /^(load|reset|die)$/i,
+        ], function(matches) {
+          return {
+            reset_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.loadState();
+      }
+    },
+    restart: {
+      parse: function(input) {
+        return match(input, [
+          /^(restart|apocalypse)$/i,
+        ], function(matches) {
+          return {
+            restart_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.restart();
+        args.engine.act('look');
       }
     }
   });

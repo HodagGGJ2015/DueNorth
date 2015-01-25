@@ -89,8 +89,45 @@
       receive: {
         objects: ['booze']
       },
+      ask: {
+        'Big Sal': function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = ["<p>“Big Sal... Big Sal might be a mean motherfucker…” mutters Delbert, “But I tell ya, she's nothing compared to her sister at the Motel!”</p>", "<p>“Now you just shut your trap!” Big Sal says to Delbert, pointing her large, meaty index finger right in his face. “There’s nothin wrong with my sister, y’understand?”</p>",, "<p>“The only ones worse than your sis is that gift shop lady and that big lumberjack on the campgrounds right there. Now THOSE two, I don't know what it is, but I know that they up to somethin’!”</p>", "<p>“What are ya, sherlock holmes or sometin?” Big Sal slaps Delbert upside the head. “The only people you know are a certain Jack Daniels and Captain Morgan.”</p>", "<p>Delbert looks like he's about to say something, but then just lets out a big sign and slumps over again.</p>"].join('');
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        bartender: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = ["<p>“Big Sal... Big Sal might be a mean motherfucker…” mutters Delbert, “But I tell ya, she's nothing compared to her sister at the Motel!”</p>", "<p>“Now you just shut your trap!” Big Sal says to Delbert, pointing her large, meaty index finger right in his face. “There’s nothin wrong with my sister, y’understand?”</p>",, "<p>“The only ones worse than your sis is that gift shop lady and that big lumberjack on the campgrounds right there. Now THOSE two, I don't know what it is, but I know that they up to somethin’!”</p>", "<p>“What are ya, sherlock holmes or sometin?” Big Sal slaps Delbert upside the head. “The only people you know are a certain Jack Daniels and Captain Morgan.”</p>", "<p>Delbert looks like he's about to say something, but then just lets out a big sign and slumps over again.</p>"].join('');
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        hodag: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“There is no Hodag. And if there was, I betcha it’s someone in a dang costume trying to scare kids. But heck, what do I know?”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        'gift shop': function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“Now that place is doing something shady! They keep coming in with these weird artifacts and trinket, but where are they gettin’ them? I never seen a truck stop by there!”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        },
+        giftshop: function() {
+          if (this.booze.location == 'lush') {
+            this.global.response = "<p>“Now that place is doing something shady! They keep coming in with these weird artifacts and trinket, but where are they gettin’ them? I never seen a truck stop by there!”</p>";
+          } else {
+            this.global.response = "<p>“I'm not saying anything until I have another drink!”</p>";
+          }
+        }
+      },
       talk: {
-        response: 'Woo!'
+        response: "<p>Delbert lets out an odd groan, followed by a hiccup. “Hey Kid, if you can get me money for another drink, I'll tell you whatever you want!”</p>"
       }
     },
     attendent: {
@@ -98,7 +135,11 @@
       location: 'campground',
       fullDescription: "<p>At almost 7 feet tall and with biceps bigger than your little sister Emma's head, Paul looks like he should be cutting down trees by the dozens. Instead, he tends to a small campground just outside of town. Friendly guy though, and more than happy to tell you about these woods. It a bit weird that he always seems to have an axe resting on his shoulder, but otherwise real real friendly.</p>",
       talk: {
-        response: 'Bon Yenne!'
+        response: "<p>“Well I tell ya, I used to look up to being a lumberjack like my dad and grandpa was. But ya know, now they got these big great machines that just do all the cuttin’ for you. It’s okay, I own this campground, and I’ve got this axe, so really I could cut down a tree anytime I wanted.”</p>"
+      },
+      ask: {
+        campgrounds: "<p>“These campgrounds don’t get a whole lot of attention, ‘cept for college kids lookin’ to have some fun in the woods. I always tell them to watch out for that dang Hodag. It keeps to itself, but sometimes it’ll just gobble people up!”</p>",
+        hodag: "<p>“The Hodag lives in these woods around the town. It doesn’t bother us much, but sometimes you can hear it roaring in the woods. Sometimes… it likes to eat visitors.”</p><p>That’s not creepy at all.</p><p>“But don’t worry! Just stay in the town and you’ll be fine.”</p>"
       }
     },
     receptionist: {
@@ -109,7 +150,17 @@
         objects: ['key']
       },
       talk: {
-        response: "Hi You's!"
+        response: "<p>“Hi yous! Welcome to our town! Sorry though, yous kids are too young to rent a room.”</p>"
+      },
+      ask: {
+        town: "<p>“Can’t say many folks know about our town, but the ones who do come back every year! Sometimes...” Dorris leans in uncomfortably close. “... sometimes, they stay forever.”</p>",
+        'gift shop': "<p>“That there gift shop is full of wonderful things, very rare stuff I say. You should bring your parents over there!”</p>",
+        sammy: "<p>“That there gift shop is full of wonderful things, very rare stuff I say. You should bring your parents over there!”</p>",
+        bikers: "<p>“Ah, we always get bikers stopping in our town. They might look mean, but they’re real friendly!”</p>",
+        hodag: "<p>“I’ve heard so much about the Hodag, but I’ve never seen the thing before. People swear they seen it, so I have no reason to believe otherwise.”</p>",
+        motel: "<p>“I’ve owned this motel for…about 23 years? Wow, saying that out loud makes me feel a heck of a lot older.”</p>",
+        bar: "<p>“My sister own the bar across the road. She’s not to keen on visitors, thats why she works the bar and I work the Motel.”</p>",
+        tavern: "<p>“My sister own the bar across the road. She’s not to keen on visitors, thats why she works the bar and I work the Motel.”</p>",
       }
     },
     ranger: {
@@ -120,7 +171,13 @@
         objects: ['coin']
       },
       talk: {
-        response: "Huh?"
+        response: "<p>“This town technically doesn’t have any police officers, too small for it they say. I’m kinda like the police, except they won’t let me have a gun. And now you tell me what the fun is in that?”</p>"
+      },
+      ask: {
+        town: "<p>“Not much happens in this town. I can’t complain: less crime means more time at the arcade!”</p>",
+        hodag: "<p>“I ain’t ever seen that Hodag, but you betcha I could take that sucker down. I’m not scared of some dumb green monster.”</p>",
+        'gift shop': "<p>“Some folks ask questions about that place, but I don’t pay much attention to them. What’s crimes could happen at a dang gift shop? People are just paranoid, I tell ya.”</p>",
+        sammy: "<p>“Some folks ask questions about that place, but I don’t pay much attention to them. What’s crimes could happen at a dang gift shop? People are just paranoid, I tell ya.”</p>"
       }
     },
     doctor: {
