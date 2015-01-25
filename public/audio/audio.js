@@ -51,7 +51,7 @@ function loadSound(name, url, playOnLoad) {
 	
 	//Create XML Request
 	var request = new XMLHttpRequest();
-	request.open('GET', '/audio/'+url, true);
+	request.open('GET', 'audio/'+url, true);
 	request.responseType = 'arraybuffer';
 
 	request.onload = function() {
