@@ -6,6 +6,16 @@
   var Engine = window.Engine = function(state, actions) {
     this.state = state;
     this.actions = actions;
+
+    this.state.global.names = _.reduce(this.state, function(names, object, name) {
+      if (!object.name) {
+        console.warn(name, 'has no "name".');
+        return names;
+      }
+
+      names[object.name] = name;
+      return names;
+    }, {});
   };
 
   Engine.prototype.getOutput = function() {

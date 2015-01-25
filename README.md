@@ -31,12 +31,17 @@ TODO
 
 #### Engine
 
-1. Name lockups
+1. real name lookups
+2. go => move
 
 #### HTML
 
-- Arrow up/down for previous commands
-- Serialize/deserialize to localStorage
+- arrow up/down for previous commands
+- serialize/deserialize to localstorage
+- typer.js
+- audio
+- object images
+- transition slides
 
 story.json format
 ---
