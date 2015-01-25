@@ -10,7 +10,7 @@
   // set the description and image src
   function renderOutput(output) {
     if (output.image) {
-      imageEl.setAttribute('src', output.image);
+      imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }
     if (output.description) {
       descriptionEl.textContent = output.description;

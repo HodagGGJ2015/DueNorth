@@ -12,7 +12,7 @@
     return {
       description: this.format(this.state.global.description),
       response: this.format(this.state.global.response),
-      image: this.format(this.state.global.image)
+      image: this.state.global.image
     };
   };
 

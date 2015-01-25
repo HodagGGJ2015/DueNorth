@@ -156,9 +156,11 @@
             this.state.global.response = 'Cannot see ' + args.object;
             return;
           }
+          this.state.global.image = object.image;
           this.state.global.response = object.fullDescription;
         } else {
           var location = this.state[this.state.player.location];
+          this.state.global.image = location.image;
           this.state.global.description = location.fullDescription;
         }
       }
