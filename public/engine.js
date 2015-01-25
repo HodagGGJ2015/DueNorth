@@ -13,9 +13,17 @@
         return names;
       }
 
-      names[object.name] = name;
+      names[object.name.toLowerCase()] = name;
       return names;
     }, {});
+  };
+
+  Engine.prototype.serialize = function() {
+    return JSON.stringify(this.state);
+  };
+
+  Engine.prototype.deserialize = function(state) {
+    this.state = _.extend(this.state, JSON.parse(state));
   };
 
   Engine.prototype.getOutput = function() {

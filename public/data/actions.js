@@ -8,6 +8,11 @@
     }
   }
 
+  function get(state, name) {
+    name = name.toLowerCase();
+    return state[state.global.names[name] || name];
+  }
+
   window.Actions = _.extend({}, {
     inventory: {
       parse: function(input) {
@@ -44,7 +49,7 @@
       },
       act: function(args) {
         var global = this.global;
-        var object = this[args.object];
+        var object = get(this, args.object);
         if (!object) {
           global.response = 'There is no ' + args.object;
           return;
@@ -62,7 +67,7 @@
     go: {
       parse: function(input) {
         return match(input, [
-          /^go\s+(north|south|east|west)$/i
+          /^(?:go|move)\s+(north|south|east|west)$/i
         ], function(matches) {
           return {
             direction: matches[1]
@@ -105,7 +110,7 @@
         });
       },
       act: function(args) {
-        var object = this[args.object];
+        var object = get(this, args.object);
         if (!object) {
           global.response = 'You cannot hit nothing...';
           return;
@@ -132,8 +137,8 @@
       },
       act: function(args) {
         var global = this.global;
-        var object = this[args.object];
-        var recipient = this[args.recipient];
+        var object = get(this, args.object);
+        var recipient = get(this, args.recipient);
 
         if (!object) {
           global.response = 'You don\'t have ' + args.object;
@@ -171,8 +176,8 @@
         });
       },
       act: function(args) {
-        var person = this[args.person];
-        var topic = this[args.topic];
+        var person = get(this, args.person);
+        var topic = get(this, args.topic);
 
         if (!person || !person.ask) {
           this.global.response = 'You\'re talking to yourself.'
@@ -218,7 +223,7 @@
         });
       },
       act: function(args) {
-        var object = this[args.object];
+        var object = get(this, args.object);
         if (!object) {
           this.global.response = 'There is nothing by that name to talk to.'
           return;
@@ -252,7 +257,7 @@
       },
       act: function(args) {
         if (args.object) {
-          var object = this[args.object];
+          var object = get(this, args.object);
           if (!object) {
             this.global.response = 'Cannot see ' + args.object;
             return;
