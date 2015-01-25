@@ -58,6 +58,7 @@
     },
     clerk: {
       name: 'Sammy',
+      image: "images/giftshopclerk.png",
       location: 'giftshop',
       fullDescription: "<p>Sammy owns the gift shop, which is easily the cleanest business in the whole town. Sammy herself, however, is a completely different story. Absolutely neurotic and germaphobic to boot, like an over-caffeinated hawk Sammy keeps a watchful eye over her countless trinkets. I wouldn't say she's friendly, but she is polite. She is, after all, running a tourist trap.</p>",
       receive: {
@@ -69,6 +70,7 @@
     },
     bartender: {
       name: 'Big Sal',
+      image: "images/bigsal.png",
       location: 'bar',
       fullDescription: "<p>Big Sal was probably a boulder in her past life. She looks tough as nails, with a voice that sounds like it's been soaked in whiskey and old cigarette butts for years. She sports a flannel vest, Doc Marten boots, and has her hair tied back in a bun. From the pictures on the walls, it's clear she's been in this town for her whole life, but something about her demeanor says that she's not keen to visitors playing 20 questions in her bar.</p>",
       receive: {
@@ -88,6 +90,7 @@
     },
     lush: {
       name: 'Delbert',
+      image: "images/lush.png",
       location: 'bar',
       fullDescription: "<p>Every town has a lush, and this town's lush is named Delbert. Skinny-looking fella wearing a high school varsity jacket over some navy blue long johns and a raccoon tail hat to complement his black bushy beard. There's not much to say about Delbert, but give him enough to drink and he'll tell you everything you want to know, and then some!</p><p>&quot;Hey kids.. ya get me somethin' ta drink and I'll let ya in on a little secret..&quot;</p>",
       receive: {
@@ -142,6 +145,7 @@
     },
     attendent: {
       name: 'Paul',
+      image: "images/campgroundattendant.png",
       location: 'campground',
       fullDescription: "<p>At almost 7 feet tall and with biceps bigger than your little sister Emma's head, Paul looks like he should be cutting down trees by the dozens. Instead, he tends to a small campground just outside of town. Friendly guy though, and more than happy to tell you about these woods. It a bit weird that he always seems to have an axe resting on his shoulder, but otherwise real real friendly.</p>",
       talk: {
@@ -175,6 +179,7 @@
     },
     ranger: {
       name: 'Danny',
+      image: "images/parkranger.png",
       location: 'arcade',
       fullDescription: "<p>Though technically not a real police officer, Danny is the closest thing you'll get in this town. Very whimsical and easy-going, but not too observant. His naivete would be detrimental anywhere else, but this is a good ol' simple town with none of those big-city problems. If Danny had once vice, it would be the town's arcade/pizza joint.</p>",
       receive: {
@@ -192,6 +197,7 @@
     },
     doctor: {
       name: 'Dr. Toby',
+      image: "images/taxidermist.png",
       location: 'taxidermy',
       fullDescription: "<p>Being surrounded by dead and stuffed animals, you find it really hard to believe that Dr. Toby is a real doctor, but the dusty diploma hung up behind his desk would say otherwise. His profession is medical, but his passion is clearly taxidermy. Despite his choice in interior decorating, he's no joker and seems to really know his stuff.</p>",
       receive: {
