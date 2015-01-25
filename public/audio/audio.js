@@ -20,6 +20,14 @@ audio = {
 //Create an array of keys for the audio files
 audioKeys = Object.keys(audio);
 
+function playAudio(audioName) {
+    if (!audio[audioName].isLoaded) {
+  	    loadSound(audioName audio[audioName.audio], true);
+    } else {
+	    audio[audioName].play();
+    }
+}
+
 //Preload all of the audio files
 function loadSound(name, url, playOnLoad) {
 	
