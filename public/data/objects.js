@@ -5,6 +5,24 @@
       location: 'bartender',
 	  audio: 'boozeSFX'
     },
+    slice: {
+      name: 'Slice of pizza',
+      location: 'pizza',
+      fullDescription: "Oh boy, a slice of pizza! Too bad you're not hungry.",
+      shortDescription: "Slice of pizza",
+      take: {
+        response: "You receive a slice of pizza. You're not hungry right now, so you just carefully put it away in your fanny pack.",
+      }
+    },
+    shirt: {
+      name: 'Shirt (smelly)',
+      location: 'motorhome',
+      fullDescription: "A shirt that was sprayed by the skunk.",
+      shortDescription: "Shirt (smelly)",
+      take: {
+        response: "You stow away the smelly shirt in your fanny pack. It might come in handy."
+      }
+    },
     coin: {
       name: 'Coin',
       location: '',
@@ -26,8 +44,9 @@
     diploma: {
       name: "Diploma",
       location: 'taxidermist',
-      fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>'
-    },
+      fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>',
+	  audio: "diplomaSFX"
+	},
     wrench: {
       name: 'Wrench',
       location: 'parking',

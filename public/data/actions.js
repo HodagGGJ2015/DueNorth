@@ -83,6 +83,46 @@
         }
       }
     },
+    drop: {
+      parse: function(input) {
+        return match(input, [
+          /^drop\s+(.+)$/i,
+          /^throw\s+(.+)$/i,
+          /^remove\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var global = this.global;
+        var object = get(this, args.object);
+        if (!object) {
+          global.response = "You don't have " + args.object;
+          return;
+        }
+
+        if (!object.drop) {
+          global.response = "Don't drop that, you might need it!";
+          return;
+        }
+
+        object.location = global.location;
+
+        if (object.audio) {
+          playAudio(object.audio);
+        }
+
+        if (object.drop.act) {
+          object.drop.act.call(this, args);
+        } else if (object.drop.response) {
+          global.response = object.drop.response;
+        } else {
+          global.response = 'You dropped the ' + args.object;
+        }
+      }
+    },
     go: {
       parse: function(input) {
         return match(input, [
@@ -119,18 +159,17 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-	  	if (nextLocation == "introb") {
-	  		playAudio("screamSFX");
-			audio['barkLoop'].stop();
-	  	}
-  	    if (global.audio != nextLocationObj.audio) {
 
-		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
-			playAudio(nextLocationObj.audio);
-			
-  	    }		
-		
-    	global.audio = nextLocationObj.audio;
+        if (nextLocation == "introb") {
+        	playAudio("screamSFX");
+          audio['barkLoop'].stop();
+        }
+
+        if (nextLocation == "hostilehodag") {
+          playAudio("hodagSFX");
+        }
+
+    	 global.audio = nextLocationObj.audio;
 
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
@@ -152,6 +191,31 @@
 
         nextLocationObj.visited = true;
         this.global.location = nextLocation;
+      }
+    },
+    sing: {
+      parse: function(input) {
+        return match(input, [
+          /^sing\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object) {
+          this.global.response = 'You cannot sing to nothing...';
+          return;
+        }
+
+        if (!object.stop || !object.stop.act) {
+          this.global.response = 'You can\'t sing that.';
+          return;
+        }
+
+        object.stop.act.call(this, args);
       }
     },
     stop: {
@@ -380,8 +444,51 @@
           this.global.response = 'You look around.';
 
 		  if (playerLocation == "introa") playAudio("barkLoop")
-		  playAudio(location.audio);
         }
+      }
+    },
+    save: {
+      parse: function(input) {
+        return match(input, [
+          /^(save)$/i,
+        ], function(matches) {
+          return {
+            save_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.saveState();
+        this.global.response = 'Game saved!';
+      }
+    },
+    load: {
+      parse: function(input) {
+        return match(input, [
+          /^(load|reset|die)$/i,
+        ], function(matches) {
+          return {
+            reset_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.loadState();
+      }
+    },
+    restart: {
+      parse: function(input) {
+        return match(input, [
+          /^(restart|apocalypse)$/i,
+        ], function(matches) {
+          return {
+            restart_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.restart();
+        args.engine.act('look');
       }
     }
   });

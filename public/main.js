@@ -7,6 +7,7 @@
   var descriptionEl = document.querySelector('.description');
   var locationEl = document.querySelector('.location');
   var responseEl = document.querySelector('.response');
+  var bgMusic = '';
 
   var engine = new Engine(Stuff, Actions, localStorage);
   var history = [''];
@@ -43,6 +44,15 @@
   function renderOutput(output, printDelay) {
     if (output.image) {
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
+    }
+
+    // if output.audio changed, stop old audio, start new one
+    if (output.audio && output.audio != bgMusic) {
+      if (audio[bgMusic] && audio[bgMusic].isLoaded) {
+        audio[bgMusic].stop();
+      }
+      bgMusic = output.audio;
+      playAudio(bgMusic);
     }
 
     if (printDelay) {
@@ -104,8 +114,8 @@
       var output = engine.act(value);
       renderOutput(output, true);
 
-      // save game state
-      engine.saveState();
+      // TODO: should we add auto-save back in?
+      //engine.saveState();
 
       // play audio
       if (!output.success) {
