@@ -169,7 +169,7 @@
     },
     skunk: {
       name: 'Skunk',
-      location: 'motorhome',
+      location: 'parking',
       fullDescription: "<p>It's a skunk! Better keep your distance, don't wanna startle it.</p>",
       receive: {
         objects: ['dog']
