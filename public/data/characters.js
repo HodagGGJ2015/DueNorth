@@ -77,6 +77,14 @@
         response: 'What is that smell?'
       }
     },
+    bikers: {
+      name: 'Bikers',
+      location: 'parking',
+      fullDescription: "<p>Big and tough looking. These aren't people you want to bother.</p>",
+      talk: {
+        response: "<p>Grunt. Grunt.</p>"
+      }
+    },
     bartender: {
       name: 'Big Sal',
       image: "images/bigsal.png",
