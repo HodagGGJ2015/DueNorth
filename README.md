@@ -3,8 +3,6 @@ Welcome to Wisconsin
 
 An interactive fiction.
 
-- Everything is an object.
-
 |WW|WW|WW|WW|WW|WW|WW|
 |WW|WW|WW|WW|MO|WW|WW|
 |WW|PY|CP|GS|PR|BR|WW|
@@ -29,11 +27,9 @@ PY: Party
 TODO
 ---
 
-#### HTML
-
-- add location name to index.html
-- arrow up/down for previous commands
-- typer.js
-- audio
-- object images
-- transition slides
+- add location name to index.html (jim)
+- arrow up/down for previous commands (gabe)
+- typer.js (jim)
+- audio (luis)
+- object images (gabe)
+- transition slides (jim)
