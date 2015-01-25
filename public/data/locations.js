@@ -1,3 +1,5 @@
+(function() {
+  _.extend(window.Stuff, {
 window.locations = {
   "motorhome": {
     "init": {
@@ -164,5 +166,5 @@ window.locations = {
       "directions": {
       }
     }
-  }
-}
+  });
+}).call(this);

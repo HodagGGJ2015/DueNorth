@@ -1,46 +1,40 @@
-window.objects = {
-  "booze": {
-    "location": "bartender"
-  },
-  "coin": {
-    "location": "",
-    "takeable": {
-      "response": "You picked up the coin."
+(function() {
+  _.extend(window.Stuff, {
+    booze: {
+      location: "bartender",
+      give: {
+      }
     },
-    "take": [{
-      "coin": {
-        "$merge": {
-          "location": "player"
-        }
+    coin: {
+      location: "",
+      take: {
+        response: "You picked up the coin."
       },
-      "global": {
-        "$merge": {
-          "response": "You pick up a shiny coin."
+      give: {
+      }
+    },
+    slots: {
+      location: "bar",
+      fullDescription: "A slot machine lures you in.",
+      hit: {
+        action: function(args) {
+          // coin: {
+          //   "$merge": {
+          //     location: "bar"
+          //   }
+          // },
+          // slots: {
+          //   "$merge": {
+          //     fullDescription: "You see a coin."
+          //   }
+          // },
+          // global: {
+          //   "$merge": {
+          //     response: "The slot machine rattles"
+          //   }
+          // }
         }
       }
-    }]
-  },
-  "slots": {
-    "init": {
-      "location": "bar",
-      "fullDescription": "A slot machine lures you in."
-    },
-    "hit": [{
-      "coin": {
-        "$merge": {
-          "location": "bar"
-        }
-      },
-      "slots": {
-        "$merge": {
-          "fullDescription": "You see a coin."
-        }
-      },
-      "global": {
-        "$merge": {
-          "response": "The slot machine rattles"
-        }
-      }
-    }]
-  }
-}
+    }
+  });
+}).call(this);
