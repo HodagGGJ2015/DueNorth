@@ -18,6 +18,7 @@
       parse: function(input) {
         return match(input, [
           /^inventory$/i,
+          /^inv$/i,
           /^stuff$/i,
           /^(?:fanny|back)(?:\s*|-)pack$/i,
           /^i$/i
@@ -35,9 +36,9 @@
 
         this.global.response = '<h3>Your Fanny Pack</h3>';
         if (_.size(inventory) > 0) {
-          this.global.response = _.keys(inventory).join(', ');
+          this.global.response += _.keys(inventory).join(', ');
         } else {
-          this.global.response = 'You have nothing.';
+          this.global.response += 'Empty.';
         }
       }
     },
