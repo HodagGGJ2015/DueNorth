@@ -263,6 +263,12 @@
           var location = this[this.global.location];
           this.global.image = location.image;
           this.global.description = location.fullDescription;
+		  
+		  if (!audio[location.audio].isLoaded) 
+		  	  loadSound(location.audio, audio[location.audio], true);
+		  else
+			  audio[location.audio].play();
+
         }
       }
     }

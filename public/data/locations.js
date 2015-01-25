@@ -3,6 +3,7 @@
     "motorhome": {
       "name": "Motorhome",
       "visited": false,
+	  "audio" : "motorhomeLoop",
       "fullDescription": "<p>A 1973 Mini Winnebago, AKA the Mini-Winne, the pride of your family name. Beige body with a large brown W on the side that your dad keep as polished as the day he first bought it. Sometimes you think he loves the Winnebago more than you.</p>",
       "shortDescription": "<p>Your family's motorhome.</p>",
       "image": "images/motorhome.png",

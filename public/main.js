@@ -35,7 +35,7 @@
       renderOutput(engine.act(inputEl.value));
 	  
 	  // play audio
-	  if (inputEl.value.length === 0 || responseEl.innerText == "Nothing happened.") 
+	  if (inputEl.value.length === 0 || responseEl.value == "Nothing happened.") 
 		  audio['textEnterFalse'].play();
 	  else 
 		  audio['textEnter'].play();
