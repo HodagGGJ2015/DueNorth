@@ -98,7 +98,11 @@
       location: 'campground',
       fullDescription: "<p>At almost 7 feet tall and with biceps bigger than your little sister Emma's head, Paul looks like he should be cutting down trees by the dozens. Instead, he tends to a small campground just outside of town. Friendly guy though, and more than happy to tell you about these woods. It a bit weird that he always seems to have an axe resting on his shoulder, but otherwise real real friendly.</p>",
       talk: {
-        response: 'Bon Yenne!'
+        response: "<p>“Well I tell ya, I used to look up to being a lumberjack like my dad and grandpa was. But ya know, now they got these big great machines that just do all the cuttin’ for you. It’s okay, I own this campground, and I’ve got this axe, so really I could cut down a tree anytime I wanted.”</p>"
+      },
+      ask: {
+        campgrounds: "<p>“These campgrounds don’t get a whole lot of attention, ‘cept for college kids lookin’ to have some fun in the woods. I always tell them to watch out for that dang Hodag. It keeps to itself, but sometimes it’ll just gobble people up!”</p>",
+        hodag: "<p>“The Hodag lives in these woods around the town. It doesn’t bother us much, but sometimes you can hear it roaring in the woods. Sometimes… it likes to eat visitors.”</p><p>That’s not creepy at all.</p><p>“But don’t worry! Just stay in the town and you’ll be fine.”</p>"
       }
     },
     receptionist: {
@@ -109,7 +113,17 @@
         objects: ['key']
       },
       talk: {
-        response: "Hi You's!"
+        response: "<p>“Hi yous! Welcome to our town! Sorry though, yous kids are too young to rent a room.”</p>"
+      },
+      ask: {
+        town: "<p>“Can’t say many folks know about our town, but the ones who do come back every year! Sometimes...” Dorris leans in uncomfortably close. “... sometimes, they stay forever.”</p>",
+        'gift shop': "<p>“That there gift shop is full of wonderful things, very rare stuff I say. You should bring your parents over there!”</p>",
+        sammy: "<p>“That there gift shop is full of wonderful things, very rare stuff I say. You should bring your parents over there!”</p>",
+        bikers: "<p>“Ah, we always get bikers stopping in our town. They might look mean, but they’re real friendly!”</p>",
+        hodag: "<p>“I’ve heard so much about the Hodag, but I’ve never seen the thing before. People swear they seen it, so I have no reason to believe otherwise.”</p>",
+        motel: "<p>“I’ve owned this motel for…about 23 years? Wow, saying that out loud makes me feel a heck of a lot older.”</p>",
+        bar: "<p>“My sister own the bar across the road. She’s not to keen on visitors, thats why she works the bar and I work the Motel.”</p>",
+        tavern: "<p>“My sister own the bar across the road. She’s not to keen on visitors, thats why she works the bar and I work the Motel.”</p>",
       }
     },
     ranger: {
