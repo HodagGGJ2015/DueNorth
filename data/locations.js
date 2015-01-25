@@ -84,7 +84,7 @@
       visited: false,
       fullDescription: "<p>The current resting place of the family Winnebago, as well as a resting place for a large group of Hells Angels bikers who seem to be in the middle of a cross-country road trip. They are a drunk, rowdy bunch who either left the bar, or were kicked out. You keep your distance.</p><p>You see some blinking neon lights off to the east, past several churches. To the west is a gas station and from the south comes a wonderful smell. Thankfully a short walk back to the north is your motorhome.</p>",
       shortDescription: "<p>A weedy lot. There are a lot of bikers here.</p><p>Your motorhome is to the north and there is a mouth watering smell to the south. To the west are some blinking lights and to the east is a gas station.</p>",
-  	  audio: "parkingLotLoop",
+  	  audio: "gasLoop",
       image: "images/road.png",
       directions: {
         north: "motorhome",
@@ -188,15 +188,26 @@
     cave: {
       name: "Hodag Cave",
       visited: false,
-      fullDescription: "<p>Nearby the cave, you see a bright green boulder, almost the size of a large couch. What the heck could that be?</p><p>Suddenly, it starts moving! It turns around to reveal sharp spikes, and then you see the head of a monster with sharp teeth, pointy devil horns and dark red eyes.</p><p>“Holy crap, It’s the Hodag!” screeches Emma.</p><p>“Whats a Hodag?” you ask.</p><p>The Hodag, or whatever it is, has noticed you guys and lets out a loud roar that shakes all the surrounding trees and bushes. This monster looks hellbent to eat you the three. There is no way to escape, you must think fast!</p>",
-      shortDescription: "<p>The Hodag Cave.</p><p>There is no way to escape, you must think fast!</p>",
+      fullDescription: "<p>Nearby the cave, you see a bright green boulder, almost the size of a large couch. What the heck could that be?</p><p>Suddenly, it starts moving! It turns around to reveal sharp spikes, and then you see the head of a monster with sharp teeth, pointy devil horns and dark red eyes.</p><p>“Holy crap, It’s the Hodag!” screeches Emma.</p><p>“Whats a Hodag?” you ask.</p><p>The Hodag, or whatever it is, has noticed you guys and lets out a loud roar that shakes all the surrounding trees and bushes. This monster looks hellbent to eat you the three. There is no way to escape, you must think fast!</p><They do say that music sooths the savage beast</p>",
+      shortDescription: "<p>There's a happy hodag sitting in the sun.</p><p>May respond best to song.</p>",
       audio: "caveLoop",
-      image: "images/cave.png",
+      image: "images/hodag.png",
       directions: {
         north: "hostilehodag",
         south: "hostilehodag",
         east: "hostilehodag",
         west: "hostilehodag"
+      }
+    },
+    happyhodag: {
+      name: "Hodag Cave",
+      visited: false,
+      fullDescription: "<p>“Emma,” you whisper. ”Don’t move.”</p><p>“Are you serious? We’re about to be Hodag food!”</p><p>“Just don’t move! It might not see us if we don’t move.”</p><p>The Hodag creeps up on the three of you. Charlie is frozen solid. You are tempted to make a run for it, but you hold your ground. The Hodag gets so close to your face you can smell it’s horrible breath. You close your eyes, bracing for the worst.</p><p>But then, you feel something soft and wet on the side of your neck and head, sliding up. Then again. You open your eyes and see that the Hodag is licking your face. It’s… it’s not eating you. Without even thinking, you reach your hand up and start touching the side of it’s mouth. It lets out a loud, vibrating noise and rubs its face towards your outreached hand.</p><p>“Oh my god!” Emma says with wide eyes. “It’s purring! It’s a kitty cat! It’s a big kitty cat!”</p><p>Both you and Emma begin petting the Hodag and rubbing it’s tummy, while the Hodag’s purring gets louder and louder. Charlie running around the Hodag and barks in happiness for his new monstrous friend.</p><p>Before you know it, you’ve been spending hours with the playful Hodag. “Emma, we need to go back to the Mini-Winne. Mom and dad are probably worried sick.”</p><p>Emma shoots a sad look in your direction, but she knows that you can’t stay with the Hodag forever. As you start walking in the direction of the parking lot, the Hodag follows close behind. It’s grown very fond of you three.</p><p>“Aww look, it loves us!” says Emma. “Can we keep it?”</p><p>You take a look look at the Hodag. Hmm, It’s a little big, but maybe it could fit in the Mini-Winne.</p>",
+      shortDescription: "<p>The hodag purrs.</p>",
+      audio: "caveLoop", //not ready
+      image: "images/hodagwave.png",
+      directions: {
+        north: "woodsB6"
       }
     },
     hostilehodag: {
@@ -205,16 +216,40 @@
       fullDescription: "<p>Before you can make your move, the Hodag sprints over and pounces on the both of you. Now on your back, you’re caught under the Hodag’s foot and the weight is crushing your body. You turn your head back in the opposite direction, and the very last thing you see before the Hodag digs it’s huge teeth into your face is Charlie running away like a coward. So much for being a loyal dog.</p>",
       shortDescription: "&lt;HOSTILE HODAG ENDING&gt;",
       audio: "caveLoop", //not ready
-      image: "images/winners.png",
+      image: "images/hodag_attack.png",
       directions: {
       }
     },
     pepperoni: {
       name: "The End",
       visited: false,
-      fullDescription: "<p>Before you can make your move, the Hodag sprints in your direction. You think it’s the end, but what’s that?</p><p>From the branch of a tree, Pepperoni the racoon selflessly launches off and makes a perfect landing on the Hodag’s face. The Hodag is completely stunned in it’s place as Pepperoni starts scratching at it’s face. With the Hodag distracted by the brave racoon, the three of you make your escape from the woods and back to your parent’s Winnebago.</p><p>You’ll never forget the sheer courage of little Pepperoni. The chances that it would’ve survived against such an awful beast are pretty slim, but Pepperoni’s sacrifice was not in vain, and it will pass on in honor and dignity.</p>",
+      fullDescription: "<p>Before more then two words come out of your mouth, the Hodag sprints in your direction. You think it’s the end, but what’s that?</p><p>From the branch of a tree, Pepperoni the racoon selflessly launches off and makes a perfect landing on the Hodag’s face. The Hodag is completely stunned in it’s place as Pepperoni starts scratching at it’s face. With the Hodag distracted by the brave racoon, the three of you make your escape from the woods and back to your parent’s Winnebago.</p><p>You’ll never forget the sheer courage of little Pepperoni. The chances that it would’ve survived against such an awful beast are pretty slim, but Pepperoni’s sacrifice was not in vain, and it will pass on in honor and dignity.</p><p>In memory of Pepperoni the Racoon, the bravest racoon who ever lived in Wisconsin, 1979-1980</p><p>THE END. RIP LITTLE PEPPERONI.</p>",
       shortDescription: "&lt;PEPPERONI ENDING&gt;",
       audio: "caveLoop", //not ready
+      image: "images/racoon.png",
+      directions: {
+      }
+    },
+    noparents: {
+      name: "Mini-Winne",
+      visited: false,
+      fullDescription: "<p>Coming back to the Winnebago to see what going on, you instead find Paul, the campground attendant, and Sammy, the gift shop clerk.</p><p>“Where are our parents?” you ask them.</p><p>“Sorry kids, I have some bad news...” says Paul. “Your parents… were eaten. Eaten alive, by the Hodag.”</p><p>“Bullshit.” spits Emma. “Where’s our parents?”</p><p>“It’s the truth.” says Sammy. ”The Hodag is a monster that lives just our town. Normally he doesn’t bother us folks from town but, well, I don’t think he recognized your parents and decided to eat them. I’m terribly sorry.”</p><p>“That’s the stupidest story I’ve ever heard.” Emma was having none of this. “WHERE’S OUR MOM AND DAD?”</p><p>Paul started walking towards us. “Now kids, I need to take you somewhere safe or else that dang Hodag will get you too-”</p><p>Before he got any closer, you grab Emma’s arm and run in the opposite direction, and Charlie follows suit. “GET EM PAUL!” shouts the gift shop clerk. Paul chases behind, but you’re able to evade him by zig-zagging around the town. Paul may be a big lumberjack, but he sure doesn’t move that fast.</p><p>After about five minutes you lose him and end up in the pizza/arcade joint. You and Emma are freaking out.</p><p>“I told you this town was like Deliverance!” says Emma in a panicky voice. “How are we going to find Mom and Dad?”</p><p>Things have gotten serious now. You need to find your parents. Neither you nor Emma are sure where to start, but it’s pretty obvious that the campground attendant and gift shop are in on your parent’s disappearance.</p>",
+      shortDescription: "<p>Your family's motorhome.<p>Your parents are missing.</p><p>There is a parking lot to the south.</p>",
+      audio: "motorhomeLoop",
+      image: "images/motorhome.png",
+      directions: {
+        north: "woodsE1",
+        south: "parking",
+        east: "woodsF2",
+        west: "woodsD2"
+      }
+    },
+    backroomending: {
+      name: "The End",
+      visited: false,
+      fullDescription: "<p>You finally open the back door in the gift shop to reveal… <strong>YOUR PARENTS</strong>! They’re both tied up with duct tape over their mouths.</p><p>Both you and Emma work to untie their bindings. After you rip the tape off your dads mouth, he goes off.</p><p>“These people are fucking crazy! We gotta get the fuck outta here!”</p><p>You try to calm down your parents and get answers out of them. “Who did this to you?”</p><p>“That gift shop lady and the lumberjack!” your mom says after Emma rips her duct tape off. “I just asked them about the artifacts, and they must’ve knocked us both out because we both woke up in this room.”</p><p>“What’s that?” Emma points at a weird green monster costume. Your dad shrugs “Fuck if I know. Like I said, these people are-”</p><p>“Well well well, what do we have here?” The newly-reunited family is suddenly interrupted by who else but the gift shop clerk and campground attendant themselves, standing in the backroom doorway.</p><p>You are just utterly confused. “What are you guys doing? Why did you tie up our parents?”</p><p>“You kids have very nosy parents.” sneered the gift shop clerk.”They found out about our big money-making secret. You see, all the trinkets you see in our store are actual Indian artifacts. They’re real because… this town was built on an Indian burial ground!”</p><p>You are still confused. “So?”</p><p>“SO, we can’t have people knowing that we stole these artifacts from an Indian burial ground. That’s something the average tourist would frown upon, so we need to keep it a secret. But your mother, Mrs. College-Education over here, knew that these were from an Indian burial ground. So to prevent her from spreading the truth, Paul and I had to do what we had to do.”</p><p>“Are you kidding me?!” yells Emma. “That’s the stupidest thing I’ve ever heard!”</p><p>“Well, regardless of what you think, your family knows too much. Paul, take care of them!”</p><p>Before Paul can do anything, your dad jumps up and totally rams Paul and pins him to the ground, trying to get the axe out of his hands. “<strongRUN!</strong>”</p><p>You, Emma, your mom, and Charlie all run out the backroom door, shoving Sammy to the ground. You guy exit the shop and sprint towards the Winnebago. Once you reach the parking lot, you look back and see your dad is far behind with the campgrounds attendant and gift shop clerk chasing close behind.</p><p>By the they reach the parking lot, an absolute miracle unfolds. Once your dad passes the bikers in the parking lot, they all begin leaving one-by-one in a straight motorcycle line. They completely cut off the gift shop clerk and campground attendant, and your dad reaches the Winnebago along with the rest of the family to make a grand escape.</p><p> The Winnebago still smells like skunk, but at least you all survived that small Wisconsin town.</p>",
+      shortDescription: "&lt;SCOOBY DOO ENDING&gt;",
+      audio: "motorhomeLoop", //not ready
       image: "images/winners.png",
       directions: {
       }
@@ -366,7 +401,7 @@
       fullDescription: "<p>Suddenly there is a break in the pine trees to reveal an ominous looking cave to the south.</p>",
       shortDescription: "<p>Big pine trees. There is a cave to the south.</p>",
       audio: "forestLoop",
-      image: "images/woods.png",
+      image: "images/hodagcave.png",
       directions: {
         north: "woodsB5",
         south: "cave",

@@ -58,6 +58,7 @@
     },
     clerk: {
       name: 'Sammy',
+      image: "images/giftshopclerk.png",
       location: 'giftshop',
       fullDescription: "<p>Sammy owns the gift shop, which is easily the cleanest business in the whole town. Sammy herself, however, is a completely different story. Absolutely neurotic and germaphobic to boot, like an over-caffeinated hawk Sammy keeps a watchful eye over her countless trinkets. I wouldn't say she's friendly, but she is polite. She is, after all, running a tourist trap.</p>",
       receive: {
@@ -69,25 +70,37 @@
     },
     bartender: {
       name: 'Big Sal',
+      image: "images/bigsal.png",
       location: 'bar',
       fullDescription: "<p>Big Sal was probably a boulder in her past life. She looks tough as nails, with a voice that sounds like it's been soaked in whiskey and old cigarette butts for years. She sports a flannel vest, Doc Marten boots, and has her hair tied back in a bun. From the pictures on the walls, it's clear she's been in this town for her whole life, but something about her demeanor says that she's not keen to visitors playing 20 questions in her bar.</p>",
       receive: {
         objects: ['coin']
       },
       ask: {
-        lush: "He's already had enough to drink.",
-        slots: "That old machine hasn't worked in years."
+        lush: "<p>“What can ya say about Delbert? He's here more than I am. I wouldn't give him too much attention, otherwise you'll never hear the end of it.”</p>",
+        'Delbert': "<p>“What can ya say about Delbert? He's here more than I am. I wouldn't give him too much attention, otherwise you'll never hear the end of it.”</p>",
+        hodag: "<p>“I always thought it was just a small town legend, but I swear I saw it once! Out by the woods, big ol’ green thing.”</p> <p>Delbert interrupts, “Ha, ya probably saw a big tree and couldn’t tell the difference!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        town: "<p>“Nothing about this town would interest yous city folk.”</p> <p>Delbert interrupts, “Ya, sure nothin’ interesting about this bar!</p>” <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        motel: "<p>“My sister own the motel cross the way. She’s a lot more interested in tourists than I am.”</p> <p>Delbert interrupts, “Ya, and she’s a lot nicer than you are too!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>",
+        'Northwoods Motel': "<p>“My sister own the motel cross the way. She’s a lot more interested in tourists than I am.”</p> <p>Delbert interrupts, “Ya, and she’s a lot nicer than you are too!”</p> <p>Big Sal slaps Delbert upside the head and he slumps back to his original position.</p>"
       },
       talk: {
-        response: 'Grunt'
+        response: "<p>“Ya right, like I'll be giving a drink to you. Ya better run off before I tell your parents.”</p>"
       }
     },
     lush: {
       name: 'Delbert',
+      image: "images/lush.png",
       location: 'bar',
       fullDescription: "<p>Every town has a lush, and this town's lush is named Delbert. Skinny-looking fella wearing a high school varsity jacket over some navy blue long johns and a raccoon tail hat to complement his black bushy beard. There's not much to say about Delbert, but give him enough to drink and he'll tell you everything you want to know, and then some!</p><p>&quot;Hey kids.. ya get me somethin' ta drink and I'll let ya in on a little secret..&quot;</p>",
       receive: {
-        objects: ['booze']
+        objects: ['coin'],
+        act: function(args) {
+          var key = this.global.names[args.object] || args.object;
+          if (key == 'coin') {
+            this.global.response = '<p>Delbert takes the coin.</p>';
+          }
+        }
       },
       ask: {
         'Big Sal': function() {
@@ -132,6 +145,7 @@
     },
     attendent: {
       name: 'Paul',
+      image: "images/campgroundattendant.png",
       location: 'campground',
       fullDescription: "<p>At almost 7 feet tall and with biceps bigger than your little sister Emma's head, Paul looks like he should be cutting down trees by the dozens. Instead, he tends to a small campground just outside of town. Friendly guy though, and more than happy to tell you about these woods. It a bit weird that he always seems to have an axe resting on his shoulder, but otherwise real real friendly.</p>",
       talk: {
@@ -165,13 +179,14 @@
     },
     ranger: {
       name: 'Danny',
+      image: "images/parkranger.png",
       location: 'arcade',
       fullDescription: "<p>Though technically not a real police officer, Danny is the closest thing you'll get in this town. Very whimsical and easy-going, but not too observant. His naivete would be detrimental anywhere else, but this is a good ol' simple town with none of those big-city problems. If Danny had once vice, it would be the town's arcade/pizza joint.</p>",
       receive: {
         objects: ['coin']
       },
       talk: {
-        response: "<p>“This town technically doesn’t have any police officers, too small for it they say. I’m kinda like the police, except they won’t let me have a gun. And now you tell me what the fun is in that?”</p>"  
+        response: "<p>“This town technically doesn’t have any police officers, too small for it they say. I’m kinda like the police, except they won’t let me have a gun. And now you tell me what the fun is in that?”</p>"
       },
       ask: {
         town: "<p>“Not much happens in this town. I can’t complain: less crime means more time at the arcade!”</p>",
@@ -182,6 +197,7 @@
     },
     doctor: {
       name: 'Dr. Toby',
+      image: "images/taxidermist.png",
       location: 'taxidermy',
       fullDescription: "<p>Being surrounded by dead and stuffed animals, you find it really hard to believe that Dr. Toby is a real doctor, but the dusty diploma hung up behind his desk would say otherwise. His profession is medical, but his passion is clearly taxidermy. Despite his choice in interior decorating, he's no joker and seems to really know his stuff.</p>",
       receive: {
@@ -213,11 +229,50 @@
       name: 'Hodag',
       location: 'woods',
       fullDescription: "<p>Holy crap what is that? Part dinosaur, part frog?!?!</p><p>This creature has the grinning face of a giant elephant, the head of a frog, the back of a dinosaur, thick short legs set off by huge claws and (of course) a long tail with spears at the end</p>",
-      receive: {
-        objects: ['music']
-      },
       talk: {
-        response: "Sniff. Sniff."
+        act: function(args) {
+          if (this.happyhodag.visited == true) {
+            var location = this.happyhodag;
+
+            this.global.description = location.fullDescription;
+            this.global.image = location.image;
+            this.global.audio = location.audio;
+            this.global.response = 'What do you do next?';
+          } else {
+            var location = this.pepperoni;
+
+            this.global.description = location.fullDescription;
+            this.global.image = location.image;
+            this.global.audio = location.audio;
+            this.global.response = 'THE END';
+          }
+       }
+      },
+      sing: {
+        act: function(args) {
+          var location = this.happyhodag;
+
+          this.global.description = location.fullDescription;
+          this.global.image = location.image;
+          this.global.audio = location.audio;
+          this.global.response = 'What do you do next?';
+       }
+      }
+    },
+    raccoon: {
+      name: 'Racoon',
+      location: 'motel',
+      fullDescription: "<p>You’ve never seen a racoon so up-close in your life. It looks like it’s trying to eat things off the grounds, but having no luck. With a town this empty, there probably isn’t a whole lot of garbage for it to go through for food.</p>",
+      talk: {
+        response: "You say hi, but it’s a racoon so it can’t talk back."
+      }
+    },
+    pizzaguy: {
+      name: 'Pizza guy',
+      location: 'pizza',
+      fullDescription: "<p>Behind the counter is some bored-looking teenager.</p>",
+      talk: {
+        response: "“We have pizza slices, but it’ll cost ya either money or tickets from ski-ball.”"
       }
     }
   });

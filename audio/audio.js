@@ -28,7 +28,10 @@ audio = {
 	slotsSFX: "sfx/slot_machine.ogg",
 	wrenchSFX: "sfx/wrench_pickup.ogg",
 	screamSFX: "sfx/woman_scream.ogg",
-	hodagSFX: "sfx/hodag.ogg"
+	hodagSFX: "sfx/hodag.ogg",
+	diplomaSFX: "sfx/diplomaSFX.ogg",
+	pizzaSFX: "sfx/pizzaSFX.ogg",
+	clothSFX: "sfx/clothSFX.ogg"
 	
 };
 
@@ -74,7 +77,7 @@ function loadSound(name, url, playOnLoad) {
 					this.gainNode.gain.value = name.indexOf('dog') > -1 ? 0.1 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('music') > -1 ? 0.3 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('SFX') > -1 ? .5 : this.gainNode.gain.value;
-					this.gainNode.gain.value = name.indexOf('scream') > -1 ? .07 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('scream') > -1 ? .04 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('text') > -1 ? 0.2 : this.gainNode.gain.value;
 					
 					//Create loop for music and rain
