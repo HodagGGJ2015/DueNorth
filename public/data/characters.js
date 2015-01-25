@@ -41,6 +41,18 @@
       receive: {
         objects: ['bone', 'bait', 'skunk']
       },
+      stop: {
+        act: function(args) {
+          this.dog.shortDescription = "";
+
+          var location = this.end;
+
+          this.global.description = location.fullDescription;
+          this.global.image = location.image;
+          this.global.audio = location.audio;
+          this.global.response = 'THE END';
+       }
+      },
       talk: {
         act: function(args) {
           this.global.response = 'Woof Woof!';

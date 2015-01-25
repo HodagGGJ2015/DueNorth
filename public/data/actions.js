@@ -118,6 +118,31 @@
         this.global.location = nextLocation;
       }
     },
+    stop: {
+      parse: function(input) {
+        return match(input, [
+          /^stop\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object) {
+          this.global.response = 'You cannot stop nothing...';
+          return;
+        }
+
+        if (!object.stop || !object.stop.act) {
+          this.global.response = 'You can\'t stop that.';
+          return;
+        }
+
+        object.stop.act.call(this, args);
+      }
+    },
     hit: {
       parse: function(input) {
         return match(input, [

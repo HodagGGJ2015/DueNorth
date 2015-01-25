@@ -14,6 +14,16 @@
         west: "woods"
       }
     },
+    end: {
+      name: "The End",
+      visited: false,
+      fullDescription: "&lt;NO SKUNK ENDING&gt;",
+      shortDescription: "&lt;NO SKUNK ENDING&gt;",
+      audio: "motorhomeLoop", //not ready
+      image: "images/winners.png",
+      directions: {
+      }
+    },
     party: {
       name: "Party",
       visited: false,
