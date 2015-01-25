@@ -19,7 +19,6 @@
       },
       act: function(args) {
         var inventory = _.reduce(this, function(inventory, obj, name) {
-          console.log(name, obj);
           if (obj.location == 'inventory') {
             inventory[name] = true;
           }
