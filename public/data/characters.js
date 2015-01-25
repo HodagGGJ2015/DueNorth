@@ -95,7 +95,7 @@
         act: function(args) {
           var key = this.global.names[args.object] || args.object;
           if (key == 'coin') {
-            this.global.response = '<p>Delbert takes the coin.</p>';
+            this.global.response = '<p>Delbert takes the coin and in a single motion hands it to the bartender who glares at you as he pours Delbert another drink.</p>';
           }
         }
       },
