@@ -3,7 +3,24 @@
     mom: {
       name: 'Mom',
       location: 'motorhome',
-      fullDescription: "<p>Renowned Archeologist Professor at the University of Illinois, you give her an old arrowhead from your backyard and she'll write you a novel on it.</p>",
+      fullDescription: "<p>Renowned Archeologist Professor at the University of Illinois. Give her an old arrowhead from your backyard and she’ll write you a novel on it. Your mom fell in love with your dad at a teachers conference in Chicago. Your dad was making a total fool of himself, and your mom couldn’t help but find his corny one-liners charming.</p>",
+      receive: {
+        objects: ['arrowhead']
+      },
+      talk: {
+        act: function(args) {
+          this.global.response = 'Interesting...';
+        }
+      },
+      receive: {
+        act: function(args) {
+        }
+      }
+    },
+    dad: {
+      name: 'Dad',
+      location: 'motorhome',
+      fullDescription: "<p>Just because Dad is the Superintendent of Chicago State University doesn’t mean he’s a total nerd. But living in the city and suburbs all of his life doesn’t make him a mountain man either. Your dad fell in love with your mom at a teacher’s conference in Chicago when he wooed her with witty conversation. It was clear that she could not resist dad’s intelligence and handsome charm...</p>",
       receive: {
         objects: ['arrowhead']
       },
@@ -36,7 +53,7 @@
     },
     dog: {
       name: 'Charlie',
-      location: 'motorhome',
+      location: 'introa',
       fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit.</p>",
       shortDescription: "<p>Bark! Bark! Bark! Bark!</p>",
       receive: {
@@ -182,7 +199,7 @@
     },
     skunk: {
       name: 'Skunk',
-      location: 'motorhome',
+      location: 'introa',
       fullDescription: "<p>It's a skunk! Right now it is peacefully sniffing a pile of trash. Better keep your distance, don't wanna startle it.</p>",
       image: "images/skunk.png",
       receive: {

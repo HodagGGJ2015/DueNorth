@@ -4,7 +4,7 @@
       description: 'Welcome to Wisconsin',
   	  audio: "",
       response: 'What do you do now?',
-      location: 'motorhome',
+      location: 'introa',
       image: '',
       help: 'What?'
     }
