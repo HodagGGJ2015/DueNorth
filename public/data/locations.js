@@ -137,7 +137,7 @@
       visited: false,
       fullDescription: "<p>Nothing to see here right now... This is just an innocent storage room. There is a door to the west.</p>",
       shortDescription: "<p>Backroom. To the front is the door to the giftshop. To the west is another door.</p>",
-  	  audio: "backroomLoop", //not ready
+  	  audio: "giftshopLoop", //not ready
       image: "images/giftshop.png",
       directions: {
         north: "giftshop",

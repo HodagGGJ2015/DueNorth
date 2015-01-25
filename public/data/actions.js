@@ -17,7 +17,11 @@
     inventory: {
       parse: function(input) {
         return match(input, [
-          /^inventory$/i
+          /^inventory$/i,
+          /^inv$/i,
+          /^stuff$/i,
+          /^(?:fanny|back)(?:\s*|-)pack$/i,
+          /^i$/i
         ], function(matches) {
           return true;
         });
@@ -30,10 +34,11 @@
           return inventory;
         }, {});
 
+        this.global.response = '<h3>Your Fanny Pack</h3>';
         if (_.size(inventory) > 0) {
-          this.global.response = _.keys(inventory).join(', ');
+          this.global.response += _.keys(inventory).join(', ');
         } else {
-          this.global.response = 'You have nothing.';
+          this.global.response += 'Empty.';
         }
       }
     },
@@ -128,9 +133,6 @@
             } else {
               this.global.description += '<h3>' + object.name + '</h3>';
               this.global.description += object.fullDescription;
-              if (object.shortDescription) {
-                this.global.description += object.shortDescription;
-              }
             }
           }
         }, this);
@@ -339,9 +341,6 @@
             if (key != 'global' && object.location == playerLocation) {
               this.global.description += '<h3>' + object.name + '</h3>';
               this.global.description += object.fullDescription;
-              if (object.shortDescription) {
-                this.global.description += object.shortDescription;
-              }
             }
           }, this);
 
