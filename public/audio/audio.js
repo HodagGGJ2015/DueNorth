@@ -15,7 +15,9 @@ audio = {
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg',
 	hodag: "sfx/hodag.ogg",
-	musicLoop: "music/music_loop.ogg"
+	musicLoop: "music/music_loop.ogg",
+	barkLoop: "sfx/bark_loop.ogg",
+	womanSFX: "sfx/woman_scream.ogg"
 };
 
 //Create an array of keys for the audio files
@@ -23,7 +25,7 @@ audioKeys = Object.keys(audio);
 
 function playAudio(audioName) {
     if (!audio[audioName].isLoaded) {
-  	    loadSound(audioName audio[audioName.audio], true);
+  	    loadSound(audioName, audio[audioName.audio], true);
     } else {
 	    audio[audioName].play();
     }
