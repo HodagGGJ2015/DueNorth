@@ -2,6 +2,17 @@
 //Placed in order of importance
 audio = {
 	motorhomeLoop: 'backgrounds/motor_home_loop.ogg',
+	caveLoop: 'backgrounds/cave_loop.ogg',
+	arcadeLoop: 'backgrounds/arcade_loop.ogg',
+	gasLoop: 'backgrounds/gas_loop.ogg',
+	forestLoop: 'backgrounds/forest_loop.ogg',
+	backroomLoop: 'backgrounds/backroom_loop.ogg',
+	giftshopLoop: 'backgrounds/heartbreaker_loop_short.ogg',
+	partyLoop: 'backgrounds/party_loop.ogg',
+	saloonLoop: 'backgrounds/saloon_loop.ogg',
+	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
+	pizzaLoop: 'backgrounds/pizza_loop.ogg',
+	motelLoop: 'backgrounds/clinic_loop.ogg',
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg'
 };
