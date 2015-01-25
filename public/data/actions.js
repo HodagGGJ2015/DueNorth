@@ -157,8 +157,12 @@
 
         if (nextLocation == "introb") {
         	playAudio("screamSFX");
-          audio['barkLoop'].stop();
+          
         }
+		
+		if (nextLocation != "introa") {
+			audio['barkLoop'].stop();
+		}
 
         if (nextLocation == "hostilehodag") {
           playAudio("hodagSFX");
