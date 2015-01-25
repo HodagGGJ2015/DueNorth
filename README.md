@@ -7,9 +7,9 @@ An interactive fiction.
 
 |WW|WW|WW|WW|WW|WW|WW|
 |WW|WW|WW|WW|MO|WW|WW|
-|WW|PY|CP|GS|PR|GF|WW|
-|WW|WW|MT|BR|PZ|TX|WW|
-|WW|WW|WW|WW|AR|WW|WW|
+|WW|PY|CP|GS|PR|BR|WW|
+|WW|WW|MT|GF|PZ|TX|WW|
+|WW|WW|WW|BA|AR|WW|WW|
 |WW|WW|WW|WW|WW|WW|WW|
 
 WW: Woods
@@ -21,6 +21,7 @@ TX: Taxidermist
 GF: Gift Shop
 GS: Gas Station
 BR: Bar
+BA: Back Room
 CP: Camp
 MT: Motel
 PY: Party

@@ -18,7 +18,7 @@
       "visited": false,
       "fullDescription": "<p>Just outside of the main campground area, a group of college kids are causing a ruckus. Clearly we’re not the only ones on summer vacation, but the only difference is they look like they’re actually having fun.</p>",
       "shortDescription": "<p>A group of people having more fun then you.</p>",
-      "image": "images/party.png",
+      "image": "images/campground.png",
       "directions": {
         "north": "woods",
         "west": "woods",
@@ -56,7 +56,7 @@
       "visited": false,
       "fullDescription": "<p>The current resting place of the family Winnebago, as well as a resting place for a large group of Hells Angels bikers who seem to be in the middle of a cross-country road trip. They are a drunk, rowdy bunch who either left the bar, or were kicked out. You keep your distance.</p>",
       "shortDescription": "<p>A weedy lot.</p>",
-      "image": "images/parkinglot.png",
+      "image": "images/road.png",
       "directions": {
         "north": "motorhome",
         "south": "pizza",
@@ -69,7 +69,7 @@
       "visited": false,
       "fullDescription": "<p>Musky trophys and a signed dollar bill decorate the walls. The smell of cheap beer and fried cheese sticks perfumes the air. Below a large screen TV, the bartender is talking with a patron. In front of you is a row of stools.</p><p>A cigarette machine sits forlornly next to the door.</p>",
       "shortDescription": "<p>A deep woods bar.</p>",
-      "image": "images/bar.png",
+      "image": "images/tavern.png",
       "directions": {
         "south": "taxidermy",
         "west": "parking",
@@ -100,28 +100,55 @@
         "south": "backroom"
       }
     },
+    "backroom": {
+      "name": "Backroom",
+      "visited": false,
+      "fullDescription": "<p>This is a backroom.</p>",
+      "shortDescription": "<p>Backroom.</p>",
+      "image": "images/giftshop.png",
+      "directions": {
+        "north": "giftshop",
+        "west": "woods",
+        "east": "arcade",
+        "south": "woods"
+      }
+    },
     "pizza": {
       "name": "Pizza",
       "visited": false,
       "fullDescription": "<p>This is apparently THE place to be. The pizza may be so-so, but the arcade area is top notch. Galaga and Ms Pac-Man abound. A man with a green uniform and a large mustache enthusiastically plays skee-ball.</p>",
       "shortDescription": "<p>A pizza joint.</p>",
-      "image": "images/pizza.png",
+      "image": "images/pizzaria.png",
       "directions": {
         "north": "parking",
-        "east": "giftshop",
-        "west": "taxidermy"
+        "south": "arcade",
+        "east": "taxidermy",
+        "west": "giftshop"
+      }
+    },
+    "arcade": {
+      "name": "Arcade",
+      "visited": false,
+      "fullDescription": "<p>This is an arcade.</p>",
+      "shortDescription": "<p>Arcade.</p>",
+      "image": "images/arcade.png",
+      "directions": {
+        "east": "woods",
+        "west": "woods",
+        "north": "pizza",
+        "south": "woods"
       }
     },
     "taxidermy": {
       "name": "Medical Clinic",
       "visited": false,
       "fullDescription": "<p>Being surrounded by dead and stuffed animals, you find it really hard to believe that Dr. Toby is a real doctor, but the dusty diploma hung up behind his desk would say otherwise. His profession is medical, but his passion is clearly taxidermy. Despite his choice in interior decorating, he’s no joker and seems to really know his stuff.</p>",
-      "shortDescription": "<p>Part medical clinic part taxidery.</p>",
+      "shortDescription": "<p>Part medical clinic part taxidermy.</p>",
       "image": "images/taxidermy.png",
       "directions": {
         "north": "bar",
-        "east": "pizza",
-        "west": "woods"
+        "east": "woods",
+        "west": "pizza"
       }
     },
     "woods": {
