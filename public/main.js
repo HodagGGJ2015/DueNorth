@@ -44,14 +44,25 @@
       renderOutput(engine.act(inputEl.value));
 	  
 	  // play audio
-	  if (inputEl.value.length === 0 || responseEl.value == "Nothing happened.") 
-		  audio['textEnterFalse'].play();
-	  else 
-		  audio['textEnter'].play();
+	  if (inputEl.value.length === 0 || responseEl.value == "Nothing happened.") {
+		  
+		  if (!audio['textEnterFalse'].isLoaded) 
+		  	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+		  else
+			  audio['textEnterFalse'].play();
+		  
+	  } else {
+		  
+		  if (!audio['textEnter'].isLoaded) 
+		  	  loadSound('textEnter', audio['textEnter'], true);
+		  else
+			  audio['textEnter'].play();
+		  
+	  }	  
 	 
       // clear input
       inputEl.value = '';
-	  audio['textEnter'].play();
+
     } else if (e.keyCode == 38) {
       e.preventDefault();
       // scroll back in history
