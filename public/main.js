@@ -32,7 +32,7 @@
       renderOutput(engine.act(inputEl.value.trim()));
 
       // serialize state
-      localStorage.setItem('state', engine.serialize());
+      //localStorage.setItem('state', engine.serialize());
 
       // play audio
       if (inputEl.value.length === 0 || responseEl.innerText == "Nothing happened.") {
@@ -46,7 +46,7 @@
     }
   });
 
-  engine.deserialize(localStorage.getItem('state'));
+  // engine.deserialize(localStorage.getItem('state'));
   renderOutput(engine.act('look'));
 
 }).call(this);

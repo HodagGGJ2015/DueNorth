@@ -67,10 +67,20 @@
     go: {
       parse: function(input) {
         return match(input, [
-          /^(?:go|move)\s+(north|south|east|west)$/i
+          /^(?:go|move)\s+(north|south|east|west)$/i,
+          /^(?:go|move)\s+(up|down|right|left|back|front)$/i
+
         ], function(matches) {
+          var directions = {
+            up: "north",
+            down: "south",
+            right: "east",
+            left: "west",
+            back: "south",
+            front: "north"
+          };
           return {
-            direction: matches[1]
+            direction: directions[matches[1]] || matches[1]
           };
         });
       },
