@@ -71,6 +71,7 @@ function loadSound(name, url, playOnLoad) {
 					
 					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
 					this.gainNode.gain.value = name.indexOf('barkLoop') > -1 ? 0.05 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('dog') > -1 ? 0.1 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('music') > -1 ? 0.3 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('SFX') > -1 ? .5 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('scream') > -1 ? .07 : this.gainNode.gain.value;
