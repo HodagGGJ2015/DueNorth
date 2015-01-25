@@ -61,7 +61,26 @@
       location: 'giftshop',
       fullDescription: "<p>Sammy owns the gift shop, which is easily the cleanest business in the whole town. Sammy herself, however, is a completely different story. Absolutely neurotic and germaphobic to boot, like an over-caffeinated hawk Sammy keeps a watchful eye over her countless trinkets. I wouldn't say she's friendly, but she is polite. She is, after all, running a tourist trap.</p>",
       receive: {
-        objects: ['shirt', 'pizza']
+        objects: ['shirt', 'slice', 'artifact'],
+        act: function(args) {
+          var key = this.global.names[args.object] || args.object;
+          if (key == 'artifact') {
+            this.global.response = '<p>Before you realize it, Emma points at the trinket and says “HEY! That looks like the thing you found in the woods!”</p><p>She reaches into your fanny pack and pulls out the weird artifact. And whaddaya know, they looks almost identical! The gift shop clerk sees everything and is in a complete fluster.</p><p>“WHERE DID YOU GET THAT?”</p><p>Emma speaks honestly. “We found it out in the woods. Is that where you get these things?”</p><p>Sammy the gift shop clerk snatches up the artifact from Emmas hands. “GET OUT! GET OUT OF MY STORE!” She chases the three of you out of the store.</p><p>“Sheesh” says Emma. “What was that all about?”</p>';
+            this.motorhome.visited = false;
+            this.motorhome.fullDescription = this.noparents.fullDescription;
+            this.motorhome.shortDescription = this.noparents.shortDescription;
+          }
+          if (key == 'slice') {
+            this.global.response = '<p>You drop the stinky pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the slice.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>';
+            this.slice.location = 'clerk';
+            this.giftshop.directions = {
+              north: "gas",
+              west: "motel",
+              east: "pizza",
+              south: "backroom"
+            }
+          }
+        }
       },
       talk: {
         response: 'What is that smell?'
@@ -173,6 +192,29 @@
         tavern: "<p>“My sister own the bar across the road. She’s not to keen on visitors, thats why she works the bar and I work the Motel.”</p>",
       }
     },
+    teenager: {
+      name: 'Pizza Dude',
+      location: 'pizza',
+      fullDescription: 'A bored-looking teenager is selling pizza from behind the counter.',
+      shortDescription: 'A bored teenager with pizza.',
+      receive: {
+        objects: ['coin', 'tickets'],
+        act: function(args) {
+          var key = this.global.names[args.object] || args.object;
+          if (key == 'coin') {
+            this.slice.location = 'inventory';
+            this.coin.location = 'teenager';
+          }
+          if (key == 'tickets') {
+            this.slice.location = 'inventory';
+            this.tickets.location = 'teenager';
+          }
+        }
+      },
+      talk: {
+        response: "<p>“We have pizza slices, but it’ll cost ya either money or tickets from our ski-ball”</p>"
+      }
+    },
     ranger: {
       name: 'Danny',
       location: 'arcade',
@@ -259,7 +301,19 @@
       fullDescription: "<p>You’ve never seen a racoon so up-close in your life. It looks like it’s trying to eat things off the grounds, but having no luck. With a town this empty, there probably isn’t a whole lot of garbage for it to go through for food.</p>",
       talk: {
         response: "You say hi, but it’s a racoon so it can’t talk back."
-      }
+      },
+      receive: {
+        objects: ['slice'],
+        act: function(args) {
+          var key = this.global.names[args.object] || args.object;
+          if (key == 'slice') {
+            this.global.response = '<p>You lay the pizza on the ground next to the racoon, and it immediately begins to devour the slice.</p><p>“Look at it go! It loves pizza!” shouts Emma in excitement. “From now on, I’m going to call you Pepperoni!”</p><p>Pepperoni is a very fitting name for the racoon.</p>';
+            this.raccoon.name = "Pepperoni";
+            this.raccoon.fullDescription = "<p>After eating a whole slice of pizza, Pepperoni the Racoon looked very satisfied, and almost grateful for your generosity.</p>";
+            this.raccoon.shortDescription = "<p>Pepperoni looks at you in adoration.</p>";
+          }
+        }
+      },
     },
     pizzaguy: {
       name: 'Pizza guy',

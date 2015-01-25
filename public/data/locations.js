@@ -131,15 +131,14 @@
       directions: {
         north: "gas",
         west: "motel",
-        east: "pizza",
-        south: "backroom"
+        east: "pizza"
       }
     },
     backroom: {
       name: "Backroom",
       visited: false,
-      fullDescription: "<p>Nothing to see here right now... This is just an innocent storage room. There is a door to the west.</p>",
-      shortDescription: "<p>Backroom. To the front is the door to the giftshop. To the west is another door.</p>",
+      fullDescription: "<p>Nothing to see here right now... This is just the door to an innocent storage room. You don't hear any mysterous noises from behind it.</p><p>The door is locked</p>",
+      shortDescription: "<p>Locked Door.</p>",
   	  audio: "giftshopLoop", //not ready
       image: "images/giftshop.png",
       directions: {
