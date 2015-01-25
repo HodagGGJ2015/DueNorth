@@ -1,3 +1,16 @@
+@SceneData = new Meteor.Collection("SceneData")
+
+Meteor.startup ->
+  if Meteor.isServer
+    reloadSceneData()
+    Meteor.publish "SceneData", (query, fields) ->
+      console.log("sub SceneData", query, fields)
+      query ?= {}
+      fields ?= {}
+      return SceneData.find(query, fields)
+
+
+
 # reusable script
 goHome = {
   verb: "go"
@@ -166,13 +179,9 @@ testingActions = {
 
 ]
 
+reloadSceneData = () ->
+  SceneData.remove({})
+  for scene in MockData
+    SceneData.insert(scene)
 
-@SceneData = new Meteor.Collection("SceneData")
-
-if Meteor.isServer
-  Meteor.startup ->
-    SceneData.remove({})
-    for scene in MockData
-      SceneData.insert(scene)
-    # Meteor.publish("SceneData")
 

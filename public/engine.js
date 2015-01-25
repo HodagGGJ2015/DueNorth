@@ -6,6 +6,24 @@
   var Engine = window.Engine = function(state, actions) {
     this.state = state;
     this.actions = actions;
+
+    this.state.global.names = _.reduce(this.state, function(names, object, name) {
+      if (!object.name) {
+        console.warn(name, 'has no "name".');
+        return names;
+      }
+
+      names[object.name.toLowerCase()] = name;
+      return names;
+    }, {});
+  };
+
+  Engine.prototype.serialize = function() {
+    return JSON.stringify(this.state);
+  };
+
+  Engine.prototype.deserialize = function(state) {
+    this.state = _.extend(this.state, JSON.parse(state));
   };
 
   Engine.prototype.getOutput = function() {
