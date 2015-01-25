@@ -8,13 +8,7 @@
         objects: ['arrowhead']
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'Interesting...';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Interesting...'
       }
     },
     dad: {
@@ -25,13 +19,7 @@
         objects: ['arrowhead']
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'Interesting...';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Interesting...'
       }
     },
     sister: {
@@ -42,13 +30,7 @@
         objects: ['arrowhead']
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'Oh cool!';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Oh cool!'
       }
     },
     dog: {
@@ -71,13 +53,7 @@
        }
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'Woof Woof!';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Woof woof!'
       }
     },
     clerk: {
@@ -88,13 +64,7 @@
         objects: ['shirt', 'pizza']
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'What is that smell?';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'What is that smell?'
       }
     },
     bartender: {
@@ -106,9 +76,7 @@
       },
       ask: {
         lush: "He's already had enough to drink.",
-        slots: function() {
-          this.global.response = "That old machine hasn't been used in years.";
-        }
+        slots: "That old machine hasn't worked in years."
       },
       talk: {
         response: 'Grunt'
@@ -122,13 +90,7 @@
         objects: ['booze']
       },
       talk: {
-        act: function(args) {
-          this.global.response = 'Woo!';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Woo!'
       }
     },
     attendent: {
@@ -136,13 +98,7 @@
       location: 'campground',
       fullDescription: "<p>At almost 7 feet tall and with biceps bigger than your little sister Emma's head, Paul looks like he should be cutting down trees by the dozens. Instead, he tends to a small campground just outside of town. Friendly guy though, and more than happy to tell you about these woods. It a bit weird that he always seems to have an axe resting on his shoulder, but otherwise real real friendly.</p>",
       talk: {
-        act: function(args) {
-          this.global.response = 'Bon Yenne!';
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: 'Bon Yenne!'
       }
     },
     receptionist: {
@@ -153,13 +109,7 @@
         objects: ['key']
       },
       talk: {
-        act: function(args) {
-          this.global.response = "Hi You's!";
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: "Hi You's!"
       }
     },
     ranger: {
@@ -170,13 +120,7 @@
         objects: ['coin']
       },
       talk: {
-        act: function(args) {
-          this.global.response = "Huh?";
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: "Huh?"
       }
     },
     doctor: {
@@ -187,13 +131,13 @@
         objects: ['antler']
       },
       talk: {
-        act: function(args) {
-          this.global.response = "OOh. This will look great on the wall.";
-        }
+        response: "<p>“Ya, I’m the town’s doctor and taxidermist. Normally a fella just does one thing in his life, but I was able to do two!”</p>"
       },
-      receive: {
-        act: function(args) {
-        }
+      ask: {
+        animals: "<p>“Do yous guys have an appointment, or just browsing? It’s fine if yous browsing, I don’t have these animals up just for myself.”</p>",
+        diploma: "<p>“Well ya know, I specialize in animals, but humans can be real animals too ya know. Sometimes even more so. So I tend to both sides”</p><p>That conversation got weird really quickly. You just nod.</p>",
+        town: "<p>“I’ve been the doctor slash taxidermist here for nearly 40 years. As they say, ‘When Dr. Toby’s on the job, he’ll fix em up one way or another!’”</p>",
+        hodag: "<p>“Ah heck, that old story? Yous listen to me, I’ve seen just about every animal in these dang woods, and I’ve never seen a Hodang in my life. Buncha baloney if yous ask me.”</p>"
       }
     },
     skunk: {
@@ -205,13 +149,7 @@
         objects: ['dog']
       },
       talk: {
-        act: function(args) {
-          this.global.response = "Sniff. Sniff.";
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: "Sniff. Sniff."
       }
     },
     hodag: {
@@ -220,15 +158,9 @@
       fullDescription: "<p>Holy crap what is that? Part dinosaur, part frog?!?!</p><p>This creature has the grinning face of a giant elephant, the head of a frog, the back of a dinosaur, thick short legs set off by huge claws and (of course) a long tail with spears at the end</p>",
       receive: {
         objects: ['music']
-      },
+      }
       talk: {
-        act: function(args) {
-          this.global.response = "Sniff. Sniff.";
-        }
-      },
-      receive: {
-        act: function(args) {
-        }
+        response: "Sniff. Sniff."
       }
     }
   });
