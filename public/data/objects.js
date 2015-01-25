@@ -26,8 +26,9 @@
     coin: {
       name: 'Coin',
       location: '',
+      give: true,
       take: {
-        response: 'You picked up the coin.'
+        response: '<p>You pick up the coin and put it in your pocket.</p>'
       },
 	  audio: 'coinSFX'
     },
@@ -59,13 +60,14 @@
       },
 	    audio: 'wrenchSFX'
     },
-    slots: {
+    cigarettes: {
+      name: 'Cigarette Machine',
       location: 'bar',
-      fullDescription: 'A slot machine lures you in.',
+      fullDescription: '<p>A cigarette machine stands in the corning with a sign that reads “out of order”.</p>',
       hit: {
         act: function(args) {
-          this.coin.location = 'inventory';
-          this.global.response = 'You pick up the coin and put it in your pocket.';
+          this.coin.location = 'bar';
+          this.coin.shortDescription = '<p>A shiny coin hangs out of the cigarette machine.</p>';
         }
       },
 	  audio: 'slotsSFX'
