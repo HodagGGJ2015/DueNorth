@@ -29,7 +29,7 @@
       e.preventDefault();
 
       // update the engine and render its output
-      renderOutput(engine.act(inputEl.value));
+      renderOutput(engine.act(inputEl.value.trim()));
 
       // serialize state
       localStorage.setItem('state', engine.serialize());
