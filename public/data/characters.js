@@ -187,13 +187,13 @@
         objects: ['antler']
       },
       talk: {
-        act: function(args) {
-          this.global.response = "OOh. This will look great on the wall.";
-        }
+        response: "<p>“Ya, I’m the town’s doctor and taxidermist. Normally a fella just does one thing in his life, but I was able to do two!”</p>"
       },
-      receive: {
-        act: function(args) {
-        }
+      ask: {
+        animals: "<p>“Do yous guys have an appointment, or just browsing? It’s fine if yous browsing, I don’t have these animals up just for myself.”</p>",
+        diploma: "<p>“Well ya know, I specialize in animals, but humans can be real animals too ya know. Sometimes even more so. So I tend to both sides”</p><p>That conversation got weird really quickly. You just nod.</p>",
+        town: "<p>“I’ve been the doctor slash taxidermist here for nearly 40 years. As they say, ‘When Dr. Toby’s on the job, he’ll fix em up one way or another!’”</p>",
+        hodag: "<p>“Ah heck, that old story? Yous listen to me, I’ve seen just about every animal in these dang woods, and I’ve never seen a Hodang in my life. Buncha baloney if yous ask me.”</p>"
       }
     },
     skunk: {

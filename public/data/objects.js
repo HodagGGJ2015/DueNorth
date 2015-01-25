@@ -16,6 +16,10 @@
         response: 'It was half-buried in the ground. You reach down to pull it out. It’s a weird… artifact of some sort. Whatever it is, I bet your mom would know more about it. You put the artifact in your fanny pack for later.'
       }
     },
+    diploma: {
+      location: 'taxidermist',
+      fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>'
+    },
     wrench: {
       name: 'Wrench',
       location: 'parking',

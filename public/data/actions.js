@@ -289,7 +289,7 @@
       parse: function(input) {
         return match(input, [
           /^talk\s+(?:to\s+)?(.+)$/i,
-          /^hello\s+(.+)$/i
+          /^(?:hello|hi)\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
