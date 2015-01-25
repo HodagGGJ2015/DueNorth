@@ -10,6 +10,7 @@ audio = {
 	partyLoop: 'backgrounds/party_loop.ogg',
 	saloonLoop: 'backgrounds/saloon_loop.ogg',
 	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
+	parkingLotLoop: 'backgrounds/parking_lot_loop.ogg',
 	pizzaLoop: 'backgrounds/pizza_loop.ogg',
 	motelLoop: 'backgrounds/clinic_loop.ogg',
 	
@@ -36,7 +37,7 @@ audioKeys = Object.keys(audio);
 
 function playAudio(audioName) {
     if (!audio[audioName].isLoaded) {
-  	    loadSound(audioName, audio[audioName.audio], true);
+  	    loadSound(audioName, audio[audioName], true);
     } else {
 	    audio[audioName].play();
     }
@@ -69,6 +70,9 @@ function loadSound(name, url, playOnLoad) {
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
 					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
+					this.gainNode.gain.value = name.indexOf('barkLoop') > -1 ? 0.03 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('musicLoop') > -1 ? 0.3 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('scream') > -1 ? 0.05 : this.gainNode.gain.value;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;

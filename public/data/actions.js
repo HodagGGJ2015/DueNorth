@@ -118,6 +118,12 @@
           return;
         }
 		
+	  	if (nextLocation == "introb") {
+	  		playAudio("scream");
+			audio['barkLoop'].stop();
+	  	}
+		
+		
   	    if (global.audio != nextLocationObj.audio) {
   	    	
 		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
@@ -128,8 +134,8 @@
 	  		  audio[nextLocationObj.audio].play();
 	        }
 			
-  	    }
-
+  	    }		
+		
     	global.audio = nextLocationObj.audio;
 
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
@@ -356,11 +362,13 @@
               this.global.description += object.fullDescription;
             }
           }, this);
-
-    		  this.global.audio = location.audio;
+		  
+    	  this.global.audio = location.audio;
           this.global.response = 'You look around.';
-
-    		  if (!audio[location.audio].isLoaded) {
+		  
+		  if (playerLocation == "introa") playAudio("barkLoop")
+		  
+    	  if (!audio[location.audio].isLoaded) {
             loadSound(location.audio, audio[location.audio], true);
           } else {
             audio[location.audio].play();
