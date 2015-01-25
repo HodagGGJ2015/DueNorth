@@ -8,16 +8,13 @@
   var engine = new Engine(Stuff, Actions);
 
   // set the description and image src
-  function renderOutput(output) {
+  function renderOutput(output, delay) {
     if (output.image) {
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }
-    if (output.description) {
-      descriptionEl.innerHTML = output.description;
-    }
-    if (output.response) {
-      responseEl.innerHTML = output.response;
-    }
+
+    descriptionEl.innerHTML = output.description;
+    responseEl.innerHTML = output.response;
   }
 
   // prevent blur
@@ -34,12 +31,15 @@
       // update the engine and render its output
       renderOutput(engine.act(inputEl.value));
 
+      localStorage.setItem('state', engine.serialize());
+
       // clear input
       inputEl.value = '';
-	  audio['textEnter'].play();
+  	  audio['textEnter'].play();
     }
   });
 
+  engine.deserialize(localStorage.getItem('state'));
   renderOutput(engine.act('look'));
 
 }).call(this);

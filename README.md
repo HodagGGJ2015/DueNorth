@@ -29,27 +29,11 @@ PY: Party
 TODO
 ---
 
-#### Engine
-
-1. real name lookups
-2. go => move
-
 #### HTML
 
+- add location name to index.html
 - arrow up/down for previous commands
-- serialize/deserialize to localstorage
 - typer.js
 - audio
 - object images
 - transition slides
-
-story.json format
----
-
-`name : action : target : operation : data`
-
-- name — the name of the object
-- action — the action performed on the object
-- target — the target of the update
-- operation — the operation to apply to the target data
-- data — the update data to use in the operation
