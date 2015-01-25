@@ -37,16 +37,6 @@
         west: "woods"
       }
     },
-    end: {
-      name: "The End",
-      visited: false,
-      fullDescription: "&lt;NO SKUNK ENDING&gt;",
-      shortDescription: "&lt;NO SKUNK ENDING&gt;",
-      audio: "motorhomeLoop", //not ready
-      image: "images/winners.png",
-      directions: {
-      }
-    },
     party: {
       name: "Party",
       visited: false,
@@ -211,6 +201,16 @@
       image: "images/cave.png",
       directions: {
       }
-    }
+    },
+    noskunk: {
+      name: "The End",
+      visited: false,
+      fullDescription: "<p>You signal for Charlie to stop his barking, to which he immediately runs over to you. The skunk, no longer in immediate danger from the Caldwell family, scurries away back into the woods from whence it came. You all let out a sigh of relief.</p><p>“That was a close call,” says Dad. “Let’s get going before it comes back.” The Caldwell family eagerly hops back in the Winnebago. You move towards the rear and stare out the back window as Dad starts up the RV.</p><p>Something in the distance catches your eye. An odd animal, at least fifty feet out in the woods behind the parking lot. It’s not the skunk, no, something much bigger than a skunk. Is it a buck? No way, it’s entirely too fat and round. It’s a very bright green too, clear as day. As you squint your eyes at the strange creature, it suddenly raises one of it’s front legs and shakes it in the air.</p><p>It’s waving! It has to be waving! You’ve never seen any animal move like that before. Thoughtlessly, you lift your hand and wave back through the rear window of the Winnebago.</p><p>“And we’re off!” Dad puts the RV into gear and drives back on the road. Whatever that animal is, it’s still waving at you, even as you speed away. What could that thing have been? Leaving this small Wisconsin town, the creature gets smaller and smaller until you can no longer see it.</p>",
+      shortDescription: "&lt;NO SKUNK ENDING&gt;",
+      audio: "motorhomeLoop", //not ready
+      image: "images/winners.png",
+      directions: {
+      }
+    },
   });
 }).call(this);
