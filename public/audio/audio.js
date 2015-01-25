@@ -6,7 +6,6 @@ audio = {
 	arcadeLoop: 'backgrounds/arcade_loop.ogg',
 	gasLoop: 'backgrounds/gas_loop.ogg',
 	forestLoop: 'backgrounds/forest_loop.ogg',
-	backroomLoop: 'backgrounds/backroom_loop.ogg',
 	giftshopLoop: 'backgrounds/giftshop_loop.ogg',
 	partyLoop: 'backgrounds/party_loop.ogg',
 	saloonLoop: 'backgrounds/saloon_loop.ogg',
@@ -14,11 +13,21 @@ audio = {
 	pizzaLoop: 'backgrounds/pizza_loop.ogg',
 	motelLoop: 'backgrounds/clinic_loop.ogg',
 	textEnter: 'sfx/text_enter.ogg',
-	textEnterFalse: 'sfx/text_enter_false.ogg'
+	textEnterFalse: 'sfx/text_enter_false.ogg',
+	hodag: "sfx/hodag.ogg",
+	musicLoop: "music/music_loop.ogg"
 };
 
 //Create an array of keys for the audio files
 audioKeys = Object.keys(audio);
+
+function playAudio(audioName) {
+    if (!audio[audioName].isLoaded) {
+  	    loadSound(audioName audio[audioName.audio], true);
+    } else {
+	    audio[audioName].play();
+    }
+}
 
 //Preload all of the audio files
 function loadSound(name, url, playOnLoad) {
