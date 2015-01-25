@@ -36,11 +36,17 @@
     },
     dog: {
       name: 'Charlie',
-      location: 'parking',
-      fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit. </p>",
+      location: 'motorhome',
+      fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit.</p>",
+      shortDescription: "<p>Bark! Bark! Bark! Bark!</p>",
       receive: {
         objects: ['bone', 'bait', 'skunk']
       },
+      stop: {
+        act: function (args) {
+          this.dog.shortDescription = "";
+        }
+      }
       talk: {
         act: function(args) {
           this.global.response = 'Woof Woof!';
@@ -169,8 +175,8 @@
     },
     skunk: {
       name: 'Skunk',
-      location: 'parking',
-      fullDescription: "<p>It's a skunk! Better keep your distance, don't wanna startle it.</p>",
+      location: 'motorhome',
+      fullDescription: "<p>It's a skunk! Right now it is peacefully sniffing a pile of trash. Better keep your distance, don't wanna startle it.</p>",
       image: "images/skunk.png",
       receive: {
         objects: ['dog']
