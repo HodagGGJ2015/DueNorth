@@ -87,16 +87,11 @@
       var value = inputEl.value.trim();
 
       if (!value) {
-
         // stop animation on any keydown
         clearTimeout(textTimeoutID);
         renderOutput(engine.getOutput(), false);
 
-        if (!audio['textEnterFalse'].isLoaded) {
-          loadSound('textEnterFalse', audio['textEnterFalse'], true);
-        } else {
-          audio['textEnterFalse'].play();
-        }
+        playAudio('textEnterFalse');
 
         return;
       }
@@ -114,17 +109,9 @@
 
       // play audio
       if (!output.success) {
-        if (!audio['textEnterFalse'].isLoaded) {
-          loadSound('textEnterFalse', audio['textEnterFalse'], true);
-        } else {
-          audio['textEnterFalse'].play();
-        }
+        playAudio('textEnterFalse');
       } else {
-        if (!audio['textEnter'].isLoaded) {
-          loadSound('textEnter', audio['textEnter'], true);
-        } else {
-          audio['textEnter'].play();
-        }
+        playAudio('textEnter');
       }
 
       // clear input
