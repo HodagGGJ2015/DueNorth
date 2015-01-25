@@ -273,6 +273,7 @@
           /^hit\s+(.+)$/i,
           /^bump\s+(.+)$/i,
           /^push\s+(.+)$/i,
+          /^attack\s+(.+)$/i,
           /^shake\s+(.+)$/i
         ], function(matches) {
           return {
@@ -283,12 +284,12 @@
       act: function(args) {
         var object = get(this, args.object);
         if (!object) {
-          global.response = 'You cannot hit nothing...';
+          this.global.response = 'You cannot hit nothing...';
           return;
         }
 
         if (!object.hit || !object.hit.act) {
-          global.response = 'That\' not very nice.';
+          this.global.response = 'That\' not very nice.';
           return;
         }
 

@@ -255,7 +255,20 @@
       },
       talk: {
         response: "Sniff. Sniff."
-      }
+      },
+      hit: {
+        act: function(args) {
+
+          var location = this.introb;
+          audio['barkLoop'].stop();
+          playAudio("screamSFX");
+          this.global.location = 'introb';
+          this.global.description = location.fullDescription;
+          this.global.image = location.image;
+          this.global.audio = location.audio;
+          this.skunk.location = ''
+       }
+      },
     },
     hodag: {
       name: 'Hodag',
@@ -310,14 +323,6 @@
           }
         }
       },
-    },
-    pizzaguy: {
-      name: 'Pizza guy',
-      location: 'pizza',
-      fullDescription: "<p>Behind the counter is some bored-looking teenager.</p>",
-      talk: {
-        response: "“We have pizza slices, but it’ll cost ya either money or tickets from ski-ball.”"
-      }
     }
   });
 }).call(this);
