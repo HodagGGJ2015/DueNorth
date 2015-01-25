@@ -31,11 +31,18 @@
       // update the engine and render its output
       renderOutput(engine.act(inputEl.value));
 
+      // serialize state
       localStorage.setItem('state', engine.serialize());
+
+      // play audio
+      if (inputEl.value.length === 0 || responseEl.innerText == "Nothing happened.") {
+        audio['textEnterFalse'].play();
+      } else {
+        audio['textEnter'].play();
+      }
 
       // clear input
       inputEl.value = '';
-  	  audio['textEnter'].play();
     }
   });
 
