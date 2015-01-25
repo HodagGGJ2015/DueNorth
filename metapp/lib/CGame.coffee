@@ -3,6 +3,7 @@
 CGame.go = (where) ->
   console.log("called: CGame go", where)
   CGame.hideSim()
+  CBot.chatAsync("go #{where}")
   Router.go("/game/#{where}")
 
 CGame.alert = (msg) ->

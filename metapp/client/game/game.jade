@@ -1,28 +1,30 @@
 template(name='game')
-  .title {{scene.name}}
   #content
+    .title {{scene.name}}
     img(src=scene.image)
     span#alert 
     iframe#iframeX(name="iframeX")
 
-  h3 {{scene.description}}
 
-  input(type="text" value="" id="inputbox")
-  input(type="submit" value="GO")
+  #sceneInfo
 
-  .inventory
-    h3 inventory
-    ol
-    each playerItems
-      li {{name}}
+    h3 {{scene.description}}
+    input(type="text" value="" id="inputbox")
+    input(type="submit" value="GO")
 
-  hr
+    .inventory
+      h3 inventory
+      ol
+      each playerItems
+        li {{name}}
 
-  h3 hints
-  ul
-  each scene.actions
-    li
-      a(href=href) {{verb}} {{noun}}
+    hr
+
+    h3 hints
+    ul
+    each scene.actions
+      li
+        a(href=href) {{verb}} {{noun}}
 
   
 
