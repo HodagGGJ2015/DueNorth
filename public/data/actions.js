@@ -69,7 +69,14 @@
         }
 
         object.location = 'inventory';
-        global.response = object.take.response || 'You took the ' + args.object;
+
+        if (object.take.act) {
+          object.take.act.call(this, args);
+        } else if (object.take.response) {
+          global.response = object.take.response;
+        } else {
+          global.response = 'You took the ' + args.object;
+        }
       }
     },
     go: {
