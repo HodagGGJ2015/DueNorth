@@ -243,6 +243,14 @@
        }
       }
     },
+    raccoon: {
+      name: 'Racoon',
+      location: 'motel',
+      fullDescription: "<p>You’ve never seen a racoon so up-close in your life. It looks like it’s trying to eat things off the grounds, but having no luck. With a town this empty, there probably isn’t a whole lot of garbage for it to go through for food.</p>",
+      talk: {
+        response: "You say hi, but it’s a racoon so it can’t talk back."
+      }
+    },
     pizzaguy: {
       name: 'Pizza guy',
       location: 'pizza',

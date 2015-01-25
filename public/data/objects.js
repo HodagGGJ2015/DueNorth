@@ -45,7 +45,7 @@
       location: 'taxidermist',
       fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>',
 	  audio: "diplomaSFX"
-	},
+	  },
     wrench: {
       name: 'Wrench',
       location: 'parking',
@@ -57,7 +57,7 @@
           this.global.response = '<p>You see the wrench on the ground. Hmm, that may come in handy later. You, Emma and Charlie slowly creep up towards the backside of the bikers. You don’t think they notice you when suddenly...</p><p>“HEY YOU KIDS!” shouts one of the bikers. The mass of burly men turns in your direction. Busted!</p><p>“Is that your dog?”</p><p>“... yes?”</p><p>“Can I pet it?”</p><p>“.... sure...”</p><p>All of the bikers make make a bee-line towards Charlie and start petting his head, rubbing his belly, making baby noises to him, the works. The collie is having the time of his life, and the bikers cannot get enough of him. While the bikers are completely distracted by Charlie’s doggy charm, you pick up the wrench and put it in your backpack.</p>';
         }
       },
-	  audio: 'wrenchSFX'
+	    audio: 'wrenchSFX'
     },
     slots: {
       location: 'bar',
