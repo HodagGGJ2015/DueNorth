@@ -277,6 +277,7 @@
           var location = this[this.global.location];
           this.global.image = location.image;
           this.global.description = location.fullDescription;
+          this.global.response = 'You look around.';
 		  this.global.audio = location.audio;
 		  		  
 		  if (!audio[location.audio].isLoaded) 
