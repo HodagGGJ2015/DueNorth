@@ -54,14 +54,13 @@
     dog: {
       name: 'Charlie',
       location: 'introa',
-      fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit.</p>",
+      fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit.</p><p>Bark! Bark! Bark! Bark!</p>",
       shortDescription: "<p>Bark! Bark! Bark! Bark!</p>",
       receive: {
         objects: ['bone', 'bait', 'skunk']
       },
       stop: {
         act: function(args) {
-          this.dog.shortDescription = "";
 
           var location = this.noskunk;
 
