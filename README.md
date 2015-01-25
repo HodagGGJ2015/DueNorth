@@ -27,9 +27,6 @@ PY: Party
 TODO
 ---
 
-- arrow up/down for previous commands (gabe)
-- typer.js (jim)
 - audio (luis)
-- object images (gabe)
 - transition slides (jim)
 - add GA (jim)
