@@ -156,12 +156,35 @@
       name: 'Hodag',
       location: 'woods',
       fullDescription: "<p>Holy crap what is that? Part dinosaur, part frog?!?!</p><p>This creature has the grinning face of a giant elephant, the head of a frog, the back of a dinosaur, thick short legs set off by huge claws and (of course) a long tail with spears at the end</p>",
-      receive: {
-        objects: ['music']
-      }
       talk: {
-        response: "Sniff. Sniff."
-      }
+        act: function(args) {
+          if (this.happyhodag.visited == true) {
+            var location = this.happyhodag;
+
+            this.global.description = location.fullDescription;
+            this.global.image = location.image;
+            this.global.audio = location.audio;
+            this.global.response = 'What do you do next?';
+          } else {
+            var location = this.pepperoni;
+
+            this.global.description = location.fullDescription;
+            this.global.image = location.image;
+            this.global.audio = location.audio;
+            this.global.response = 'THE END';
+          }
+       }
+      },
+      sing: {
+        act: function(args) {
+          var location = this.happyhodag;
+
+          this.global.description = location.fullDescription;
+          this.global.image = location.image;
+          this.global.audio = location.audio;
+          this.global.response = 'What do you do next?';
+       }
+      },
     }
   });
 }).call(this);
