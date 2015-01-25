@@ -5,16 +5,33 @@ An interactive fiction.
 
 - Everything is an object.
 
+|WW|WW|WW|WW|WW|WW|WW|
+|WW|WW|WW|WW|MO|WW|WW|
+|WW|PY|CP|GS|PR|BR|WW|
+|WW|WW|MT|GF|PZ|TX|WW|
+|WW|WW|WW|BA|AR|WW|WW|
+|WW|WW|WW|WW|WW|WW|WW|
+
+WW: Woods
+MO: Motor Home
+PR: Park
+PZ: Pizza
+AR: Arcade
+TX: Taxidermist
+GF: Gift Shop
+GS: Gas Station
+BR: Bar
+BA: Back Room
+CP: Camp
+MT: Motel
+PY: Party
+
 TODO
 ---
 
 #### Engine
 
-1. Support for "help": list available verbs
-2. Conditionals: how do we prevent "take skunk" x 2, see `$eq` in story.json
-3. Better error handling for missing stuff (helpful warnings)
-4. Directions: "go north", etc.
-5. Add `random` operation
+1. Name lockups
 
 #### HTML
 
