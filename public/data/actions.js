@@ -19,7 +19,7 @@
         return match(input, [
           /^inventory$/i,
           /^stuff$/i,
-          /^backpack$/i,
+          /^(?:fanny|back)(?:\s*|-)pack$/i,
           /^i$/i
         ], function(matches) {
           return true;
@@ -33,7 +33,7 @@
           return inventory;
         }, {});
 
-        this.global.response = '<h3>Your Backpack</h3>';
+        this.global.response = '<h3>Your Fanny Pack</h3>';
         if (_.size(inventory) > 0) {
           this.global.response = _.keys(inventory).join(', ');
         } else {
