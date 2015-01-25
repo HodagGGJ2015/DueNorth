@@ -43,8 +43,9 @@
     diploma: {
       name: "Diploma",
       location: 'taxidermist',
-      fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>'
-    },
+      fullDescription: '<p>It’s hard to read the entire diploma from where you standing, but all you can manage to read is:</p><p>“Lucas Toby” and “Doctor of Veterinary Medicine”.</p><p>Wait, is this guy a veterinarian?</p>',
+	  audio: "diplomaSFX"
+	},
     wrench: {
       name: 'Wrench',
       location: 'parking',

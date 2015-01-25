@@ -7,6 +7,7 @@
   var descriptionEl = document.querySelector('.description');
   var locationEl = document.querySelector('.location');
   var responseEl = document.querySelector('.response');
+  var bgMusic = '';
 
   var engine = new Engine(Stuff, Actions, localStorage);
   var history = [''];
@@ -45,7 +46,14 @@
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }
 
-    // TODO: if output.audio changed, stop old audio, start new one
+    // if output.audio changed, stop old audio, start new one
+    if (output.audio && output.audio != bgMusic) {
+      if (audio[bgMusic] && audio[bgMusic].isLoaded) {
+        audio[bgMusic].stop();
+      }
+      bgMusic = output.audio;
+      playAudio(bgMusic);
+    }
 
     if (printDelay) {
       // check and clear outputs that need to be updated

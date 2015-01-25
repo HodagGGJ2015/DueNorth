@@ -159,16 +159,15 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
+		
 	  	if (nextLocation == "introb") {
 	  		playAudio("screamSFX");
 			audio['barkLoop'].stop();
 	  	}
-  	    if (global.audio != nextLocationObj.audio) {
-
-		    if (audio[global.audio].isLoaded) audio[global.audio].stop();
-			playAudio(nextLocationObj.audio);
-			
-  	    }		
+		
+		if (nextLocation == "hostilehodag") {
+			playAudio("hodagSFX");
+		}
 		
     	global.audio = nextLocationObj.audio;
 
@@ -401,7 +400,6 @@
           this.global.response = 'You look around.';
 
 		  if (playerLocation == "introa") playAudio("barkLoop")
-		  playAudio(location.audio);
         }
       }
     },
