@@ -17,6 +17,7 @@
     "party": {
       "name": "Party",
       "visited": false,
+	  "audio" : "partyLoop",
       "fullDescription": "<p>Just outside of the main campground area, a group of college kids are causing a ruckus. Clearly we’re not the only ones on summer vacation, but the only difference is they look like they’re actually having fun.</p>",
       "shortDescription": "<p>A group of people having more fun then you.</p>",
       "image": "images/campground.png",
@@ -30,6 +31,7 @@
     "campground": {
       "name": "Happy Hodag Campground",
       "visited": false,
+	  "audio" : "forestLoop",
       "fullDescription": "<p>This has to be the worst campground in the history of campgrounds. Instead of pine needles, old beer cans, a diaper and a mysteriously burnt tent litter the ground. There is a large party off to the right. Somewhere you hear a dog barking.</p>",
       "shortDescription": "<p>The worst campground ever.</p>",
       "image": "images/campground.png",
@@ -43,6 +45,7 @@
     "gas": {
       "name": "Luke's Gas",
       "visited": false,
+	  "audio" : "gasLoop",
       "fullDescription": "<p>Part truck stop, part tourist trap, 100% cheese curds and bait. This gas station sells exactly half of what you need for your vacation.</p>",
       "shortDescription": "<p>A gas station.</p>",
       "image": "images/gasstation.png",
@@ -55,6 +58,7 @@
     "parking": {
       "name": "Parking Lot",
       "visited": false,
+	  "audio" : "gasLoop",
       "fullDescription": "<p>The current resting place of the family Winnebago, as well as a resting place for a large group of Hells Angels bikers who seem to be in the middle of a cross-country road trip. They are a drunk, rowdy bunch who either left the bar, or were kicked out. You keep your distance.</p>",
       "shortDescription": "<p>A weedy lot.</p>",
       "image": "images/road.png",
@@ -68,6 +72,7 @@
     "bar": {
       "name": "Sal's Saloon",
       "visited": false,
+	  "audio" : "saloonLoop",
       "fullDescription": "<p>Musky trophys and a signed dollar bill decorate the walls. The smell of cheap beer and fried cheese sticks perfumes the air. Below a large screen TV, the bartender is talking with a patron. In front of you is a row of stools.</p><p>A cigarette machine sits forlornly next to the door.</p>",
       "shortDescription": "<p>A deep woods bar.</p>",
       "image": "images/tavern.png",
@@ -80,6 +85,7 @@
     "motel": {
       "name": "Northwoods Motel",
       "visited": false,
+	  "audio" : "motelLoop",
       "fullDescription": "<p>The air is thick with the smell of cheap industrial soap, there is a dusty rack of maps and tourist guides by the front desk. The front attendant is a middle-aged woman with a large “Dorris” nametag and an unnaturally large smile. The tacky, dated furniture reminds you of grandma’s house.</p>",
       "shortDescription": "<p>A rundown motel.</p>",
       "image": "images/motel.png",
@@ -91,6 +97,7 @@
     "giftshop": {
       "name": "Giftshop",
       "visited": false,
+	  "audio" : "giftshopLoop",
       "fullDescription": "<p>Cheap nicknacks with “Welcome to Hodag Country” are on shelves to the right. There is a row of dusty moccasins for sale. Seated behind a counter is a bored looking clerk.</p><p>To the south is a door.</p>",
       "shortDescription": "<p>An authentic tourist trap.</p>",
       "image": "images/giftshop.png",
@@ -104,6 +111,7 @@
     "backroom": {
       "name": "Backroom",
       "visited": false,
+	  "audio" : "backroomLoop",
       "fullDescription": "<p>This is a backroom.</p>",
       "shortDescription": "<p>Backroom.</p>",
       "image": "images/giftshop.png",
@@ -117,6 +125,7 @@
     "pizza": {
       "name": "Pizza",
       "visited": false,
+	  "audio" : "pizzaLoop",
       "fullDescription": "<p>This is apparently THE place to be. The pizza may be so-so, but the arcade area is top notch. Galaga and Ms Pac-Man abound. A man with a green uniform and a large mustache enthusiastically plays skee-ball.</p>",
       "shortDescription": "<p>A pizza joint.</p>",
       "image": "images/pizzaria.png",
@@ -130,6 +139,7 @@
     "arcade": {
       "name": "Arcade",
       "visited": false,
+	  "audio" : "arcadeLoop",
       "fullDescription": "<p>This is an arcade.</p>",
       "shortDescription": "<p>Arcade.</p>",
       "image": "images/arcade.png",
@@ -143,6 +153,7 @@
     "taxidermy": {
       "name": "Medical Clinic",
       "visited": false,
+	  "audio" : "medicalClinicLoop",
       "fullDescription": "<p>Being surrounded by dead and stuffed animals, you find it really hard to believe that Dr. Toby is a real doctor, but the dusty diploma hung up behind his desk would say otherwise. His profession is medical, but his passion is clearly taxidermy. Despite his choice in interior decorating, he’s no joker and seems to really know his stuff.</p>",
       "shortDescription": "<p>Part medical clinic part taxidermy.</p>",
       "image": "images/taxidermy.png",
@@ -155,6 +166,7 @@
     "woods": {
       "name": "The Woods",
       "visited": false,
+	  "audio" : "forestLoop",
       "fullDescription": "<p>Big pine trees in every direction.</p>",
       "shortDescription": "<p>Big pine trees.</p>",
       "image": "images/woods.png",
@@ -164,6 +176,7 @@
     "cave": {
       "name": "Hodag Cave",
       "visited": false,
+	  "audio" : "caveLoop",
       "fullDescription": "<p>Hodag Cave.</p>",
       "shortDescription": "<p>Hodag Cave.</p>",
       "image": "images/cave.png",

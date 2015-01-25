@@ -96,16 +96,16 @@
 
   	  // play audio
   	  if (output.success) {
-    		if (!audio['textEnterFalse'].isLoaded) {
-    		  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+    	if (!audio['textEnterFalse'].isLoaded) {
+    	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
         } else {
-    		  audio['textEnterFalse'].play();
+    	  audio['textEnterFalse'].play();
         }
   	  } else {
-    		if (!audio['textEnter'].isLoaded) {
-    		  loadSound('textEnter', audio['textEnter'], true);
+    	if (!audio['textEnter'].isLoaded) {
+    	  loadSound('textEnter', audio['textEnter'], true);
         } else {
-    		  audio['textEnter'].play();
+    	  audio['textEnter'].play();
         }
   	  }
 

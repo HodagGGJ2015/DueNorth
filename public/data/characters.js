@@ -171,6 +171,7 @@
       name: 'Skunk',
       location: 'parking',
       fullDescription: "<p>It's a skunk! Better keep your distance, don't wanna startle it.</p>",
+      image: "images/skunk.png",
       receive: {
         objects: ['dog']
       },

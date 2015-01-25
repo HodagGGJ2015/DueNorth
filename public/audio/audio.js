@@ -2,6 +2,17 @@
 //Placed in order of importance
 audio = {
 	motorhomeLoop: 'backgrounds/motor_home_loop.ogg',
+	caveLoop: 'backgrounds/cave_loop.ogg',
+	arcadeLoop: 'backgrounds/arcade_loop.ogg',
+	gasLoop: 'backgrounds/gas_loop.ogg',
+	forestLoop: 'backgrounds/forest_loop.ogg',
+	backroomLoop: 'backgrounds/backroom_loop.ogg',
+	giftshopLoop: 'backgrounds/heartbreaker_loop_short.ogg',
+	partyLoop: 'backgrounds/party_loop.ogg',
+	saloonLoop: 'backgrounds/saloon_loop.ogg',
+	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
+	pizzaLoop: 'backgrounds/pizza_loop.ogg',
+	motelLoop: 'backgrounds/clinic_loop.ogg',
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg'
 };
@@ -35,7 +46,7 @@ function loadSound(name, url, playOnLoad) {
 					source.connect(this.gainNode); 				//Connect gain to source
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
-					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
+					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.2 : 1;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;
