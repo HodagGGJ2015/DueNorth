@@ -92,15 +92,24 @@
       // serialize state
       localStorage.setItem('state', engine.serialize());
 
-      // play audio
-      if (output.success) {
-        audio['textEnter'].play();
-      } else {
-        audio['textEnterFalse'].play();
-      }
+  	  // play audio
+  	  if (output.success) {
+    		if (!audio['textEnterFalse'].isLoaded) {
+    		  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+        } else {
+    		  audio['textEnterFalse'].play();
+        }
+  	  } else {
+    		if (!audio['textEnter'].isLoaded) {
+    		  loadSound('textEnter', audio['textEnter'], true);
+        } else {
+    		  audio['textEnter'].play();
+        }
+  	  }
 
       // clear input
       inputEl.value = '';
+
     } else if (e.keyCode == 38) {
       e.preventDefault();
       // scroll back in history
