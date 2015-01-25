@@ -36,6 +36,7 @@
 
       // clear input
       inputEl.value = '';
+	  audio['textEnter'].play();
     }
   });
 
