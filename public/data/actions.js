@@ -119,10 +119,15 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
+		
 	  	if (nextLocation == "introb") {
 	  		playAudio("screamSFX");
 			audio['barkLoop'].stop();
 	  	}
+		
+		if (nextLocation == "hostilehodag") {
+			playAudio("hodagSFX");
+		}
 		
     	global.audio = nextLocationObj.audio;
 
