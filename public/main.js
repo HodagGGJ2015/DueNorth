@@ -80,6 +80,13 @@
       if (!value) {
         clearTimeout(textTimeoutID);
         renderOutput(engine.getOutput(), false);
+		
+    	if (!audio['textEnterFalse'].isLoaded) {
+    	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
+        } else {
+    	  audio['textEnterFalse'].play();
+        }
+		
         return;
       }
 
