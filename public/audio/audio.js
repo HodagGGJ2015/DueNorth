@@ -36,6 +36,7 @@ audio = {
 audioKeys = Object.keys(audio);
 
 function playAudio(audioName) {
+	console.log(audioName)
     if (!audio[audioName].isLoaded) {
   	    loadSound(audioName, audio[audioName], true);
     } else {

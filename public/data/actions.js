@@ -119,7 +119,7 @@
         }
 		
 	  	if (nextLocation == "introb") {
-	  		playAudio("scream");
+	  		playAudio("screamSFX");
 			audio['barkLoop'].stop();
 	  	}
 		
