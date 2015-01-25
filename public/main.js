@@ -93,7 +93,7 @@
       localStorage.setItem('state', engine.serialize());
 
   	  // play audio
-  	  if (output.success) {
+  	  if (!output.success) {
     	if (!audio['textEnterFalse'].isLoaded) {
     	  loadSound('textEnterFalse', audio['textEnterFalse'], true);
         } else {
