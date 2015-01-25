@@ -1,6 +1,7 @@
 //Gather all audio files as objects to be expanded later
 audio = {
-	textEnter: 'sfx/text_enter.ogg'
+	textEnter: 'sfx/text_enter.ogg',
+	textEnterFalse: 'sfx/text_enter_false.ogg'
 };
 
 //Create an array of keys for the audio files
@@ -32,8 +33,7 @@ function loadSound(name, url) {
 					source.connect(this.gainNode); 				//Connect gain to source
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
-					//Set all music to a volume of 0 and everything else to 0.2
-					this.gainNode.gain.value = 0.2;
+					this.gainNode.gain.value = 0.4;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('loop') > -1 ? true : false;
