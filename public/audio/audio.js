@@ -7,7 +7,7 @@ audio = {
 	gasLoop: 'backgrounds/gas_loop.ogg',
 	forestLoop: 'backgrounds/forest_loop.ogg',
 	backroomLoop: 'backgrounds/backroom_loop.ogg',
-	giftshopLoop: 'backgrounds/heartbreaker_loop_short.ogg',
+	giftshopLoop: 'backgrounds/giftshop_loop.ogg',
 	partyLoop: 'backgrounds/party_loop.ogg',
 	saloonLoop: 'backgrounds/saloon_loop.ogg',
 	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
