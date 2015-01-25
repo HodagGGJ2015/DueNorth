@@ -46,6 +46,10 @@ function loadSound(name, url, playOnLoad) {
 					
 				}, 
 				
+				stop: function() {
+					this.source.stop();
+				},
+				
 				adjustGain: function(value, current) {
 					//This function currrently only increases gain
 					
