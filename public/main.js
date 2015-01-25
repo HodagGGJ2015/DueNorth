@@ -3,6 +3,7 @@
   var inputEl = document.querySelector('.input');
   var imageEl = document.querySelector('.image');
   var descriptionEl = document.querySelector('.description');
+  var locationEl = document.querySelector('.location');
   var responseEl = document.querySelector('.response');
 
   var engine = new Engine(Stuff, Actions);
@@ -15,6 +16,7 @@
 
     descriptionEl.innerHTML = output.description;
     responseEl.innerHTML = output.response;
+    locationEl.innerHTML = output.location;
   }
 
   // prevent blur
@@ -29,16 +31,17 @@
       e.preventDefault();
 
       // update the engine and render its output
-      renderOutput(engine.act(inputEl.value.trim()));
+      var output = engine.act(inputEl.value.trim());
+      renderOutput(output);
 
       // serialize state
       localStorage.setItem('state', engine.serialize());
 
       // play audio
-      if (inputEl.value.length === 0 || responseEl.innerText == "Nothing happened.") {
-        audio['textEnterFalse'].play();
-      } else {
+      if (output.success) {
         audio['textEnter'].play();
+      } else {
+        audio['textEnterFalse'].play();
       }
 
       // clear input
