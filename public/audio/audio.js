@@ -10,14 +10,26 @@ audio = {
 	partyLoop: 'backgrounds/party_loop.ogg',
 	saloonLoop: 'backgrounds/saloon_loop.ogg',
 	medicalClinicLoop: 'backgrounds/medical_clinic_loop.ogg',
+	parkingLotLoop: 'backgrounds/parking_lot_loop.ogg',
 	pizzaLoop: 'backgrounds/pizza_loop.ogg',
 	motelLoop: 'backgrounds/clinic_loop.ogg',
+	
+	musicLoop: "music/music_loop.ogg",
+	
 	textEnter: 'sfx/text_enter.ogg',
 	textEnterFalse: 'sfx/text_enter_false.ogg',
-	hodag: "sfx/hodag.ogg",
-	musicLoop: "music/music_loop.ogg",
+	
 	barkLoop: "sfx/bark_loop.ogg",
-	womanSFX: "sfx/woman_scream.ogg"
+	dogGrowl: "sfx/dog_growl.ogg",
+	artifact: "sfx/artifact_grab.ogg",
+	booze: "sfx/booze.ogg",
+	coin: "sfx/coin.ogg",
+	bell: "sfx/shop_bell.ogg",
+	slots: "sfx/slot_machine.ogg",
+	wrench: "sfx/wrench_pickup.ogg",
+	scream: "sfx/woman_scream.ogg",
+	hodag: "sfx/hodag.ogg"
+	
 };
 
 //Create an array of keys for the audio files
@@ -25,7 +37,7 @@ audioKeys = Object.keys(audio);
 
 function playAudio(audioName) {
     if (!audio[audioName].isLoaded) {
-  	    loadSound(audioName, audio[audioName.audio], true);
+  	    loadSound(audioName, audio[audioName], true);
     } else {
 	    audio[audioName].play();
     }
@@ -58,6 +70,9 @@ function loadSound(name, url, playOnLoad) {
 					this.gainNode.connect(context.destination); //Connect gain to destination
 					
 					this.gainNode.gain.value = name.indexOf('Loop') > -1 ? 0.1 : 1;
+					this.gainNode.gain.value = name.indexOf('barkLoop') > -1 ? 0.03 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('musicLoop') > -1 ? 0.3 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('scream') > -1 ? 0.05 : this.gainNode.gain.value;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;
