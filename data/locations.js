@@ -6,7 +6,7 @@
       fullDescription: "<p>“This looks like a better town than any to stretch our legs!” your dad proclaims. He pulls the Winnebago into a parking lot, right past a large sign reading ‘Welcome to the Home of the Great Hodag’.</p><p>“Honey, do we really need to stop here?” Mom asks, peeking over at the group of bikers in the parking lot. “Maybe we can wait till we get to another town.”</p><p>“Nonsense!” Dad throws the gear up to park and shuts off the engine. Emma, your little sister, immediately opens up the side door and rushes out without a word. Before you can step out, Charlie bolts after Emma, barking and running circles around her. You hop onto the lot and catch up to Emma.</p><p>Beyond the group of rowdy bikers you make out a small Wisconsin town with typical small Wisconsin town things: a bar, a gas station, a gift shop, a motel. It’s basically a carbon copy of every other small town you guys have visited on your road trip. Further beyond this town are woods. Lots and lots of woods.</p><p>“Do you think dad could take on those bikers?” Emma asks as your parents exit the Winnebago. You chuckle. “Maybe in a dweeb contest.”</p><p>Dad pats you and your sister on the shoulder. “Isn’t this great, you guys? Getting out of the city, being out in the middle of nowhere in such a small town? I bet the locals are going to be amazed when they meet a family from the big city.”</p><p>Emma turns. “Dad, this looks like the place from Deliverance.”</p><p>Your mom gasps. “Who showed you that movie? You’re not allowed to see R movies.”</p><p>Suddenly, loud barking erupts in the air. Your family turns to see Charlie barking at a skunk right next to the Minni-Winnie’s side door, wide open. It’s posed in a defensive position and stares down Charlie. Your dad lets out an ‘Oh!” as your mom throws her hands over her face. If there is such thing as a Wisconsin Stand-Off, this is it. The air is tense, everyone knows the gravity of the situation.</p><p>Everyone is frozen except for Charlie, who continues to bark. You cannot rely on your family, YOU need to defuse this situation. There is no room for error here. You need to think of something, and something fast.</p><p>There a parking lot to the south.</p>",
       shortDescription: "<p>Everyone is frozen except for Charlie, who continues to bark. You cannot rely on your family, YOU need to defuse this situation. There is no room for error here. You need to think of something, and something fast.</p><p>There a parking lot to the south.</p>",
       audio: "musicLoop",
-      image: "images/Logo3.png",
+      image: "images/logo.png",
       directions: {
         south: "introb"
       }
@@ -17,7 +17,7 @@
       fullDescription: "<p>At last, you find the courage to react, but it is already too late. Agitated by Charlie and acting in defense, the skunk totally freaks out and unleashes its veritable skunk spray into the open side door. Your mom shrieks in horror as Charlie retreats behind the you.</p><p>The damage has been done. The skunk, the clear victor of this small Wisconsin town conflict, hobbles away back into the woods. You and your family move towards the Winnebago, but you can barely get within five feet before the repulsive stench repels everyone back.</p><p>“ARE YOU KIDDING ME? ARE YOU FREAKIN’ KIDDING ME? ALL MY CLOTHES ARE IN THERE!” shouts Emma, on the verge of tears. There is absolutely no way you guys will be able to continue the road trip with the Mini-Winnie in this condition. Your little sister sobs silently, your parents are in silent shock.</p><p>What do we do now?</p><p>Finally, Dad breaks the silence.</p><p>“Well, no use trying to drive the Winnie in this condition. Looks like we’re stuck here until we can clean up this skunk mess. Why don’t you kids go and explore this town while your mother and I try to clean up the Winnie?”</p><p>Surprised that you parents didn’t ask you to help with the cleaning, you grab your sister’s hand and make a quick getaway before they change their minds. Charlie follows close behind.</p><p>“Just don’t talk to those scary bikers!” Your mom shouts.</p><p>There is a parking lot to the south.</p>",
       shortDescription: "<p>Your family's motorhome.</p><p>There is a parking lot to the south.</p>",
       audio: "musicLoop",
-      image: "images/Logo3.png",
+      image: "images/logo.png",
       directions: {
         north: "motorhome",
         south: "parking"
@@ -84,7 +84,7 @@
       visited: false,
       fullDescription: "<p>The current resting place of the family Winnebago, as well as a resting place for a large group of Hells Angels bikers who seem to be in the middle of a cross-country road trip. They are a drunk, rowdy bunch who either left the bar, or were kicked out. You keep your distance.</p><p>You see some blinking neon lights off to the east, past several churches. To the west is a gas station and from the south comes a wonderful smell. Thankfully a short walk back to the north is your motorhome.</p>",
       shortDescription: "<p>A weedy lot. There are a lot of bikers here.</p><p>Your motorhome is to the north and there is a mouth watering smell to the south. To the west are some blinking lights and to the east is a gas station.</p>",
-  	  audio: "gasLoop",
+  	  audio: "parkingLotLoop",
       image: "images/road.png",
       directions: {
         north: "motorhome",
@@ -134,15 +134,25 @@
         east: "pizza"
       }
     },
-    backroom: {
-      name: "Backroom",
+    backroomdoor: {
+      name: "Backroom Door",
       visited: false,
       fullDescription: "<p>Nothing to see here right now... This is just the door to an innocent storage room. You don't hear any mysterous noises from behind it.</p><p>The door is locked</p>",
       shortDescription: "<p>Locked Door.</p>",
-  	  audio: "giftshopLoop", //not ready
+      audio: "giftshopLoop", //not ready
       image: "images/giftshop.png",
       directions: {
         north: "giftshop"
+      }
+    },
+    backroom: {
+      name: "The End",
+      visited: false,
+      fullDescription: "<p>You finally open the back door in the gift shop to reveal… <strong>YOUR PARENTS</strong>! They’re both tied up with duct tape over their mouths.</p><p>Both you and Emma work to untie their bindings. After you rip the tape off your dads mouth, he goes off.</p><p>“These people are fucking crazy! We gotta get the fuck outta here!”</p><p>You try to calm down your parents and get answers out of them. “Who did this to you?”</p><p>“That gift shop lady and the lumberjack!” your mom says after Emma rips her duct tape off. “I just asked them about the artifacts, and they must’ve knocked us both out because we both woke up in this room.”</p><p>“What’s that?” Emma points at a weird green monster costume. Your dad shrugs “Fuck if I know. Like I said, these people are-”</p><p>“Well well well, what do we have here?” The newly-reunited family is suddenly interrupted by who else but the gift shop clerk and campground attendant themselves, standing in the backroom doorway.</p><p>You are just utterly confused. “What are you guys doing? Why did you tie up our parents?”</p><p>“You kids have very nosy parents.” sneered the gift shop clerk.”They found out about our big money-making secret. You see, all the trinkets you see in our store are actual Indian artifacts. They’re real because… this town was built on an Indian burial ground!”</p><p>You are still confused. “So?”</p><p>“SO, we can’t have people knowing that we stole these artifacts from an Indian burial ground. That’s something the average tourist would frown upon, so we need to keep it a secret. But your mother, Mrs. College-Education over here, knew that these were from an Indian burial ground. So to prevent her from spreading the truth, Paul and I had to do what we had to do.”</p><p>“Are you kidding me?!” yells Emma. “That’s the stupidest thing I’ve ever heard!”</p><p>“Well, regardless of what you think, your family knows too much. Paul, take care of them!”</p><p>Before Paul can do anything, your dad jumps up and totally rams Paul and pins him to the ground, trying to get the axe out of his hands. “<strongRUN!</strong>”</p><p>You, Emma, your mom, and Charlie all run out the backroom door, shoving Sammy to the ground. You guy exit the shop and sprint towards the Winnebago. Once you reach the parking lot, you look back and see your dad is far behind with the campgrounds attendant and gift shop clerk chasing close behind.</p><p>By the they reach the parking lot, an absolute miracle unfolds. Once your dad passes the bikers in the parking lot, they all begin leaving one-by-one in a straight motorcycle line. They completely cut off the gift shop clerk and campground attendant, and your dad reaches the Winnebago along with the rest of the family to make a grand escape.</p><p> The Winnebago still smells like skunk, but at least you all survived that small Wisconsin town.</p>",
+      shortDescription: "&lt;SCOOBY DOO ENDING&gt;",
+      audio: "giftshopLoop", //not ready
+      image: "images/winners.png",
+      directions: {
       }
     },
     pizza: {
@@ -241,16 +251,6 @@
         south: "parking",
         east: "woodsF2",
         west: "woodsD2"
-      }
-    },
-    backroomending: {
-      name: "The End",
-      visited: false,
-      fullDescription: "<p>You finally open the back door in the gift shop to reveal… <strong>YOUR PARENTS</strong>! They’re both tied up with duct tape over their mouths.</p><p>Both you and Emma work to untie their bindings. After you rip the tape off your dads mouth, he goes off.</p><p>“These people are fucking crazy! We gotta get the fuck outta here!”</p><p>You try to calm down your parents and get answers out of them. “Who did this to you?”</p><p>“That gift shop lady and the lumberjack!” your mom says after Emma rips her duct tape off. “I just asked them about the artifacts, and they must’ve knocked us both out because we both woke up in this room.”</p><p>“What’s that?” Emma points at a weird green monster costume. Your dad shrugs “Fuck if I know. Like I said, these people are-”</p><p>“Well well well, what do we have here?” The newly-reunited family is suddenly interrupted by who else but the gift shop clerk and campground attendant themselves, standing in the backroom doorway.</p><p>You are just utterly confused. “What are you guys doing? Why did you tie up our parents?”</p><p>“You kids have very nosy parents.” sneered the gift shop clerk.”They found out about our big money-making secret. You see, all the trinkets you see in our store are actual Indian artifacts. They’re real because… this town was built on an Indian burial ground!”</p><p>You are still confused. “So?”</p><p>“SO, we can’t have people knowing that we stole these artifacts from an Indian burial ground. That’s something the average tourist would frown upon, so we need to keep it a secret. But your mother, Mrs. College-Education over here, knew that these were from an Indian burial ground. So to prevent her from spreading the truth, Paul and I had to do what we had to do.”</p><p>“Are you kidding me?!” yells Emma. “That’s the stupidest thing I’ve ever heard!”</p><p>“Well, regardless of what you think, your family knows too much. Paul, take care of them!”</p><p>Before Paul can do anything, your dad jumps up and totally rams Paul and pins him to the ground, trying to get the axe out of his hands. “<strongRUN!</strong>”</p><p>You, Emma, your mom, and Charlie all run out the backroom door, shoving Sammy to the ground. You guy exit the shop and sprint towards the Winnebago. Once you reach the parking lot, you look back and see your dad is far behind with the campgrounds attendant and gift shop clerk chasing close behind.</p><p>By the they reach the parking lot, an absolute miracle unfolds. Once your dad passes the bikers in the parking lot, they all begin leaving one-by-one in a straight motorcycle line. They completely cut off the gift shop clerk and campground attendant, and your dad reaches the Winnebago along with the rest of the family to make a grand escape.</p><p> The Winnebago still smells like skunk, but at least you all survived that small Wisconsin town.</p>",
-      shortDescription: "&lt;SCOOBY DOO ENDING&gt;",
-      audio: "motorhomeLoop", //not ready
-      image: "images/winners.png",
-      directions: {
       }
     },
     noskunk: {

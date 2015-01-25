@@ -3,7 +3,17 @@
     booze: {
       name: "Drink",
       location: 'bartender',
-	  audio: 'boozeSFX'
+      audio: 'boozeSFX'
+    },
+    knife: {
+      name: "Deer Knife",
+      location: 'giftshop',
+      image: "images/item_deerknife.png",
+      give: true,
+      fullDescription: "<p>Genuine imitation deer antler knife</p>",
+      take: {
+        response: "Are you going to pay for that?"
+      }
     },
     slice: {
       name: 'Slice of pizza',
@@ -17,9 +27,15 @@
       drop: {
         act: function() {
           if (this.global.location == 'giftshop' && !this.clerk.flustered) {
-            this.global.response = "<p>You drop the slice of pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the pizza.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
+            this.global.response = "<p>You drop the slice of pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the pizza.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go south to the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
+            this.giftshop.directions = {
+              north: "gas",
+              west: "motel",
+              east: "pizza",
+              south: "backroom"
+            };
           }
           else {
             this.global.response = "<p>This might not be the best place to drop the pizza.</p>";
@@ -39,9 +55,15 @@
       drop: {
         act: function() {
           if (this.global.location == 'giftshop' && !this.clerk.flustered) {
-            this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
+            this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to south                                  the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
+            this.giftshop.directions = {
+              north: "gas",
+              west: "motel",
+              east: "pizza",
+              south: "backroomdoor"
+            };
           }
           else {
             this.global.response = "<p>This might not be the best place to drop the pizza.</p>";
@@ -50,16 +72,40 @@
       },
       audio: "clothSFX"
     },
+    strut: {
+      name: 'Small Strut',
+      fullDescription: '<p>Small flexible piece of metal. It looks a lot like a a lockpick.</p>',
+      shortDescription: "<p>Small piece of metal.</p>",
+      location: 'campground',
+      give: true,
+      take: {
+        response: '<p>You pick up the strut and put it in your fanny pack.</p>'
+      },
+      use: {
+        act: function() {
+          if (this.global.location == 'backroomdoor' && this.clerk.flustered) {
+            this.global.response = "<p>You pick the lock and can now successfully go south through the door.</p>";
+            this.backroomdoor.directions = {
+              north: "giftshop",
+              south: "backroomdoor"
+            };
+          }
+          else {
+            this.global.response = "<p>This might not be the best place to use the strut.</p>";
+          }
+        }
+      }
+    },
     coin: {
       name: 'Coin',
-      fullDescription: '<p>A shiny coin glistens behind a slot of the cigarette machine.</p>',
-      shortDescription: "<p>There's a coin in the cigarette machine.</p>",
+      fullDescription: '<p>A shiny coin glistens on the ground in front of the cigarette machine.</p>',
+      shortDescription: "<p>There's a coin in front of the cigarette machine.</p>",
       location: '',
       give: true,
       take: {
         response: '<p>You pick up the coin and put it in your pocket.</p>'
       },
-	  audio: 'coinSFX'
+      audio: 'coinSFX'
     },
     artifact: {
       name: 'Artifact',
@@ -99,13 +145,14 @@
     },
     machine: {
       name: 'Cigarette Machine',
+      image: "images/item_cigarettemachine.png",
       location: 'bar',
-      fullDescription: '<p>A cigarette machine stands in the corner with a sign that reads “out of order”.</p>',
-      shortDescription: "Cigarette machine sits broken in the corner.",
+      fullDescription: '<p>A cigarette machine stands in the corner with a sign that reads “out of order”.</p><p>There is a coin stuck in the coin slot.</p>',
+      shortDescription: "<p>Cigarette machine sits broken in the corner.</p><p>There is something in the coin slot</p>",
       hit: {
         act: function(args) {
           this.coin.location = 'bar';
-          this.global.response = 'You give the cigarette machine a good nudge and are rewarded with a rattling sound.';
+          this.global.response = '<p>You give the cigarette machine a good nudge and something falls on to the ground.</p>';
         }
       },
 	  audio: 'slotsSFX'

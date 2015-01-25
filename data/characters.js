@@ -62,7 +62,7 @@
       location: 'giftshop',
       fullDescription: "<p>Sammy owns the gift shop, which is easily the cleanest business in the whole town. Sammy herself, however, is a completely different story. Absolutely neurotic and germaphobic to boot, like an over-caffeinated hawk Sammy keeps a watchful eye over her countless trinkets. I wouldn't say she's friendly, but she is polite. She is, after all, running a tourist trap.</p>",
       receive: {
-        objects: ['shirt', 'slice', 'artifact'],
+        objects: ['artifact'],
         act: function(args) {
           var key = this.global.names[args.object] || args.object;
           if (key == 'artifact') {
@@ -70,16 +70,6 @@
             this.motorhome.visited = false;
             this.motorhome.fullDescription = this.noparents.fullDescription;
             this.motorhome.shortDescription = this.noparents.shortDescription;
-          }
-          if (key == 'slice') {
-            this.global.response = '<p>You drop the stinky pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the slice.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>';
-            this.slice.location = 'clerk';
-            this.giftshop.directions = {
-              north: "gas",
-              west: "motel",
-              east: "pizza",
-              south: "backroom"
-            }
           }
         }
       },
@@ -265,7 +255,20 @@
       },
       talk: {
         response: "Sniff. Sniff."
-      }
+      },
+      hit: {
+        act: function(args) {
+
+          var location = this.introb;
+          audio['barkLoop'].stop();
+          playAudio("screamSFX");
+          this.global.location = 'introb';
+          this.global.description = location.fullDescription;
+          this.global.image = location.image;
+          this.global.audio = location.audio;
+          this.skunk.location = ''
+       }
+      },
     },
     hodag: {
       name: 'Hodag',
@@ -320,14 +323,6 @@
           }
         }
       },
-    },
-    pizzaguy: {
-      name: 'Pizza guy',
-      location: 'pizza',
-      fullDescription: "<p>Behind the counter is some bored-looking teenager.</p>",
-      talk: {
-        response: "“We have pizza slices, but it’ll cost ya either money or tickets from ski-ball.”"
-      }
     }
   });
 }).call(this);

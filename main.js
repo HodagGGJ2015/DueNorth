@@ -40,8 +40,19 @@
     textTimeoutID = setTimeout(recur(0, 0), textDelay);
   }
 
+  function prepOutput(output) {
+    if (/<p>(.+)<\/p>/.test(output)) {
+      return output;
+    } else {
+      return '<p>' + output + '</p>';
+    }
+  }
+
   // set the description and image src
   function renderOutput(output, printDelay) {
+    output.description = prepOutput(output.description);
+    output.response = prepOutput(output.response);
+
     if (output.image) {
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }

@@ -157,9 +157,9 @@
 
         if (nextLocation == "introb") {
         	playAudio("screamSFX");
-          
+
         }
-		
+
 		if (nextLocation != "introa") {
 			audio['barkLoop'].stop();
 		}
@@ -217,6 +217,31 @@
         object.stop.act.call(this, args);
       }
     },
+    use: {
+      parse: function(input) {
+        return match(input, [
+          /^use\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object || object.location != 'inventory') {
+          this.global.response = "You don't have a " + args.object;
+          return;
+        }
+
+        if (!object.use || !object.stop.act) {
+          this.global.response = "You can't use this right now.";
+          return;
+        }
+
+        object.stop.act.call(this, args);
+      }
+    },
     stop: {
       parse: function(input) {
         return match(input, [
@@ -248,7 +273,11 @@
           /^hit\s+(.+)$/i,
           /^bump\s+(.+)$/i,
           /^push\s+(.+)$/i,
-          /^shake\s+(.+)$/i
+          /^attack\s+(.+)$/i,
+          /^shake\s+(.+)$/i,
+          /^touch\s+(.+)$/i,
+          /^rattle\s+(.+)$/i,
+          /^tip\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]
@@ -258,12 +287,12 @@
       act: function(args) {
         var object = get(this, args.object);
         if (!object) {
-          global.response = 'You cannot hit nothing...';
+          this.global.response = 'You cannot hit nothing...';
           return;
         }
 
         if (!object.hit || !object.hit.act) {
-          global.response = 'That\' not very nice.';
+          this.global.response = 'That\' not very nice.';
           return;
         }
 
