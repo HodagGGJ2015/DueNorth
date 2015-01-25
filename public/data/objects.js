@@ -52,7 +52,7 @@
               north: "gas",
               west: "motel",
               east: "pizza",
-              south: "backroom"
+              south: "backroomdoor"
             };
           }
           else {
@@ -61,6 +61,30 @@
         }
       },
       audio: "clothSFX"
+    },
+    strut: {
+      name: 'Small Metal Strut',
+      fullDescription: '<p>Small flexible piece of metal. It looks a lot like a a lockpick.</p>',
+      shortDescription: "<p>Small piece of metal.</p>",
+      location: 'campground',
+      give: true,
+      take: {
+        response: '<p>You pick up the strut and put it in your fanny pack.</p>'
+      },
+      use: {
+        act: function() {
+          if (this.global.location == 'backroomdoor' && this.clerk.flustered) {
+            this.global.response = "<p>You pick the lock and can now successfully go south through the door.</p>";
+            this.backroomdoor.directions = {
+              north: "giftshop",
+              south: "backroomdoor"
+            };
+          }
+          else {
+            this.global.response = "<p>This might not be the best place to use the strut.</p>";
+          }
+        }
+      }
     },
     coin: {
       name: 'Coin',
@@ -71,7 +95,7 @@
       take: {
         response: '<p>You pick up the coin and put it in your pocket.</p>'
       },
-	  audio: 'coinSFX'
+      audio: 'coinSFX'
     },
     artifact: {
       name: 'Artifact',
