@@ -171,7 +171,13 @@
         objects: ['coin']
       },
       talk: {
-        response: "Huh?"
+        response: "<p>“This town technically doesn’t have any police officers, too small for it they say. I’m kinda like the police, except they won’t let me have a gun. And now you tell me what the fun is in that?”</p>"  
+      },
+      ask: {
+        town: "<p>“Not much happens in this town. I can’t complain: less crime means more time at the arcade!”</p>",
+        hodag: "<p>“I ain’t ever seen that Hodag, but you betcha I could take that sucker down. I’m not scared of some dumb green monster.”</p>",
+        'gift shop': "<p>“Some folks ask questions about that place, but I don’t pay much attention to them. What’s crimes could happen at a dang gift shop? People are just paranoid, I tell ya.”</p>",
+        sammy: "<p>“Some folks ask questions about that place, but I don’t pay much attention to them. What’s crimes could happen at a dang gift shop? People are just paranoid, I tell ya.”</p>"
       }
     },
     doctor: {
