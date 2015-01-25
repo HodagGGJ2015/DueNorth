@@ -36,7 +36,7 @@
     },
     dog: {
       name: 'Charlie',
-      location: 'motorhome',
+      location: 'introa',
       fullDescription: "<p>Charlie is the spitting image of Lassie the dog. Loyal, reliable, and totally lovable, Charlie is a very crucial member of the Caldwell family unit.</p>",
       shortDescription: "<p>Bark! Bark! Bark! Bark!</p>",
       receive: {
@@ -182,7 +182,7 @@
     },
     skunk: {
       name: 'Skunk',
-      location: 'motorhome',
+      location: 'introa',
       fullDescription: "<p>It's a skunk! Right now it is peacefully sniffing a pile of trash. Better keep your distance, don't wanna startle it.</p>",
       image: "images/skunk.png",
       receive: {
