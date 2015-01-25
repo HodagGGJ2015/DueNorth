@@ -100,22 +100,65 @@
           global.response = 'Cannot go ' + args.direction + '.';
           return;
         }
-		
-		if (audio[global.audio].isLoaded) audio[global.audio].stop();
-		
-	    if (!audio[nextLocationObj.audio].isLoaded) 
-	  	  loadSound(nextLocationObj.audio, audio[nextLocationObj.audio], true);
-	    else
-		  audio[nextLocationObj.audio].play();
-		
-		global.audio = nextLocationObj.audio;
-		
+
+	     	if (audio[global.audio].isLoaded) audio[global.audio].stop();
+
+  	    if (!audio[nextLocationObj.audio].isLoaded) {
+	  	    loadSound(nextLocationObj.audio, audio[nextLocationObj.audio], true);
+        } else {
+  		    audio[nextLocationObj.audio].play();
+        }
+
+    		global.audio = nextLocationObj.audio;
+
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
         global.response = 'You traveled ' + args.direction;
-		
+
+        _.each(this, function(object, key) {
+          if (key != 'global' && object.location == nextLocation) {
+            if (nextLocationObj.visited) {
+              if (object.shortDescription) {
+                this.global.description += '<h3>' + object.name + '</h3>';
+                this.global.description += object.shortDescription;
+              }
+            } else {
+              this.global.description += '<h3>' + object.name + '</h3>';
+              this.global.description += object.fullDescription;
+              if (object.shortDescription) {
+                this.global.description += object.shortDescription;
+              }
+            }
+          }
+        }, this);
+
         nextLocationObj.visited = true;
         this.global.location = nextLocation;
+      }
+    },
+    stop: {
+      parse: function(input) {
+        return match(input, [
+          /^stop\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var object = get(this, args.object);
+        if (!object) {
+          this.global.response = 'You cannot stop nothing...';
+          return;
+        }
+
+        if (!object.stop || !object.stop.act) {
+          this.global.response = 'You can\'t stop that.';
+          return;
+        }
+
+        object.stop.act.call(this, args);
       }
     },
     hit: {
@@ -287,14 +330,26 @@
           var location = this[this.global.location];
           this.global.image = location.image;
           this.global.description = location.fullDescription;
+
+          var playerLocation = this.global.location;
+          _.each(this, function(object, key) {
+            if (key != 'global' && object.location == playerLocation) {
+              this.global.description += '<h3>' + object.name + '</h3>';
+              this.global.description += object.fullDescription;
+              if (object.shortDescription) {
+                this.global.description += object.shortDescription;
+              }
+            }
+          }, this);
+
+    		  this.global.audio = location.audio;
           this.global.response = 'You look around.';
-		  this.global.audio = location.audio;
-		  		  
-		  if (!audio[location.audio].isLoaded) 
-		  	  loadSound(location.audio, audio[location.audio], true);
-		  else
-			  audio[location.audio].play();
-		  
+
+    		  if (!audio[location.audio].isLoaded) {
+            loadSound(location.audio, audio[location.audio], true);
+          } else {
+            audio[location.audio].play();
+          }
         }
       }
     }

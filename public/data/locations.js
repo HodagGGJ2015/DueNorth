@@ -2,7 +2,7 @@
   _.extend(window.Stuff, {
     motorhome: {
       name: "Mini-Winne",
-      visited: false,
+      visited: true,
       fullDescription: "<p>A 1973 Mini Winnebago, AKA the Mini-Winne, the pride of your family name. It's beige body has a large brown W on the side that your dad keeps as polished as the day he first bought it. Sometimes you think he loves the Winnebago more than you.</p><p>Woods are all around you except to the south where there is a road.</p>",
       shortDescription: "<p>Your family's motorhome.</p><p>There is a road to the south.</p>",
 	    audio: "motorhomeLoop",
@@ -12,6 +12,16 @@
         south: "parking",
         east: "woods",
         west: "woods"
+      }
+    },
+    end: {
+      name: "The End",
+      visited: false,
+      fullDescription: "&lt;NO SKUNK ENDING&gt;",
+      shortDescription: "&lt;NO SKUNK ENDING&gt;",
+      audio: "motorhomeLoop", //not ready
+      image: "images/winners.png",
+      directions: {
       }
     },
     party: {

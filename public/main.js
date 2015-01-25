@@ -19,7 +19,9 @@
     clearTimeout(textTimeoutID);
 
     if (el.innerHTML != '') {
-      callback();
+      if (callback) {
+        callback();
+      }
       return;
     }
 
