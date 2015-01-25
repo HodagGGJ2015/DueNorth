@@ -75,7 +75,7 @@ function loadSound(name, url, playOnLoad) {
 					this.gainNode.gain.value = name.indexOf('music') > -1 ? 0.3 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('SFX') > -1 ? .5 : this.gainNode.gain.value;
 					this.gainNode.gain.value = name.indexOf('scream') > -1 ? .07 : this.gainNode.gain.value;
-					this.gainNode.gain.value = name.indexOf('text') > -1 ? 0.7 : this.gainNode.gain.value;
+					this.gainNode.gain.value = name.indexOf('text') > -1 ? 0.2 : this.gainNode.gain.value;
 					
 					//Create loop for music and rain
 					source.loop = name.indexOf('Loop') > -1 ? true : false;
