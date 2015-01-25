@@ -188,12 +188,15 @@
     cave: {
       name: "Hodag Cave",
       visited: false,
-      fullDescription: "<p>While walking through the woods, you see a bright green boulder, almost the size of a large couch. What the heck could that be?</p><p>Suddenly, it starts moving! It turns around to reveal sharp spikes, and then you see the head of a monster with sharp teeth, pointy devil horns and dark red eyes.</p><p>“Holy crap, It’s the Hodag!” screeches Emma.</p><p>“Whats a Hodag?” you ask.</p><p>The Hodag, or whatever it is, has noticed you guys and lets out a loud roar that shakes all the surrounding trees and bushes. This monster looks hellbent to eat you the three. There is no way to escape, you must think fast!</p>",
+      fullDescription: "<p>Nearby the cave, you see a bright green boulder, almost the size of a large couch. What the heck could that be?</p><p>Suddenly, it starts moving! It turns around to reveal sharp spikes, and then you see the head of a monster with sharp teeth, pointy devil horns and dark red eyes.</p><p>“Holy crap, It’s the Hodag!” screeches Emma.</p><p>“Whats a Hodag?” you ask.</p><p>The Hodag, or whatever it is, has noticed you guys and lets out a loud roar that shakes all the surrounding trees and bushes. This monster looks hellbent to eat you the three. There is no way to escape, you must think fast!</p>",
       shortDescription: "<p>The Hodag Cave.</p><p>There is no way to escape, you must think fast!</p>",
       audio: "caveLoop",
       image: "images/cave.png",
       directions: {
-        north: "woodsB6"
+        north: "hostilehodag",
+        south: "hostilehodag",
+        east: "hostilehodag",
+        west: "hostilehodag"
       }
     },
     hostilehodag: {
