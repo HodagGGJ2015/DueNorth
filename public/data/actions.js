@@ -109,7 +109,7 @@
 		
         global.description = nextLocationObj.visited ? nextLocationObj.shortDescription : nextLocationObj.fullDescription;
         global.image = nextLocationObj.image;
-        global.response = 'What do you do now?';
+        global.response = 'You traveled ' + args.direction;
 		
         nextLocationObj.visited = true;
         this.global.location = nextLocation;
