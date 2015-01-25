@@ -19,6 +19,7 @@
     clearTimeout(textTimeoutID);
 
     if (el.innerHTML != '') {
+      callback();
       return;
     }
 
@@ -84,6 +85,8 @@
       var value = inputEl.value.trim();
 
       if (!value) {
+
+        // stop animation on any keydown
         clearTimeout(textTimeoutID);
         renderOutput(engine.getOutput(), false);
 		
@@ -96,12 +99,12 @@
         return;
       }
 
-      var output = engine.act(value);
       if (history.length == MAX_HISTORY) {
         history = history.slice(1);
       }
       history_index = history.push('') - 1;
 
+      var output = engine.act(value);
       renderOutput(output, true);
 
       // serialize state
