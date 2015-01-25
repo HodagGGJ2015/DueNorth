@@ -83,6 +83,46 @@
         }
       }
     },
+    drop: {
+      parse: function(input) {
+        return match(input, [
+          /^drop\s+(.+)$/i,
+          /^throw\s+(.+)$/i,
+          /^remove\s+(.+)$/i
+        ], function(matches) {
+          return {
+            object: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        var global = this.global;
+        var object = get(this, args.object);
+        if (!object) {
+          global.response = "You don't have " + args.object;
+          return;
+        }
+
+        if (!object.drop) {
+          global.response = "Don't drop that, you might need it!";
+          return;
+        }
+
+        object.location = global.location;
+
+        if (object.audio) {
+          playAudio(object.audio);
+        }
+
+        if (object.drop.act) {
+          object.drop.act.call(this, args);
+        } else if (object.drop.response) {
+          global.response = object.drop.response;
+        } else {
+          global.response = 'You dropped the ' + args.object;
+        }
+      }
+    },
     go: {
       parse: function(input) {
         return match(input, [
