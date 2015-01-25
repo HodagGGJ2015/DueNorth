@@ -9,7 +9,6 @@
 
   // set the description and image src
   function renderOutput(output) {
-    console.log(output);
     if (output.image) {
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }

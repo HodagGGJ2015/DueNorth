@@ -9,7 +9,6 @@
   };
 
   Engine.prototype.getOutput = function() {
-    console.log(this.state.global);
     return {
       description: this.state.global.description,
       response: this.state.global.response,

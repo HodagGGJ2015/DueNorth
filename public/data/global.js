@@ -5,7 +5,8 @@
       description: '${global.name}',
       response: 'What would you like to do?',
       location: 'motorhome',
-      image: ''
+      image: '',
+      help: 'What?'
     }
   });
 }).call(this);

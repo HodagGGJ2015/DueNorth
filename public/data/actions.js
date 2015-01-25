@@ -14,12 +14,23 @@
         return match(input, [
           /^inventory$/i
         ], function(matches) {
-          return {};
+          return true;
         });
       },
       act: function(args) {
-        // TODO:
-        this.global.response = inventory;
+        var inventory = _.reduce(this, function(inventory, obj, name) {
+          console.log(name, obj);
+          if (obj.location == 'inventory') {
+            inventory[name] = true;
+          }
+          return inventory;
+        }, {});
+
+        if (_.size(inventory) > 0) {
+          this.global.response = _.keys(inventory).join(', ');
+        } else {
+          this.global.response = 'You have nothing.';
+        }
       }
     },
     take: {
@@ -193,7 +204,7 @@
         });
       },
       act: function(args) {
-        // TODO:
+        this.global.response = this.global.help;
       }
     },
     talk: {
@@ -241,7 +252,6 @@
         });
       },
       act: function(args) {
-        console.log('look', args);
         if (args.object) {
           var object = this[args.object];
           if (!object) {
