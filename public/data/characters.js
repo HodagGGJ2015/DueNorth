@@ -1,12 +1,16 @@
-window.characters = {
-  "lush": {
-    "init": {
-      "location": "bar"
+(function() {
+  _.extend(window.Stuff, {
+    lush: {
+      location: 'bar',
+      receive: {
+        objects: ['booze']
+      }
+    },
+    bartender: {
+      location: 'bar',
+      receive: {
+        objects: ['coin']
+      }
     }
-  },
-  "bartender": {
-    "init": {
-      "location": "bar"
-    }
-  }
-}
+  });
+}).call(this);
