@@ -3,7 +3,17 @@
     booze: {
       name: "Drink",
       location: 'bartender',
-	  audio: 'boozeSFX'
+      audio: 'boozeSFX'
+    },
+    knife: {
+      name: "Deer Knife",
+      location: 'giftshop',
+      image: "images/item_deerknife.png",
+      give: true,
+      fullDescription: "<p>Genuine imitation deer antler knife</p>",
+      take: {
+        response: "Are you going to pay for that?"
+      }
     },
     slice: {
       name: 'Slice of pizza',
@@ -135,6 +145,7 @@
     },
     machine: {
       name: 'Cigarette Machine',
+      image: "images/item_cigarettemachine.png",
       location: 'bar',
       fullDescription: '<p>A cigarette machine stands in the corner with a sign that reads “out of order”.</p><p>There is a coin stuck in the coin slot.</p>',
       shortDescription: "<p>Cigarette machine sits broken in the corner.</p><p>There is something in the coin slot</p>",
