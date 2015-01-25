@@ -364,6 +364,50 @@
 		  playAudio(location.audio);
         }
       }
+    },
+    save: {
+      parse: function(input) {
+        return match(input, [
+          /^(save)$/i,
+        ], function(matches) {
+          return {
+            save_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.saveState();
+        this.global.response = 'Game saved!';
+      }
+    },
+    load: {
+      parse: function(input) {
+        return match(input, [
+          /^(load|reset|die)$/i,
+        ], function(matches) {
+          return {
+            reset_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.loadState();
+      }
+    },
+    restart: {
+      parse: function(input) {
+        return match(input, [
+          /^(restart|apocalypse)$/i,
+        ], function(matches) {
+          return {
+            restart_text: matches[1]
+          };
+        });
+      },
+      act: function(args) {
+        args.engine.restart();
+        args.engine.act('look');
+      }
     }
   });
 }).call(this);

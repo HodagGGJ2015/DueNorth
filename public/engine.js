@@ -21,9 +21,13 @@
       return names;
     }, {});
 
-    // save the unmodified state to reset back to
+    // save the unmodified state to restart the game
     this.vanilla_state = _.cloneDeep(this.state);
   };
+
+  Engine.prototype.restart = function() {
+    this.state = _.cloneDeep(this.vanilla_state);
+  }
 
   Engine.prototype.saveState = function() {
     this.storage.setItem(STORAGE_STATE_NAME, this.serialize());
@@ -45,16 +49,13 @@
     this.state = _.extend(this.state, JSON.parse(state));
   };
 
-  Engine.prototype.restart = function() {
-    this.state = this.vanilla_state;
-  }
-
   Engine.prototype.getOutput = function() {
     return {
       description: this.state.global.description,
       response: this.state.global.response,
       location: this.state[this.state.global.location].name,
       image: this.state.global.image,
+      audio: this.state.global.audio,
       success: this.state.global.success
     };
   };
@@ -77,6 +78,9 @@
       if (!args) {
         return false;
       }
+
+      // Used when saving, loading, and resetting
+      args.engine = this
 
       action.act.call(this.state, args);
       return true;

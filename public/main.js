@@ -45,6 +45,8 @@
       imageEl.style.backgroundImage = 'url(' + output.image + ')';
     }
 
+    // TODO: if output.audio changed, stop old audio, start new one
+
     if (printDelay) {
       // check and clear outputs that need to be updated
       var updateLocation = locationEl.innerHTML != output.location;
@@ -104,8 +106,8 @@
       var output = engine.act(value);
       renderOutput(output, true);
 
-      // save game state
-      engine.saveState();
+      // TODO: should we add auto-save back in?
+      //engine.saveState();
 
       // play audio
       if (!output.success) {
