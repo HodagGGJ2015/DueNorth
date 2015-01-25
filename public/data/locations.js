@@ -17,7 +17,7 @@
     "party": {
       "name": "Party",
       "visited": false,
-	  "audio" : "partyLoop",
+	  "audio" : "partyLoop", //not ready
       "fullDescription": "<p>Just outside of the main campground area, a group of college kids are causing a ruckus. Clearly we’re not the only ones on summer vacation, but the only difference is they look like they’re actually having fun.</p>",
       "shortDescription": "<p>A group of people having more fun then you.</p>",
       "image": "images/campground.png",
@@ -72,7 +72,7 @@
     "bar": {
       "name": "Sal's Saloon",
       "visited": false,
-	  "audio" : "saloonLoop",
+	  "audio" : "saloonLoop", //not ready
       "fullDescription": "<p>Musky trophys and a signed dollar bill decorate the walls. The smell of cheap beer and fried cheese sticks perfumes the air. Below a large screen TV, the bartender is talking with a patron. In front of you is a row of stools.</p><p>A cigarette machine sits forlornly next to the door.</p>",
       "shortDescription": "<p>A deep woods bar.</p>",
       "image": "images/tavern.png",
@@ -85,7 +85,7 @@
     "motel": {
       "name": "Northwoods Motel",
       "visited": false,
-	  "audio" : "motelLoop",
+	  "audio" : "motelLoop", //not ready
       "fullDescription": "<p>The air is thick with the smell of cheap industrial soap, there is a dusty rack of maps and tourist guides by the front desk. The front attendant is a middle-aged woman with a large “Dorris” nametag and an unnaturally large smile. The tacky, dated furniture reminds you of grandma’s house.</p>",
       "shortDescription": "<p>A rundown motel.</p>",
       "image": "images/motel.png",
@@ -97,7 +97,7 @@
     "giftshop": {
       "name": "Giftshop",
       "visited": false,
-	  "audio" : "giftshopLoop",
+	  "audio" : "giftshopLoop", //not ready
       "fullDescription": "<p>Cheap nicknacks with “Welcome to Hodag Country” are on shelves to the right. There is a row of dusty moccasins for sale. Seated behind a counter is a bored looking clerk.</p><p>To the south is a door.</p>",
       "shortDescription": "<p>An authentic tourist trap.</p>",
       "image": "images/giftshop.png",
@@ -111,7 +111,7 @@
     "backroom": {
       "name": "Backroom",
       "visited": false,
-	  "audio" : "backroomLoop",
+	  "audio" : "backroomLoop", //not ready
       "fullDescription": "<p>This is a backroom.</p>",
       "shortDescription": "<p>Backroom.</p>",
       "image": "images/giftshop.png",
@@ -153,7 +153,7 @@
     "taxidermy": {
       "name": "Medical Clinic",
       "visited": false,
-	  "audio" : "medicalClinicLoop",
+	  "audio" : "medicalClinicLoop", //not ready
       "fullDescription": "<p>Being surrounded by dead and stuffed animals, you find it really hard to believe that Dr. Toby is a real doctor, but the dusty diploma hung up behind his desk would say otherwise. His profession is medical, but his passion is clearly taxidermy. Despite his choice in interior decorating, he’s no joker and seems to really know his stuff.</p>",
       "shortDescription": "<p>Part medical clinic part taxidermy.</p>",
       "image": "images/taxidermy.png",
