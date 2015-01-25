@@ -17,7 +17,10 @@
     inventory: {
       parse: function(input) {
         return match(input, [
-          /^inventory$/i
+          /^inventory$/i,
+          /^stuff$/i,
+          /^backpack$/i,
+          /^i$/i
         ], function(matches) {
           return true;
         });
@@ -30,6 +33,7 @@
           return inventory;
         }, {});
 
+        this.global.response = '<h3>Your Backpack</h3>';
         if (_.size(inventory) > 0) {
           this.global.response = _.keys(inventory).join(', ');
         } else {
@@ -128,9 +132,6 @@
             } else {
               this.global.description += '<h3>' + object.name + '</h3>';
               this.global.description += object.fullDescription;
-              if (object.shortDescription) {
-                this.global.description += object.shortDescription;
-              }
             }
           }
         }, this);
@@ -339,9 +340,6 @@
             if (key != 'global' && object.location == playerLocation) {
               this.global.description += '<h3>' + object.name + '</h3>';
               this.global.description += object.fullDescription;
-              if (object.shortDescription) {
-                this.global.description += object.shortDescription;
-              }
             }
           }, this);
 
