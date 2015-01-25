@@ -40,7 +40,10 @@
     take: {
       parse: function(input) {
         return match(input, [
-          /^take\s+(.+)$/i
+          /^take\s+(.+)$/i,
+          /^pickup\s+(.+)$/i,
+          /^grab\s+(.+)$/i,
+          /^get\s+(.+)$/i
         ], function(matches) {
           return {
             object: matches[1]

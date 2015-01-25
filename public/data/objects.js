@@ -9,6 +9,12 @@
         response: 'You picked up the coin.'
       }
     },
+    wrench: {
+      location: 'parking',
+      take: {
+        response: 'You picked up the wrench.'
+      }
+    },
     slots: {
       location: 'bar',
       fullDescription: 'A slot machine lures you in.',
