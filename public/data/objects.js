@@ -15,8 +15,8 @@
       },
       drop: {
         act: function() {
-          if (global.location == 'giftshop' && !this.clerk.flustered) {
-            this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
+          if (this.global.location == 'giftshop' && !this.clerk.flustered) {
+            this.global.response = "<p>You drop the slice of pizza on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the pizza.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the slice out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
           }
@@ -37,7 +37,7 @@
       },
       drop: {
         act: function() {
-          if (global.location == 'giftshop' && !this.clerk.flustered) {
+          if (this.global.location == 'giftshop' && !this.clerk.flustered) {
             this.global.response = "<p>You drop the skunk-spray-soaked shirt on the floor and quickly hide. Sammy the gift shop clerk smells something funky and makes her way over the shirt.</p><p>“What what WHAT? FILTHY!” she grabs a broom and sweeps the skunk shirt out the front door. “EWW!” she pulls out disinfectant wipes and sprays and gets to work on the entire store.</p><p>With Sammy completely distracted with disinfecting the store, you can now free to go to the back room.</p>";
             this.slice.location = 'giftshop';
             this.clerk.flustered = true;
