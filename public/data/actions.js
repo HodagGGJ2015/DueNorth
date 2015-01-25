@@ -60,13 +60,6 @@
           return;
         }
 
-        if (object.image) {
-          this.global.image = object.image;
-        } else {
-          var location = this[this.global.location];
-          this.global.image = location.image;
-        }
-
         object.location = 'inventory';
         global.response = object.take.response || 'You took the ' + args.object;
       }
@@ -98,7 +91,7 @@
           return;
         }
 		
-		audio[global.audio].stop();
+		if (audio[global.audio].isLoaded) audio[global.audio].stop();
 		
 	    if (!audio[nextLocationObj.audio].isLoaded) 
 	  	  loadSound(nextLocationObj.audio, audio[nextLocationObj.audio], true);
@@ -130,13 +123,6 @@
         if (!object) {
           global.response = 'You cannot hit nothing...';
           return;
-        }
-
-        if (object.image) {
-          this.global.image = object.image;
-        } else {
-          var location = this[this.global.location];
-          this.global.image = location.image;
         }
 
         if (!object.hit || !object.hit.act) {
@@ -183,13 +169,6 @@
           return;
         }
 
-        if (recipient.image) {
-          this.global.image = recipient.image;
-        } else {
-          var location = this[this.global.location];
-          this.global.image = location.image;
-        }
-
         object.location = args.recipient;
         global.response = object.take.response || 'You gave the ' + args.object + ' to ' + args.recipient;
       }
@@ -212,13 +191,6 @@
         if (!person || !person.ask) {
           this.global.response = 'You\'re talking to yourself.'
           return;
-        }
-
-        if (person.image) {
-          this.global.image = person.image;
-        } else {
-          var location = this[this.global.location];
-          this.global.image = location.image;
         }
 
         var topicResponse = person.ask[args.topic];
@@ -274,13 +246,6 @@
         if (object.talk && object.talk.act) {
           object.talk.act.call(this, args);
           return;
-        }
-
-        if (object.image) {
-          this.global.image = object.image;
-        } else {
-          var location = this[this.global.location];
-          this.global.image = location.image;
         }
 
         this.global.response = 'You say hello to ' + args.object + '.';
