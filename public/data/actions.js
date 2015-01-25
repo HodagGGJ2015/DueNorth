@@ -97,7 +97,7 @@
       act: function(args) {
         var global = this.global;
         var object = get(this, args.object);
-        if (!object) {
+        if (!object || object.location != 'inventory') {
           global.response = "You don't have " + args.object;
           return;
         }
